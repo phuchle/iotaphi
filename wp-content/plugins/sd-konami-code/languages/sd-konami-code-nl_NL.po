@@ -1,0 +1,367 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Konami Code Easter Egg\n"
+"POT-Creation-Date: 2016-01-10 10:53+0100\n"
+"PO-Revision-Date: 2016-01-10 10:56+0100\n"
+"Last-Translator: Bjorn Manintveld <bjorn@yourstyledesign.nl>\n"
+"Language-Team: Bjorn Manintveld <bjorn@sleeplessdevelopers.com>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-KeywordsList: _;_e;_x;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../sd-konami-code.php:13 ../sd-konami-code.php:77 ../sd-konami-code.php:83
+msgid "Konami Code Easter Egg"
+msgstr "Konami Code Easter Egg"
+
+#: ../sd-konami-code.php:16
+msgid "Add the Konami Code Easter Egg to your Wordpress site!"
+msgstr "Voeg de Konami Code Easter Egg toe aan je Wordpress website!"
+
+#: ../sd-konami-code.php:63
+msgid "A wild Konami Code appeared!"
+msgstr "Een wilde Konami Code duikt op!"
+
+#: ../sd-konami-code.php:64
+msgid "It is very effective!"
+msgstr "Het is zeer effectief!"
+
+#: ../sd-konami-code.php:83
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../sd-konami-code.php:89
+msgid "Event"
+msgstr "Gebeurtenis"
+
+#: ../sd-konami-code.php:91
+msgid "Do nothing"
+msgstr "Niets doen"
+
+#: ../sd-konami-code.php:92
+msgid "Play a sound"
+msgstr "Een geluid afspelen"
+
+#: ../sd-konami-code.php:93
+msgid "Redirect to an URL"
+msgstr "Doorverwijzen naar een URL"
+
+#: ../sd-konami-code.php:98 ../sd-konami-code.php:111
+msgid "Event Settings"
+msgstr "Gebeurtenis opties"
+
+#: ../sd-konami-code.php:101
+msgid "Set a custom sound"
+msgstr "Een aangepast geluid kiezen"
+
+#: ../sd-konami-code.php:103
+msgid "..."
+msgstr "..."
+
+#: ../sd-konami-code.php:104
+msgid ""
+"Browse your Media Library for sound files, upload one or paste the URL in "
+"the upload box."
+msgstr ""
+"Blader in je Media Bibliotheek om een geluidsbestand te selecteren, upload "
+"er een of plak een url in het invoer veld."
+
+#: ../sd-konami-code.php:105
+msgid ""
+"Note: Some old browsers can not play sound files and not all sound files can "
+"be played by all browsers. MP3 files are supported by all modern browsers."
+msgstr ""
+"Opmerking: Sommige oude browsers ondersteunen het afspelen van geluid niet "
+"en sommige geluidsbestanden kunnen door alle browsers worden afgespeeld. MP3-"
+"bestanden worden ondersteund door alle moderne browsers."
+
+#: ../sd-konami-code.php:114
+msgid "URL to redirect"
+msgstr "URL om naar te verwijzen"
+
+#: ../sd-konami-code.php:135
+msgid "Select a sound or upload one"
+msgstr "Selecteer een geluid of upload er een"
+
+#: ../sd-konami-code.php:136
+msgid "Use this sound"
+msgstr "Gebruik dit geluid"
+
+#~ msgid "Choose a sound"
+#~ msgstr "Een geluid kiezen"
+
+#~ msgid "Gradius (default)"
+#~ msgstr "Gradius (standaard)"
+
+#~ msgid "Navi"
+#~ msgstr "Navi"
+
+#~ msgid "Custom"
+#~ msgstr "Aangepast"
+
+#~ msgid "or upload a MP3"
+#~ msgstr "of upload een MP3"
+
+#~ msgid "This carousel is empty, please add some logos."
+#~ msgstr "Deze carrousel is leeg, voeg eerst logo's toe."
+
+#~ msgid "Logos"
+#~ msgstr "Logo's"
+
+#~ msgid "Logo"
+#~ msgstr "Logo"
+
+#~ msgid "Add New Logo"
+#~ msgstr "Nieuw Logo"
+
+#~ msgid "Edit Logo"
+#~ msgstr "Logo Bewerken"
+
+#~ msgid "New Logo"
+#~ msgstr "Nieuw Logo"
+
+#~ msgid "View Logo"
+#~ msgstr "Bekijk Logo"
+
+#~ msgid "Search Logos"
+#~ msgstr "Zoeken in Logo's"
+
+#~ msgid "No Logos found"
+#~ msgstr "Geen logo's gevonden"
+
+#~ msgid "No Logos found in Trash"
+#~ msgstr "Geen logo's gevonden in de prullenbak"
+
+#~ msgid "Parent Logo:"
+#~ msgstr "Hoofd Logo:"
+
+#~ msgid "Carousels"
+#~ msgstr "Carrousels"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+#~ msgid "URL attachment (optional)"
+#~ msgstr "Voeg een URL toe (optioneel)"
+
+#~ msgid "Add an URL to make this logo clickable"
+#~ msgstr "Voeg een URL toe om dit logo klikbaar te maken"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "Logo Preview"
+#~ msgstr "Logo voorbeeld"
+
+#~ msgid "No logo set"
+#~ msgstr "Geen logo ingesteld"
+
+#~ msgid "Manage Carousels"
+#~ msgstr "Beheer Carrousels"
+
+#~ msgid "General"
+#~ msgstr "Algemeen"
+
+#~ msgid "Mode"
+#~ msgstr "Modus"
+
+#~ msgid "Horizontal"
+#~ msgstr "Horizontaal"
+
+#~ msgid "Vertical"
+#~ msgstr "Verticaal"
+
+#~ msgid "Speed (ms)"
+#~ msgstr "Snelheid (milliseconden)"
+
+#~ msgid "Infinite Loop"
+#~ msgstr "Oneindig"
+
+#~ msgid "True"
+#~ msgstr "Ja"
+
+#~ msgid "False"
+#~ msgstr "Nee"
+
+#~ msgid "Autoplay"
+#~ msgstr "Automatisch afspelen"
+
+#~ msgid "Autoplay Pause (milliseconds)"
+#~ msgstr "Autoplay Pauzes (milliseconden)"
+
+#~ msgid "Use Ticker Mode"
+#~ msgstr "Gebruik de Ticker Modus"
+
+#~ msgid "Pause Ticker on Hover"
+#~ msgstr "Pauzeer Ticker als de muis erop staat"
+
+#~ msgid "Order by"
+#~ msgstr "Volgorde"
+
+#~ msgid "Random Order"
+#~ msgstr "Willekeurig"
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Clickable logos"
+#~ msgstr "Klikbare logos"
+
+#~ msgid "Open in new tab"
+#~ msgstr "Openen in een nieuw tabblad"
+
+#~ msgid "Open in the same window"
+#~ msgstr "Openen in hetzelfde scherm"
+
+#~ msgid "Turn off"
+#~ msgstr "Uitschakelen"
+
+#~ msgid "Controls"
+#~ msgstr "Knoppen"
+
+#~ msgid "Show Controls"
+#~ msgstr "Laat \"Vorige\" en \"Volgende\" knoppen zien"
+
+#~ msgid "Controls are not available when Ticker Mode is enabled"
+#~ msgstr "De knoppen worden niet weergeven in de Ticker Modus"
+
+#~ msgid "Hide next button on last slide"
+#~ msgstr "Verberg de \"Volgende\" knop op de laatste dia"
+
+#~ msgid "Doesn't work when Infinite Loop is enabled"
+#~ msgstr "Werkt niet wanneer de carrousel oneindig is"
+
+#~ msgid "Show Pager"
+#~ msgstr "Laat pagina's zien"
+
+#~ msgid "Styling"
+#~ msgstr "Stijl"
+
+#~ msgid "Logo Margin (pixels)"
+#~ msgstr "Logo marges (pixels)"
+
+#~ msgid "Logo Style"
+#~ msgstr "Logo stijl"
+
+#~ msgid "Grayscale Images"
+#~ msgstr "Afbeeldingen met grijstinten"
+
+#~ msgid "Grayscale Images, Default Color on Hover"
+#~ msgstr ""
+#~ "Afbeeldingen met grijstinten, standaard kleuren als de muis erop staat"
+
+#~ msgid ""
+#~ "The grayscale feature is only available in modern browsers like Chrome, "
+#~ "Firefox and Safari"
+#~ msgstr ""
+#~ "De grijstinten optie werkt alleen in moderne browsers zoals Chrome, "
+#~ "Firefox en Safari"
+
+#~ msgid "Logo Alignment"
+#~ msgstr "Logo's Uitlijnen"
+
+#~ msgid "Top"
+#~ msgstr "Boven"
+
+#~ msgid "Center"
+#~ msgstr "Midden"
+
+#~ msgid "Bottom"
+#~ msgstr "Onder"
+
+#~ msgid "Show captions"
+#~ msgstr "Laat titels zien"
+
+#~ msgid "Adaptive Height"
+#~ msgstr "Flexibele hoogte"
+
+#~ msgid "Responsive"
+#~ msgstr "Schaalbaar / Responsive"
+
+#~ msgid "Minimal logos"
+#~ msgstr "Minimaal aantal logo's"
+
+#~ msgid "Maximum logos"
+#~ msgstr "Maximaal aantal dia's"
+
+#~ msgid "Move logos"
+#~ msgstr "Aantal logo's verschuiven"
+
+#~ msgid "Logo width (pixels)"
+#~ msgstr "Logo breedte (pixels)"
+
+#~ msgid "Logo height (pixels)"
+#~ msgstr "Logo hoogte (pixels)"
+
+#~ msgid "Form actions"
+#~ msgstr "Acties"
+
+#~ msgid "Insert Carousel"
+#~ msgstr "Carrousel invoegen"
+
+#~ msgid "Insert with shortcode"
+#~ msgstr "Invoegen met een shortcode"
+
+#~ msgid "Insert with PHP"
+#~ msgstr "Invoegen met PHP"
+
+#~ msgid "Do you like this plugin?"
+#~ msgstr "Bent u tevreden met deze plugin?"
+
+#~ msgid "Please donate so this plugin can remain free!"
+#~ msgstr "Dankzij uw donaties kan deze plugin gratis blijven."
+
+#~ msgid "Drag and drop items to change the custom order"
+#~ msgstr "Je kunt items verslepen om de aangepaste volgorde te wijzigen"
+
+#~ msgid "Move slides"
+#~ msgstr "Aantal dia's verplaatsen"
+
+#~ msgid "Slide Width"
+#~ msgstr "Dia breedte"
+
+#~ msgid "Show Start and Stop Controls"
+#~ msgstr "Laat \"Start\" en \"Stop\" knoppen zien"
+
+#~ msgid "Carousel"
+#~ msgstr "Carrousel"
+
+#~ msgid "Shortcode"
+#~ msgstr "Shortcode"
+
+#~ msgid "PHP Function (No echo required)"
+#~ msgstr "PHP Functie (Geen echo vereist)"
+
+#~ msgid "Use CSS animations"
+#~ msgstr "Gebruik CSS animaties"
+
+#~ msgid "Sort by Order"
+#~ msgstr "Sorteren op Volgorde"
+
+#~ msgid "Run automatically"
+#~ msgstr "Automatisch starten"
+
+#~ msgid "Content Toggle"
+#~ msgstr "Content Schakelaar"
+
+#~ msgid ""
+#~ "Enable jQuery library ( use this only if the jQuery plugin is not used in "
+#~ "your theme )"
+#~ msgstr ""
+#~ "Gebruik de jQuery bibliotheek ( schakel deze functie in als er in uw "
+#~ "thema geen jQuery bibliotheek voorkomt )"
+
+#~ msgid "Off"
+#~ msgstr "Uit"
+
+#~ msgid "On"
+#~ msgstr "Aan"

@@ -1,0 +1,1334 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-06-15 18:55+0400\n"
+"PO-Revision-Date: 2016-09-07 16:40+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin-functions.php:30
+msgid "Succesfully Uninstalled!"
+msgstr "Avinstallerad"
+
+#: admin-functions.php:36
+msgid "Already Unistalled"
+msgstr "Redan avinstallerad"
+
+#: admin-functions.php:476
+msgid ""
+"You need Access Token for using plugin, click sign in with Instagram button "
+"above to get yours"
+msgstr ""
+"Du behöver en åtkomsttoken för att använda denna plugin. Klicka på "
+"Instragram-knappen ovan för att erhålla en"
+
+#: admin-functions.php:552
+msgid "Access Token"
+msgstr "Åtkomsttoken"
+
+#: admin-functions.php:553
+msgid "Username"
+msgstr "Användarnamn"
+
+#: admin-functions.php:555
+msgid "Custom CSS"
+msgstr "Anpassad CSS"
+
+#: admin-functions.php:556
+msgid "Custom JavaScript"
+msgstr "Anpassad JavaScript"
+
+#: admin-functions.php:611
+msgid "Database error, please uninstall the plugin and install again"
+msgstr "Databasfel. Vänligen avinstallera plugin och återinstallera"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:177
+#: admin/controllers/WDIControllerFeeds_wdi.php:207
+#: admin/controllers/WDIControllerFeeds_wdi.php:242
+#: admin/controllers/WDIControllerThemes_wdi.php:348
+msgid "Cannot Write on database"
+msgstr "Kan inte skriva till databas"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:182
+#: admin/controllers/WDIControllerFeeds_wdi.php:215
+#: admin/controllers/WDIControllerFeeds_wdi.php:250
+msgid "You have not made new changes"
+msgstr "Du har inte gjort någon förändring"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:184
+msgid "Successfully saved"
+msgstr "Sparat"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:218
+msgid "Changes have been successfully applied"
+msgstr "Förändringar tillämpade"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:253
+msgid "Feed successfully reseted"
+msgstr "Feed återställd"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:268
+msgid "Item Succesfully Duplicated."
+msgstr "Post duplicerad."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:291
+#: admin/controllers/WDIControllerThemes_wdi.php:382
+msgid "Item Succesfully Deleted."
+msgstr "Post raderad."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:294
+#: admin/controllers/WDIControllerFeeds_wdi.php:326
+#: admin/controllers/WDIControllerFeeds_wdi.php:363
+#: admin/controllers/WDIControllerThemes_wdi.php:385
+msgid "Error. Please install plugin again."
+msgstr "Fel. Vänligen ominstallera pluginen."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:311
+#: admin/controllers/WDIControllerThemes_wdi.php:414
+msgid "Items Succesfully Deleted."
+msgstr "Poster raderade."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:314
+#: admin/controllers/WDIControllerFeeds_wdi.php:351
+#: admin/controllers/WDIControllerFeeds_wdi.php:388
+#: admin/controllers/WDIControllerThemes_wdi.php:418
+msgid "You must select at least one item."
+msgstr "Du måste välja minst en post."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:323
+msgid "Item Succesfully Published."
+msgstr "Post publicerad."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:348
+msgid "Items Succesfully Published."
+msgstr "Poster publicerade."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:360
+msgid "Item Succesfully Unpublished."
+msgstr "Post avpublicerad."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:385
+msgid "Items Succesfully Unpublished."
+msgstr "Poster avpublicerade."
+
+#: admin/controllers/WDIControllerThemes_wdi.php:345
+msgid "Please select at least one item"
+msgstr "Välj minst en post"
+
+#: admin/controllers/WDIControllerThemes_wdi.php:350
+msgid "Items Succesfully Duplicated."
+msgstr "Poster duplicerade."
+
+#: admin/controllers/WDIControllerThemes_wdi.php:388
+#: admin/controllers/WDIControllerThemes_wdi.php:409
+msgid "You cannot delete default theme."
+msgstr "Du kan inte radera standardtemat"
+
+#: admin/controllers/WDIControllerWidget.php:22
+msgid "Show your instagram feeds in your widget area"
+msgstr "Visa Instragram-feed i widget-området"
+
+#: admin/controllers/WDIControllerWidget.php:27
+msgid "Instagram WD Widget"
+msgstr "Instagram WD Widget"
+
+#: admin/views/WDIViewEditorShortcode.php:100
+msgid "Select Feed:"
+msgstr "Välj feed:"
+
+#: admin/views/WDIViewFeeds_wdi.php:39
+msgid "This Section Allows You to Add/Edit Feeds"
+msgstr "Denna sektion ger dig möjlighet att Lägga till och Editera feeds"
+
+#: admin/views/WDIViewFeeds_wdi.php:40 admin/views/WDIViewFeeds_wdi.php:330
+#: admin/views/WDIViewSettings_wdi.php:50 admin/views/WDIViewThemes_wdi.php:31
+msgid "Read More in User Manual"
+msgstr "Läs mer i manualen"
+
+#: admin/views/WDIViewFeeds_wdi.php:54 wd-instagram-feed.php:153
+msgid "Feeds"
+msgstr "Feeds"
+
+#: admin/views/WDIViewFeeds_wdi.php:58
+msgid "Add new"
+msgstr "Lägg till ny"
+
+#: admin/views/WDIViewFeeds_wdi.php:63
+msgid "Select All"
+msgstr "Välj alla"
+
+#: admin/views/WDIViewFeeds_wdi.php:77 admin/views/WDIViewFeeds_wdi.php:98
+#: frontend/views/WDIViewGalleryBox.php:1348
+#: frontend/views/WDIViewGalleryBox.php:1376
+#: frontend/views/WDIViewGalleryBox.php:1383
+msgid "Name"
+msgstr "Namn"
+
+#: admin/views/WDIViewFeeds_wdi.php:92
+msgid "Feed"
+msgstr "Feed"
+
+#: admin/views/WDIViewFeeds_wdi.php:101
+msgid "Shortcode"
+msgstr "Kortkommando"
+
+#: admin/views/WDIViewFeeds_wdi.php:102
+msgid "PHP function"
+msgstr "PHP-funktion"
+
+#: admin/views/WDIViewFeeds_wdi.php:108
+msgid "Published"
+msgstr "Publicerad"
+
+#: admin/views/WDIViewFeeds_wdi.php:111
+msgid "Edit"
+msgstr "Editera"
+
+#: admin/views/WDIViewFeeds_wdi.php:112
+msgid "Delete"
+msgstr "Radera"
+
+#: admin/views/WDIViewFeeds_wdi.php:209
+msgid "Feed Name"
+msgstr "Feed-namn"
+
+#: admin/views/WDIViewFeeds_wdi.php:209
+msgid "The name of your feed which can be displayed in feed's header section"
+msgstr "Namned på feeden som visas i feedens huvud"
+
+#: admin/views/WDIViewFeeds_wdi.php:210
+msgid "Changing Theme is Available Only in PRO version"
+msgstr "Ändra tema är endast tillgängligt i PRO-versionen"
+
+#: admin/views/WDIViewFeeds_wdi.php:210
+msgid "Theme"
+msgstr "Tema"
+
+#: admin/views/WDIViewFeeds_wdi.php:210
+msgid "The theme of your feed, you can create themes in themes menu"
+msgstr "Din feeds tema. Du kan skapa nya teman i Tema-menyn"
+
+#: admin/views/WDIViewFeeds_wdi.php:211
+msgid "Feed Usernames and Hashtags"
+msgstr "Feedens användarnamn och hashtagar"
+
+#: admin/views/WDIViewFeeds_wdi.php:211
+msgid ""
+"Enter usernames or hashtags to your feed, hashtags must start with #, "
+"username's shouldn't start with @"
+msgstr ""
+"Ange användarnamn eller hashtagar för din feed. Hastagar måste börja med #. "
+"Användarnamn bör ej starta med @"
+
+#: admin/views/WDIViewFeeds_wdi.php:212
+msgid "Featured Image"
+msgstr "Utvald bild"
+
+#: admin/views/WDIViewFeeds_wdi.php:212
+msgid "Select Featured Image For Header Section"
+msgstr "Välj bild för huvudet"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Feed Display Type"
+msgstr "Feed-visning"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Pagination"
+msgstr "Paginering"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Load More Button"
+msgstr "Hämta fler-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Infinite Scroll"
+msgstr "Oändlig slinga"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "This Feature is Available in PRO version"
+msgstr "Denna funktion är tillgänglig i PRO-versionen"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "How to load and display new images"
+msgstr "Hur nya bilder hamtas och visas"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Sort Images By"
+msgstr "Sortera bilder efter:"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Date"
+msgstr "Datum"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Likes"
+msgstr "Gillamarkeringar"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: admin/views/WDIViewFeeds_wdi.php:214 framework/WDILibrary.php:767
+msgid "Random"
+msgstr "Slumpmässig"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "How to sort images"
+msgstr "Hur bilder sorteras"
+
+#: admin/views/WDIViewFeeds_wdi.php:215
+msgid "Order By"
+msgstr "Sortera efter"
+
+#: admin/views/WDIViewFeeds_wdi.php:215
+msgid "Sorting order either Ascending or Descending"
+msgstr "Sorteringsordning Stigande eller Fallande"
+
+#: admin/views/WDIViewFeeds_wdi.php:216
+msgid "Follow on Instagram Button"
+msgstr "Följa på Instagram-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:217
+msgid "Display Header"
+msgstr "Visa Huvud"
+
+#: admin/views/WDIViewFeeds_wdi.php:217
+msgid "Displays feed's header, header includes feed name and feed users"
+msgstr "Visa feed-huvud. Huvud inkluderar feed-namn och användare"
+
+#: admin/views/WDIViewFeeds_wdi.php:218
+msgid "Number of Photos to Display"
+msgstr "Antal foton att visa"
+
+#: admin/views/WDIViewFeeds_wdi.php:218
+msgid "Number of images to load when page loads first time"
+msgstr "Antal bilder att hämta när sidan laddas första gången"
+
+#: admin/views/WDIViewFeeds_wdi.php:219
+msgid "Number of Photos to Load"
+msgstr "Antal foton att hämta"
+
+#: admin/views/WDIViewFeeds_wdi.php:219
+msgid ""
+"Number of images to load when clicking load more button or triggering "
+"infinite scroll"
+msgstr ""
+"Antal bilder att hämta när knappen \"Hämta fler\" klickas på eller oändlig "
+"slinga aktiverats"
+
+#: admin/views/WDIViewFeeds_wdi.php:220
+msgid "Number of Images Per Page"
+msgstr "Antal bilder per sida"
+
+#: admin/views/WDIViewFeeds_wdi.php:220
+msgid "Number Of Images To Show On Each Pagination Page"
+msgstr "Antal bilder att visa på varje paginerad sida"
+
+#: admin/views/WDIViewFeeds_wdi.php:221
+msgid "Number of Pages To Preload"
+msgstr "Antal sidor att förladda"
+
+#: admin/views/WDIViewFeeds_wdi.php:221 admin/views/WDIViewFeeds_wdi.php:222
+msgid "This Will Preload Images For Pagination"
+msgstr "Detta förladdar bilder för paginering"
+
+#: admin/views/WDIViewFeeds_wdi.php:222
+msgid "Number of Images To Preload"
+msgstr "Antal bilder att förladda"
+
+#: admin/views/WDIViewFeeds_wdi.php:223
+msgid "Number of Images To Load Each Time"
+msgstr "Antal bilder att ladda varje gång"
+
+#: admin/views/WDIViewFeeds_wdi.php:223
+msgid "Number Of Photos To Load on Each Load"
+msgstr "Antal bilder att ladda varje gång"
+
+#: admin/views/WDIViewFeeds_wdi.php:224
+msgid "Number of Columns"
+msgstr "Antal kolumner"
+
+#: admin/views/WDIViewFeeds_wdi.php:224
+msgid "Feed item's column count"
+msgstr "Antal kolumnposter"
+
+#: admin/views/WDIViewFeeds_wdi.php:225
+msgid "Sort Again Whole Feed After Loading New Images"
+msgstr "Sortera feeden igen efter att nya bilder hämtats"
+
+#: admin/views/WDIViewFeeds_wdi.php:225
+msgid "Sort both newly loaded and existing images alltogether"
+msgstr "Sortera både nyligen och tidigare hämtade bilder"
+
+#: admin/views/WDIViewFeeds_wdi.php:226
+msgid "Show Likes"
+msgstr "Visa gillamarkeringar"
+
+#: admin/views/WDIViewFeeds_wdi.php:226 admin/views/WDIViewFeeds_wdi.php:227
+#: admin/views/WDIViewFeeds_wdi.php:228 admin/views/WDIViewFeeds_wdi.php:229
+#: admin/views/WDIViewFeeds_wdi.php:243 admin/views/WDIViewFeeds_wdi.php:244
+#: admin/views/WDIViewFeeds_wdi.php:246 admin/views/WDIViewFeeds_wdi.php:247
+#: admin/views/WDIViewFeeds_wdi.php:251 admin/views/WDIViewFeeds_wdi.php:253
+#: admin/views/WDIViewFeeds_wdi.php:256
+msgid "This Feature is Available Only in PRO version"
+msgstr "Denna funktion finns endast i PRO-versionen"
+
+#: admin/views/WDIViewFeeds_wdi.php:227
+msgid "Show Description"
+msgstr "Visa beskrivning"
+
+#: admin/views/WDIViewFeeds_wdi.php:228
+#: frontend/views/WDIViewGalleryBox.php:2333
+msgid "Show Comments"
+msgstr "Visa kommentarer"
+
+#: admin/views/WDIViewFeeds_wdi.php:229
+msgid "Show Username On Image Thumb"
+msgstr "Visa användarnamn på miniatyrbild"
+
+#: admin/views/WDIViewFeeds_wdi.php:230
+msgid "Show User Data"
+msgstr "Visa användardata"
+
+#: admin/views/WDIViewFeeds_wdi.php:231
+msgid "Display User Bio"
+msgstr "Visa användarbiografi"
+
+#: admin/views/WDIViewFeeds_wdi.php:231
+msgid "User bio will be displayed if feed has only one user"
+msgstr "Användarbiografi visas om feeden endast har en användare"
+
+#: admin/views/WDIViewFeeds_wdi.php:232
+msgid "Display User Posts and Followers count"
+msgstr "Visa användares poster och antal följare"
+
+#: admin/views/WDIViewFeeds_wdi.php:233
+msgid "Show Full Description"
+msgstr "Visa full beskrivning"
+
+#: admin/views/WDIViewFeeds_wdi.php:233
+msgid "Discription will be shown no matter how long it is"
+msgstr "Beskrivning kommer att visas oavsett hur lång den är"
+
+#: admin/views/WDIViewFeeds_wdi.php:234
+msgid "Disable Mobile Layout"
+msgstr "Inaktivera mobilt utseende"
+
+#: admin/views/WDIViewFeeds_wdi.php:234
+msgid "Column number stays the same in all screens"
+msgstr "Kolumnnummer är detsamma på alla skärmar"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Image Onclick"
+msgstr "Bild Onclick"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Open Lightbox"
+msgstr "Öppna Lightbox"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Redirect To Instagram"
+msgstr "Dirigera om till Instagram"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Do Nothing"
+msgstr "Gör ingenting"
+
+#: admin/views/WDIViewFeeds_wdi.php:237
+msgid "Full width lightbox"
+msgstr "Lightbox maximal bredd"
+
+#: admin/views/WDIViewFeeds_wdi.php:237 admin/views/WDIViewFeeds_wdi.php:241
+#: admin/views/WDIViewFeeds_wdi.php:243 admin/views/WDIViewFeeds_wdi.php:246
+#: admin/views/WDIViewFeeds_wdi.php:247 admin/views/WDIViewFeeds_wdi.php:248
+#: admin/views/WDIViewFeeds_wdi.php:249 admin/views/WDIViewFeeds_wdi.php:250
+#: admin/views/WDIViewFeeds_wdi.php:252 admin/views/WDIViewFeeds_wdi.php:253
+#: admin/views/WDIViewFeeds_wdi.php:254 admin/views/WDIViewFeeds_wdi.php:255
+#: admin/views/WDIViewFeeds_wdi.php:256 admin/views/WDIViewFeeds_wdi.php:257
+#: admin/views/WDIViewFeeds_wdi.php:258 admin/views/WDIViewFeeds_wdi.php:259
+#: admin/views/WDIViewFeeds_wdi.php:260 admin/views/WDIViewFeeds_wdi.php:261
+#: admin/views/WDIViewFeeds_wdi.php:262 admin/views/WDIViewFeeds_wdi.php:265
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/views/WDIViewFeeds_wdi.php:237 admin/views/WDIViewFeeds_wdi.php:241
+#: admin/views/WDIViewFeeds_wdi.php:243 admin/views/WDIViewFeeds_wdi.php:246
+#: admin/views/WDIViewFeeds_wdi.php:247 admin/views/WDIViewFeeds_wdi.php:248
+#: admin/views/WDIViewFeeds_wdi.php:249 admin/views/WDIViewFeeds_wdi.php:250
+#: admin/views/WDIViewFeeds_wdi.php:252 admin/views/WDIViewFeeds_wdi.php:253
+#: admin/views/WDIViewFeeds_wdi.php:254 admin/views/WDIViewFeeds_wdi.php:255
+#: admin/views/WDIViewFeeds_wdi.php:256 admin/views/WDIViewFeeds_wdi.php:257
+#: admin/views/WDIViewFeeds_wdi.php:258 admin/views/WDIViewFeeds_wdi.php:259
+#: admin/views/WDIViewFeeds_wdi.php:260 admin/views/WDIViewFeeds_wdi.php:261
+#: admin/views/WDIViewFeeds_wdi.php:262 admin/views/WDIViewFeeds_wdi.php:265
+msgid "No"
+msgstr "Nej"
+
+#: admin/views/WDIViewFeeds_wdi.php:238
+msgid "Lightbox Width"
+msgstr "Lightbox bredd"
+
+#: admin/views/WDIViewFeeds_wdi.php:239
+msgid "Lightbox Height"
+msgstr "Lightbox höjd"
+
+#: admin/views/WDIViewFeeds_wdi.php:240
+msgid "Lightbox Effect"
+msgstr "Lightbox effekt"
+
+#: admin/views/WDIViewFeeds_wdi.php:241
+msgid "Lightbox autoplay"
+msgstr "Lightbox spela upp automatiskt"
+
+#: admin/views/WDIViewFeeds_wdi.php:242
+msgid "Time Interval"
+msgstr "Tidsintervall"
+
+#: admin/views/WDIViewFeeds_wdi.php:243
+msgid "Enable filmstrip in lightbox"
+msgstr "Aktivera filmstrip i lightbox"
+
+#: admin/views/WDIViewFeeds_wdi.php:244
+msgid "Filmstrip size"
+msgstr "Filmstripsstorlek"
+
+#: admin/views/WDIViewFeeds_wdi.php:245
+msgid "Show Next / Previous Buttons"
+msgstr "Visa Nästa/Föregående-knappar"
+
+#: admin/views/WDIViewFeeds_wdi.php:245
+msgid "On Hover"
+msgstr "Vid hovring"
+
+#: admin/views/WDIViewFeeds_wdi.php:245
+msgid "Always"
+msgstr "Alltid"
+
+#: admin/views/WDIViewFeeds_wdi.php:246
+msgid "Display info by default"
+msgstr "Visa info som standard"
+
+#: admin/views/WDIViewFeeds_wdi.php:247
+msgid "Full width info"
+msgstr "Information i full bredd"
+
+#: admin/views/WDIViewFeeds_wdi.php:248
+msgid "Enable Loop"
+msgstr "Aktivera slinga"
+
+#: admin/views/WDIViewFeeds_wdi.php:249
+msgid "Enable Right Click Protection"
+msgstr "Aktivera skydd mot högerklick"
+
+#: admin/views/WDIViewFeeds_wdi.php:250
+msgid "Enable control buttons"
+msgstr "Aktiver kontrollknappar"
+
+#: admin/views/WDIViewFeeds_wdi.php:251
+msgid "Enable info"
+msgstr "Aktivera information"
+
+#: admin/views/WDIViewFeeds_wdi.php:252
+msgid "Enable fullscreen"
+msgstr "Aktivera fullskärm"
+
+#: admin/views/WDIViewFeeds_wdi.php:253
+msgid "Enable comments"
+msgstr "Aktivera kommentarer"
+
+#: admin/views/WDIViewFeeds_wdi.php:254
+msgid "Link To Instagram Button"
+msgstr "Länk till Instagram-knapp"
+
+#: admin/views/WDIViewFeeds_wdi.php:255
+msgid "Enable Download Button"
+msgstr "Aktivera nedladdningsknapp"
+
+#: admin/views/WDIViewFeeds_wdi.php:256
+msgid "Enable Share Buttons"
+msgstr "Aktivera delaknappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:257
+msgid "Enable Facebook button"
+msgstr "Aktivera Facebook-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:258
+msgid "Enable Twitter button"
+msgstr "Aktivera Twitter-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:259
+msgid "Enable Google+ button"
+msgstr "Aktivera Google+-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:260
+msgid "Enable Pinterest button"
+msgstr "Aktivera Pineterest-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:261
+msgid "Enable Tumblr button"
+msgstr "Aktivera Tumblr-knappen"
+
+#: admin/views/WDIViewFeeds_wdi.php:262
+msgid "Show Images Count"
+msgstr "Visa antal bilder"
+
+#: admin/views/WDIViewFeeds_wdi.php:265
+msgid "Enable Conditional Filters"
+msgstr "Aktivera villkorsfilter"
+
+#: admin/views/WDIViewFeeds_wdi.php:266
+msgid "Filter Logic"
+msgstr "Filterlogik"
+
+#: admin/views/WDIViewFeeds_wdi.php:283 admin/views/WDIViewFeeds_wdi.php:288
+msgid "Available In Pro Version"
+msgstr "Tillgängliga till PRO-versionen"
+
+#: admin/views/WDIViewFeeds_wdi.php:304
+msgid "Feed Settings"
+msgstr "Feed-inställningar"
+
+#: admin/views/WDIViewFeeds_wdi.php:305
+msgid "Lightbox Settings"
+msgstr "Lightbox-inställningar"
+
+#: admin/views/WDIViewFeeds_wdi.php:306 admin/views/WDIViewLicensing_wdi.php:42
+msgid "Conditional Filters"
+msgstr "Villkorsfilter"
+
+#: admin/views/WDIViewFeeds_wdi.php:329
+msgid "Here You Can Change Feed Parameters"
+msgstr "Här kan du ändra inställningarna för feederna"
+
+#: admin/views/WDIViewFeeds_wdi.php:341
+msgid "Edit feed"
+msgstr "Editera feed"
+
+#: admin/views/WDIViewFeeds_wdi.php:344
+msgid "Add new Feed"
+msgstr "Lägg till ny feed"
+
+#: admin/views/WDIViewFeeds_wdi.php:374
+msgid ""
+"This is FREE version, Conditional filters are available only in PRO version"
+msgstr ""
+"Detta är gratisversionen. Villkorsfilter är endast tillgängliga till PRO-"
+"versionen"
+
+#: admin/views/WDIViewFeeds_wdi.php:398
+msgid "Add"
+msgstr "Lägg till"
+
+#: admin/views/WDIViewFeeds_wdi.php:414
+msgid "Save"
+msgstr "Spara"
+
+#: admin/views/WDIViewFeeds_wdi.php:416
+msgid "Apply"
+msgstr "Tillämpa"
+
+#: admin/views/WDIViewFeeds_wdi.php:417 framework/WDILibrary.php:189
+#: framework/WDILibrary.php:717
+msgid "Reset"
+msgstr "Återställ"
+
+#: admin/views/WDIViewFeeds_wdi.php:418
+msgid "Cancel"
+msgstr "Makulera"
+
+#: admin/views/WDIViewLicensing_wdi.php:29
+msgid "ready"
+msgstr "redo"
+
+#: admin/views/WDIViewLicensing_wdi.php:31
+msgid "Responsive Design and Layout"
+msgstr "Responsiv Design och Layout"
+
+#: admin/views/WDIViewLicensing_wdi.php:32
+msgid "SEO Friendly"
+msgstr "SEO-anpassad"
+
+#: admin/views/WDIViewLicensing_wdi.php:33
+msgid "Thumbnails layout"
+msgstr "Miniatyrbilds-layout"
+
+#: admin/views/WDIViewLicensing_wdi.php:34
+msgid "Image Browser layout"
+msgstr "Image Browser-layout"
+
+#: admin/views/WDIViewLicensing_wdi.php:35
+msgid "Lightbox"
+msgstr "Lightbox"
+
+#: admin/views/WDIViewLicensing_wdi.php:36
+msgid "Load More Button / Classic Pagination"
+msgstr "Hämta fler-knappen / Klassisk paginering"
+
+#: admin/views/WDIViewLicensing_wdi.php:37
+msgid "Image Sorting"
+msgstr "Bildsortering"
+
+#: admin/views/WDIViewLicensing_wdi.php:38
+msgid "Widget"
+msgstr "Widget"
+
+#: admin/views/WDIViewLicensing_wdi.php:39
+msgid "Slideshow/Lightbox Effects"
+msgstr "Slideshow/Lightbox-effekter"
+
+#: admin/views/WDIViewLicensing_wdi.php:43
+msgid "Image On Hover Effects"
+msgstr "Image On Hover-effekter"
+
+#: admin/views/WDIViewLicensing_wdi.php:44
+msgid "Infinite Scroll Load More"
+msgstr "Oändlig slinga hämta fler"
+
+#: admin/views/WDIViewLicensing_wdi.php:45
+msgid "Full Style Customization With Themes"
+msgstr "Full stilanpassning med theman"
+
+#: admin/views/WDIViewLicensing_wdi.php:46
+msgid "Filmstrip"
+msgstr "Filmstrip"
+
+#: admin/views/WDIViewLicensing_wdi.php:47
+msgid "Instagram Comments in Lightbox"
+msgstr "Instagram-kommentarer i Lightbox"
+
+#: admin/views/WDIViewLicensing_wdi.php:48
+msgid "Blog Style layout"
+msgstr "Blog Style-layout"
+
+#: admin/views/WDIViewLicensing_wdi.php:49
+msgid "Masonry layout"
+msgstr "Masonry-layout"
+
+#: admin/views/WDIViewLicensing_wdi.php:50
+msgid "Videos in BlogStyle, ImageBrowser and Lightbox"
+msgstr "Videos i BlogStyle, ImageBrowser och Lightbox"
+
+#: admin/views/WDIViewLicensing_wdi.php:51
+msgid "Social Share Buttons"
+msgstr "Dela på sociala medier-knappar"
+
+#: admin/views/WDIViewLicensing_wdi.php:52
+msgid "Multiple User/Hashtag Feeds"
+msgstr "Flera användare/hashtagar"
+
+#: admin/views/WDIViewLicensing_wdi.php:53
+msgid "Filtering Images Based on Users/Hashtags"
+msgstr "Filtrerar bilder baserat på användare/hashtagar"
+
+#: admin/views/WDIViewLicensing_wdi.php:54
+msgid "Support / Updates"
+msgstr "Support / Uppdateringar"
+
+#: admin/views/WDIViewLicensing_wdi.php:57
+msgid "Free"
+msgstr "Gratis"
+
+#: admin/views/WDIViewLicensing_wdi.php:81
+msgid "Only Bug Fixes"
+msgstr "Endast buggfixar"
+
+#: admin/views/WDIViewLicensing_wdi.php:84
+msgid "Pro Version"
+msgstr "Pro-versionen"
+
+#: admin/views/WDIViewLicensing_wdi.php:108
+msgid "Full Support"
+msgstr "Full Support"
+
+#: admin/views/WDIViewLicensing_wdi.php:120
+msgid "After purchasing the commercial version follow these steps:"
+msgstr "Följ dessa steg efter att du köpt den kommersiella versionen:"
+
+#: admin/views/WDIViewLicensing_wdi.php:122
+msgid "Deactivate Instagram Feed WD plugin."
+msgstr "Deaktivera Instagram Feed WD plugin."
+
+#: admin/views/WDIViewLicensing_wdi.php:123
+msgid "Delete Instagram Feed WD plugin."
+msgstr "Radera Instagram Feed WD plugin."
+
+#: admin/views/WDIViewLicensing_wdi.php:124
+msgid "Install the downloaded commercial version of the plugin."
+msgstr "Installera den nedladdade kommersiella versionen av pluginen"
+
+#: admin/views/WDIViewSettings_wdi.php:49
+msgid "This Section Allows You To Set API Parameters"
+msgstr "Denna sektion låter dig konfigurera API-parametrarna"
+
+#: admin/views/WDIViewSettings_wdi.php:60
+msgid "Instagram WD Settings"
+msgstr "Instagram Feed WD Inställningar"
+
+#: admin/views/WDIViewSettings_wdi.php:65
+msgid "Reset Access Token and Username"
+msgstr "Återställ åtkomsttoken och användarnamn"
+
+#: admin/views/WDIViewSettings_wdi.php:80
+msgid ""
+"Are you sure that you want to reset access token and username, after "
+"resetting it you will need to log in with Instagram again for using plugin"
+msgstr ""
+"Är du säker att att du vill återstålla åtkomsttoken och användarnamn? Efter "
+"återställning krävs att du loggar in på Instagram igen för att använda "
+"pluginen"
+
+#: admin/views/WDIViewThemes_wdi.php:30
+msgid "Here You Can Customize Your Themes"
+msgstr "Här kan du anpassa dina teman"
+
+#: admin/views/WDIViewThemes_wdi.php:40
+msgid ""
+"This is FREE version, Customizing themes is available only in PRO version"
+msgstr ""
+"Detta är gratisversionen. Anpassning av tema är endast möjligt med PRO-"
+"versionen"
+
+#: admin/views/WDIViewUninstall_wdi.php:22
+#: admin/views/WDIViewUninstall_wdi.php:68
+#: admin/views/WDIViewUninstall_wdi.php:80
+msgid "Uninstalling Instagram Feed WD"
+msgstr "Avinstallerar Instagram Feed WD"
+
+#: admin/views/WDIViewUninstall_wdi.php:24
+msgid ""
+"Deactivating Instagram Feed WD plugin does not remove any data that may have "
+"been created. To completely remove this plugin, you can uninstall it here."
+msgstr ""
+"Deaktivering av Instagram Feed WD plugin tar inte bort data som skapats. För "
+"att helt rensa bort pluginen måste du avinstallera den här."
+
+#: admin/views/WDIViewUninstall_wdi.php:25
+msgid ""
+"WARNING: Once uninstalled, this can't be undone. You should use a Database "
+"Backup plugin of WordPress to back up all the data first."
+msgstr ""
+"VARNING: Du kan inte återställa pluginen efter den avinstallerats. Ta gärna "
+"med backup av databasen innan du avinstallerar."
+
+#: admin/views/WDIViewUninstall_wdi.php:26
+msgid "The following Database Tables will be deleted:"
+msgstr "Följande databastabeller kommer att raderas:"
+
+#: admin/views/WDIViewUninstall_wdi.php:42
+#: admin/views/WDIViewUninstall_wdi.php:55
+msgid "Are you sure you want to uninstall plugin?"
+msgstr "Är du säker på att du vill avinstallera pluginen"
+
+#: admin/views/WDIViewUninstall_wdi.php:70
+msgid "Instagram Feed WD is uninstalled"
+msgstr "Instagram Feed WD har avinstallerats"
+
+#: admin/views/WDIViewUninstall_wdi.php:70
+#: admin/views/WDIViewUninstall_wdi.php:93
+msgid "Click Here"
+msgstr "Klicka här"
+
+#: admin/views/WDIViewUninstall_wdi.php:70
+#: admin/views/WDIViewUninstall_wdi.php:93
+msgid "to deactivate it"
+msgstr "för att deaktivera"
+
+#: admin/views/WDIViewUninstall_wdi.php:82
+msgid "The following Database Tables has been successfully deleted:"
+msgstr "Följande databastabeller har raderats:"
+
+#: admin/views/WDIViewUninstall_wdi.php:93
+msgid "Instagram Feed WD is successfully uninstalled"
+msgstr "Instagram Feed WDhar avinstallerats"
+
+#: framework/WDILibrary.php:188 framework/WDILibrary.php:720
+msgid "Search"
+msgstr "Sök"
+
+#: framework/WDILibrary.php:511
+msgid " item(s)"
+msgstr "post(er)"
+
+#: framework/WDILibrary.php:516
+msgid "First"
+msgstr "Första"
+
+#: framework/WDILibrary.php:517
+msgid "Previous"
+msgstr "Föregående"
+
+#: framework/WDILibrary.php:518
+msgid "Next"
+msgstr "Nästa"
+
+#: framework/WDILibrary.php:519
+msgid "Last"
+msgstr "Sista"
+
+#: framework/WDILibrary.php:537
+msgid "Go to the first page"
+msgstr "Gå till sista sidan"
+
+#: framework/WDILibrary.php:538
+msgid "Go to the previous page"
+msgstr "Gå till föregående sida"
+
+#: framework/WDILibrary.php:540
+msgid "of"
+msgstr "av"
+
+#: framework/WDILibrary.php:544
+msgid "Go to the next page"
+msgstr "Gå till nästa sida"
+
+#: framework/WDILibrary.php:545
+msgid "Go to the last page"
+msgstr "Gå till sista sidan"
+
+#: framework/WDILibrary.php:557
+msgid "Load More..."
+msgstr "Hämta fler..."
+
+#: framework/WDILibrary.php:762
+msgid "Order by: "
+msgstr "Sortera efter:"
+
+#: framework/WDILibrary.php:764
+msgid "Default"
+msgstr "Default"
+
+#: framework/WDILibrary.php:765
+msgid "Filename"
+msgstr "Filnamn"
+
+#: framework/WDILibrary.php:766
+msgid "Size"
+msgstr "Storlek"
+
+#: framework/WDI_admin_view.php:717
+msgid "Preview"
+msgstr "Förhandsvisa"
+
+#: frontend/shortcode.php:28
+msgid "Invalid shortcode"
+msgstr "Ogiltigt kortkommando"
+
+#: frontend/shortcode.php:43
+msgid "Access Token is invalid, please get it again "
+msgstr "Ogilitg åtkomsttoken. Försök igen"
+
+#: frontend/shortcode.php:48
+msgid "Feed Doesn't exists "
+msgstr "Feed existerar inte"
+
+#: frontend/shortcode.php:72
+msgid "Unable to display unpublished feed "
+msgstr "Kan ej visa opublicerad feed"
+
+#: frontend/shortcode.php:95
+msgid "Invalid feed type"
+msgstr "Ogiltig feed-typ"
+
+#: frontend/shortcode.php:131
+msgid "Connection Error, try again later :("
+msgstr "Anslutningsfel. Vänligen försök senare :("
+
+#: frontend/shortcode.php:132
+msgid "Username not found"
+msgstr "Användarnamn hittas inte"
+
+#: frontend/shortcode.php:133
+msgid "Network error, please try again later :("
+msgstr "Anslutningsfel. Vänligen försök senare :("
+
+#: frontend/shortcode.php:134
+msgid "There is no data for that hashtag"
+msgstr "Data saknas för den hashtagen"
+
+#: frontend/shortcode.php:135
+msgid "Click to filter images by this user"
+msgstr "Klicka för att filtrera bilder från denna användare"
+
+#: frontend/shortcode.php:171
+msgid "Field is required."
+msgstr "Fält obligatoriskt"
+
+#: frontend/shortcode.php:172 frontend/views/WDIViewGalleryBox.php:1335
+msgid "This is not a valid email address."
+msgstr "Ogiltig emailadress."
+
+#: frontend/shortcode.php:173
+msgid "There are no images matching your search."
+msgstr "Det finns inga matchande bilder"
+
+#: frontend/views/WDIViewGalleryBox.php:1006
+msgid "The image has been deleted."
+msgstr "Bilden har raderats"
+
+#: frontend/views/WDIViewGalleryBox.php:1027
+#: frontend/views/WDIViewGalleryBox.php:2890
+msgid "Play"
+msgstr "Spela upp"
+
+#: frontend/views/WDIViewGalleryBox.php:1031
+#: frontend/views/WDIViewGalleryBox.php:2161
+#: frontend/views/WDIViewGalleryBox.php:2717
+#: frontend/views/WDIViewGalleryBox.php:2814
+msgid "Maximize"
+msgstr "Maximera"
+
+#: frontend/views/WDIViewGalleryBox.php:1035
+#: frontend/views/WDIViewGalleryBox.php:2163
+#: frontend/views/WDIViewGalleryBox.php:2816
+msgid "Fullscreen"
+msgstr "Fullskärm"
+
+#: frontend/views/WDIViewGalleryBox.php:1037
+#: frontend/views/WDIViewGalleryBox.php:2581
+msgid "Show info"
+msgstr "Visa information"
+
+#: frontend/views/WDIViewGalleryBox.php:1039
+msgid "Show comments"
+msgstr "Visa kommentarer"
+
+#: frontend/views/WDIViewGalleryBox.php:1041
+#: frontend/views/WDIViewGalleryBox.php:2594
+msgid "Show rating"
+msgstr "Visa betyg"
+
+#: frontend/views/WDIViewGalleryBox.php:1047
+#: frontend/views/WDIViewGalleryBox.php:1048
+msgid "Share on Facebook"
+msgstr "Dela på Facebook"
+
+#: frontend/views/WDIViewGalleryBox.php:1054
+#: frontend/views/WDIViewGalleryBox.php:1055
+msgid "Share on Twitter"
+msgstr "Dela på Twitter"
+
+#: frontend/views/WDIViewGalleryBox.php:1061
+#: frontend/views/WDIViewGalleryBox.php:1062
+msgid "Share on Google+"
+msgstr "Dela på Google+"
+
+#: frontend/views/WDIViewGalleryBox.php:1068
+#: frontend/views/WDIViewGalleryBox.php:1069
+msgid "Share on Pinterest"
+msgstr "Dela på Pineterest"
+
+#: frontend/views/WDIViewGalleryBox.php:1075
+#: frontend/views/WDIViewGalleryBox.php:1076
+msgid "Share on Tumblr"
+msgstr "Dela på Tumblr"
+
+#: frontend/views/WDIViewGalleryBox.php:1084
+msgid "Share"
+msgstr "Dela"
+
+#: frontend/views/WDIViewGalleryBox.php:1103
+msgid "Open image in Instagram."
+msgstr "Öppna bild i Instagram"
+
+#: frontend/views/WDIViewGalleryBox.php:1131
+msgid "Download original image"
+msgstr "Ladda ner originalbild"
+
+#: frontend/views/WDIViewGalleryBox.php:1328
+msgid "Error. Incorrect Verification Code."
+msgstr "Felaktig Verifikationskod"
+
+#: frontend/views/WDIViewGalleryBox.php:1343
+#: frontend/views/WDIViewGalleryBox.php:2381
+msgid "Hide Comments"
+msgstr "Dölj kommentarer"
+
+#: frontend/views/WDIViewGalleryBox.php:1354
+#: frontend/views/WDIViewGalleryBox.php:1376
+#: frontend/views/WDIViewGalleryBox.php:1383
+msgid "Email"
+msgstr "Email"
+
+#: frontend/views/WDIViewGalleryBox.php:1361
+#: frontend/views/WDIViewGalleryBox.php:1376
+#: frontend/views/WDIViewGalleryBox.php:1383
+msgid "Comment"
+msgstr "Kommentar"
+
+#: frontend/views/WDIViewGalleryBox.php:1366
+msgid "Verification Code"
+msgstr "Verifikationskod"
+
+#: frontend/views/WDIViewGalleryBox.php:1389
+msgid "Submit"
+msgstr "Skicka"
+
+#: frontend/views/WDIViewGalleryBox.php:1390
+msgid "Your comment is awaiting moderation"
+msgstr "Din kommentar inväntar moderering"
+
+#: frontend/views/WDIViewGalleryBox.php:1397
+#: frontend/views/WDIViewGalleryBox.php:2066
+#: frontend/views/WDIViewGalleryBox.php:2391
+msgid "There are no comments to show"
+msgstr "Det finns inga kommentarer"
+
+#: frontend/views/WDIViewGalleryBox.php:2567
+msgid "Hide info"
+msgstr "Dölj info"
+
+#: frontend/views/WDIViewGalleryBox.php:2590
+msgid "Hide rating"
+msgstr "Dölj betyg"
+
+#: frontend/views/WDIViewGalleryBox.php:2754
+#: frontend/views/WDIViewGalleryBox.php:2974
+msgid "Restore"
+msgstr "Återställ"
+
+#: frontend/views/WDIViewGalleryBox.php:2869
+msgid "Exit Fullscreen"
+msgstr "Avsluta fullskärmsläge"
+
+#: frontend/views/WDIViewGalleryBox.php:2884
+#: frontend/views/WDIViewGalleryBox.php:2901
+msgid "Pause"
+msgstr "Paus"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "First Page"
+msgstr "Första sidan"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "Previous Page"
+msgstr "Nästa sida"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "Next Page"
+msgstr "Nästa sida"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "Last Page"
+msgstr "Sista sidan"
+
+#: frontend/views/WDIViewImageBrowser_view.php:46
+#: frontend/views/WDIViewThumbnails_view.php:52
+msgid "Load More"
+msgstr "Hämta fler"
+
+#: instagram-wdi-notices.php:218
+msgid "Leave A Review?"
+msgstr "Lämna betyg?"
+
+#: instagram-wdi-notices.php:219
+#, php-format
+msgid ""
+"We hope you've enjoyed using WordPress %s! Would you consider leaving us a "
+"review on WordPress.org?"
+msgstr ""
+"Vi hoppas att du är nöjd med WordPress %s! Vill du lämna betyg på WordPress."
+"org?"
+
+#: instagram-wdi-notices.php:220 instagram-wdi-notices.php:239
+msgid "Sure! I'd love to!"
+msgstr "Absolut!"
+
+#: instagram-wdi-notices.php:221
+msgid "I've already left a review"
+msgstr "Jag har redan lämnat betyg"
+
+#: instagram-wdi-notices.php:222
+msgid "Maybe Later"
+msgstr "Kanske senare"
+
+#: instagram-wdi-notices.php:223 instagram-wdi-notices.php:233
+#: instagram-wdi-notices.php:247
+msgid "Never show again"
+msgstr "Visa aldrig igen"
+
+#: instagram-wdi-notices.php:229 instagram-wdi-notices.php:245
+msgid "Hey! How's It Going?"
+msgstr "Hej, hur går det?"
+
+#: instagram-wdi-notices.php:230
+#, php-format
+msgid ""
+"Thank you for using WordPress %s! We hope that you've found everything you "
+"need, but if you have any questions:"
+msgstr ""
+"Tack för du användare WordPress %s! Vi hoppas att du hittat allt du behöver. "
+"Men, ifall du har frågor:"
+
+#: instagram-wdi-notices.php:231
+msgid "Check out User Guide"
+msgstr "Visa Användarhjälpen"
+
+#: instagram-wdi-notices.php:232
+msgid "Get Some Help"
+msgstr "få hjälp"
+
+#: instagram-wdi-notices.php:237
+msgid "Important"
+msgstr "Viktigt"
+
+#: instagram-wdi-notices.php:238
+msgid ""
+"Instagram changed the API. You need to get a new access token by using "
+"\"Sign in with Instagram\" button on the Settings page in order to keep your "
+"Instagram Feed WD plugin functioning after June 1."
+msgstr ""
+"Instagram har ändrat sin API. Du behöver skaffa ny åtkomsttoken genom \"Sign "
+"in with Instagram\"-knappen på sidan Inställningar."
+
+#: templates/plugin-uninstalled.php:28
+msgid "you have uninstalled"
+msgstr "du har avinstallerat"
+
+#: templates/plugin-uninstalled.php:28
+msgid ""
+"plugin,if you want to use it again simply deactivate and activate it again"
+msgstr ""
+"plugin. Om du vill använda den igen krävs endast att du deaktiverar och "
+"aktiverar den"
+
+#: wd-instagram-feed.php:121
+msgid "Configure"
+msgstr "Konfigurera"
+
+#: wd-instagram-feed.php:124
+msgid "Customize"
+msgstr "Anpassa"
+
+#: wd-instagram-feed.php:152
+msgid "Instagram Feed WD"
+msgstr "Instagram Feed WD"
+
+#: wd-instagram-feed.php:154
+msgid "Themes"
+msgstr "Teman"
+
+#: wd-instagram-feed.php:155
+msgid "Settings"
+msgstr "Inställningar"
+
+#: wd-instagram-feed.php:156
+msgid "Buy Pro"
+msgstr "Köp PRO"
+
+#: wd-instagram-feed.php:162
+msgid "Uninstall"
+msgstr "Avinstallera"
+
+#: wd-instagram-feed.php:236
+msgid "All the data will be removed from the database. Continue?"
+msgstr "Alla data kommer att raderas från databasen. Fortsätta?"
+
+#: wd-instagram-feed.php:237
+msgid "Some error with instagram servers, try agian later :("
+msgstr "Fel hos Instragram-servrarna. Vänligen försök senare :("
+
+#: wd-instagram-feed.php:238
+msgid "Invalid user:"
+msgstr "Ogiltig användare:"
+
+#: wd-instagram-feed.php:239
+msgid "already added!"
+msgstr "redan tillagd"
+
+#: wd-instagram-feed.php:240
+msgid "User does not exist."
+msgstr "Användare finns inte"
+
+#: wd-instagram-feed.php:241
+msgid "Network Error, please try again later. :("
+msgstr "Nätverksfel. Försök senare :("
+
+#: wd-instagram-feed.php:242
+msgid "Invalid hashtag"
+msgstr "Ogiltig hashtag"
+
+#: wd-instagram-feed.php:243
+msgid "This hashtag currently has no posts. Are you sure you want to add it?"
+msgstr "Hashtagen saknar poster. Är du säker på att du vill lägga till den?"
+
+#: wd-instagram-feed.php:244
+msgid "You can add only one username or hashtag in FREE Version"
+msgstr "Du kan endast lägga till en användare eller hashtag i Gratisversionen"
+
+#: wd-instagram-feed.php:245
+msgid "Available in PRO"
+msgstr "Tillgänglig i PRO"
+
+#: wd-instagram-feed.php:246
+msgid "Combined Usernames/Hashtags are available only in PRO version"
+msgstr "Kombinerade Användar/Hashtag är endast möjligt i PRO-versionen"
+
+#: wd-instagram-feed.php:247
+msgid "Customizing Themes is available only in PRO version"
+msgstr "Anpassning av Tema är endast möjligt i PRO-versionen"
+
+#: wd-instagram-feed.php:248
+msgid "URL is not valid"
+msgstr "Ogiltig URL"
+
+#: wd-instagram-feed.php:249
+msgid "Please Select Condition Type"
+msgstr "Välj Villkorstyp"
+
+#: wd-instagram-feed.php:250
+msgid "Show Posts Which Have All Of The Conditions"
+msgstr "Visa poster som uppyller samtliga Villkor"
+
+#: wd-instagram-feed.php:251
+msgid "Show Posts Which Have At Least One Of The Conditions"
+msgstr "Visa poster som uppyller minst ett Villkor"
+
+#: wd-instagram-feed.php:252
+msgid "Hide Posts Which Have At Least One Of The Conditions"
+msgstr "Dölj poster som uppyller minst ett Villkor"
+
+#: wd-instagram-feed.php:253
+msgid "EITHER"
+msgstr "HELLER"
+
+#: wd-instagram-feed.php:254
+msgid "NEITHER"
+msgstr "INTE HELLER"
+
+#: wd-instagram-feed.php:255
+msgid "EXCEPT"
+msgstr "FÖRUTOM"
+
+#: wd-instagram-feed.php:256
+msgid "AND"
+msgstr "OCH"
+
+#: wd-instagram-feed.php:257
+msgid "OR"
+msgstr "ELLER"
+
+#: wd-instagram-feed.php:258
+msgid "NOR"
+msgstr "INTE HELLER"

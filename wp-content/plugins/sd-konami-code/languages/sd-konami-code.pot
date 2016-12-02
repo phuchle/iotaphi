@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Konami Code Easter Egg\n"
+"POT-Creation-Date: 2014-06-17 23:17+0100\n"
+"PO-Revision-Date: 2014-06-17 23:17+0100\n"
+"Last-Translator: Bjorn Manintveld <bjorn@yourstyledesign.nl>\n"
+"Language-Team: Sleepless Developers <bjorn@sleeplessdevelopers.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: _;_e;__;_x\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../sleeplessdev-konami.php:78
+msgid "Settings"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:78
+msgid "Konami Code Easter Egg"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:83
+msgid "Event"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:85
+msgid "Do nothing"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:86
+msgid "Play a sound"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:87
+msgid "Redirect to an URL"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:92 ../sleeplessdev-konami.php:105
+msgid "Event Settings"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:95
+msgid "Choose a sound"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:97
+msgid "Gradius (default)"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:98
+msgid "Navi"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:99
+msgid "or upload a MP3"
+msgstr ""
+
+#: ../sleeplessdev-konami.php:108
+msgid "URL to redirect"
+msgstr ""

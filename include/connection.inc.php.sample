@@ -1,0 +1,10 @@
+<?php
+
+// Edit this file to match your MySQL database info and save it as connection.inc.php.
+
+define('DB_HOST', 'my.database.org');
+define('DB_NAME', 'my_database_name');
+define('DB_USER', 'my_username');
+define('DB_PASS', 'my_password');
+
+?>
