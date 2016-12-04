@@ -128,7 +128,7 @@ function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $locatio
 	$line = mysql_fetch_assoc($result) or die("Event not found!");
 	
 	mysql_free_result($result);
-	
+	// return "Your event '$name' was added successfully."
 	return $line['id'];
 } 
 

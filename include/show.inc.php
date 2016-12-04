@@ -9,10 +9,10 @@ function show_users($users)
 	$ROWS = ceil(count($users)/floatval($COLS));
 	
 	// as long as there are at least 2 people then only the 3rd column can be invalid
-	for($i=0;$i<$ROWS;$i++)
+	for($i = 0; $i < $ROWS; $i++)
 	{
 		// fill in all columns except the last
-		for($j=0;$j<$COLS-1;$j++)
+		for($j = 0; $j < $COLS - 1; $j++)
 		{
 			echo '<td class="small">';
 			forms_checkbox('user[]' ,$users[$i+$j*$ROWS]['id']); 
