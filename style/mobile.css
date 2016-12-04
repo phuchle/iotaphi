@@ -422,6 +422,8 @@ td.nested {
 .et8 {background-color: #444;  border-radius:3px;} /*special eg pledge retreat*/
 .et9 {background-color: #030;  border-radius:3px;} /*CAW hours*/
 .et10{background-color: #f70;  border-radius:3px;} /*Interviews*/
+.et11{background-color: #ffc;  border-radius:3px;} /*Fundraisers*/
+
 .fourc0     { background-color: #d11; }
 .fourc0dark { background-color: #544; }
 .fourc1     { background-color: #1a1; }

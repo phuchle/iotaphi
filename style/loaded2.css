@@ -326,16 +326,17 @@ td.nested {
 #calendar p.fund{
     border: 2px solid green;
 }
-.et1 {background-color: #b00; } /*service*/
-.et2 {background-color: #00c; } /*fellowsip*/
-.et3 {background-color: #090; } /*fundraiser*/
-.et4 {background-color: #523; } /*rush*/
-.et5 {background-color: #066; } /*committee*/
-.et6 {background-color: #660; } /*meeting*/
-.et7 {background-color: #606; } /*leadership*/
-.et8 {background-color: #444; } /*special eg pledge retreat*/
-.et9 {background-color: #030; } /*CAW hours*/
-.et10{background-color: #f70; } /*Interviews*/
+.et1  {background-color: #b00; } /*service*/
+.et2  {background-color: #00c; } /*fellowsip*/
+.et3  {background-color: #090; } /*fundraiser*/
+.et4  {background-color: #523; } /*rush*/
+.et5  {background-color: #066; } /*committee*/
+.et6  {background-color: #660; } /*meeting*/
+.et7  {background-color: #606; } /*leadership*/
+.et8  {background-color: #444; } /*special eg pledge retreat*/
+.et9  {background-color: #030; } /*CAW hours*/
+.et10 {background-color: #f70; } /*Interviews*/
+.et11 {background-color: #ffc; } /* Fundraisers */
 .fourc0     { background-color: #d11; }
 .fourc0dark { background-color: #544; }
 .fourc1     { background-color: #1a1; }

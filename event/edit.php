@@ -1,6 +1,6 @@
 <?php 
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
-include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
+// include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/event.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 
@@ -18,6 +18,8 @@ if(isset($_SESSION['class']))
 get_header();
 
 // must take an array for $maybe
+// $maybe is array of columns in the event database table
+// this func is called at the bottom of this file
 function show_eventModify($new, $maybe)
 { 
 	// fill maybe with event info
@@ -48,7 +50,7 @@ function show_eventModify($new, $maybe)
 ?>
 	<form name="event" onsubmit="return valid(this)" 
         method="POST" action="/inputAdmin.php">
-	<?php forms_hiddenInput($new?"eventCreate":"eventUpdate", 
+	<?php forms_hiddenInput($new ? "eventCreate" : "eventUpdate", 
                         "/calendar.php"); ?>
 	<?php forms_hidden('event_id', $maybe['id']); ?>
 	

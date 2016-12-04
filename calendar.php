@@ -73,8 +73,8 @@ for($i=0, $k=0; $i<$weeks; $i++) //for each row
 				$fund= 0;
 			}
 			$type = $events[$k]['type'];
-			$style .= "et{$events[$k]['type']}";
-			$signedUp = $events[$k]['signedUp'];
+			$style .= "et{$events[$k]['type']}"; // bg-color of event types
+			$signedUp = $events[$k]['signedUp']; 
 			$id = $events[$k]['id'];
 			$title = str_replace("'", "\\'", $events[$k]['name']);
 			
@@ -141,7 +141,7 @@ for($i=0, $k=0; $i<$weeks; $i++) //for each row
 $head = '
 <script type="text/javascript">
 ' . $script . '
-function showhover(theEvent, txt)
+function showhover(theEvent, event)
 {
 	var x,y;
 	if (self.pageYOffset) // all except Explorer
@@ -164,7 +164,7 @@ function showhover(theEvent, txt)
 	var theDiv = document.getElementById("hover");
 	var newX = theEvent.clientX + x + 10;
 	var newY = theEvent.clientY + y - 50;
-	theDiv.innerHTML = txt;
+	theDiv.innerHTML = event;
 	theDiv.style.display = "block";
 	theDiv.style.top = newY + "px";
 	theDiv.style.left = newX + "px";
@@ -176,10 +176,11 @@ function hidehover()
 	theDiv.style.display = "none";
 }
 
-function fill()
+// filters events in calendar by type e.g. service, fellowship, etc
+function fill() 
 {
 	dropDown("monthDropDown", "yearDropDown")
-	var txt = document.getElementsByName("filters")[0].options[document.getElementsByName("filters")[0].selectedIndex].value;
+	var event = document.getElementsByName("filters")[0].options[document.getElementsByName("filters")[0].selectedIndex].value;
 	
 	var myrows = document.getElementById("calendar").rows;
 
@@ -196,33 +197,35 @@ function fill()
 			
 				var show = false;
 			
-				if(txt == "0") 
+				if(event == "0") 
 					show = (myevent.type != 9);
-				else if(txt == "1")
+				else if(event == "1")
 					show = (myevent.type == 1);
-				else if(txt == "2")
+				else if(event == "2")
 					show = (myevent.type == 2);
-				else if(txt == "5")
+				else if(event == "5")
 					show = (myevent.type == 5 || myevent.type == 6);
-				else if(txt == "9")
+				else if(event == "9")
 					show = (myevent.type == 9);
-				else if(txt == "10")
+				else if(event == "10")
 					show = (myevent.type == 10);
-				else if(txt == "7")
+				else if (event == "11")
+					show = (myevent.type == 11);
+				else if(event == "7")
 					show = (myevent.type != 1 && myevent.type != 2 && myevent.type != 5 && myevent.type != 6 && myevent.type != 9);
-				else if(txt == "myEvents")
+				else if(event == "myEvents")
 					show = (myevent.signedUp == "1");
 				
-				if(txt == "3")
+				if(event == "3")
 					show = (myevent.ic == 1);
 			
 				if(show)
 				{
 					var signup = "";
-					if(myevent.signedUp == "1" && txt != "myEvents")
+					if(myevent.signedUp == "1" && event != "myEvents")
 						signup = \'class="signedUp" \'
 						
-					if(txt != "1")
+					if(event != "1")
 						inner += "<p class=\"" + myevent.style + "\"><a " + signup + " href=\"/event/show.php?id=" + 
 							myevent.id + "\">" + myevent.title + "</a></p>";
 					else
@@ -236,7 +239,7 @@ function fill()
 		}
 	}
 	
-	Set_Cookie("filter",txt,false);
+	Set_Cookie("filter",event,false);
 }
 
 </script>';
@@ -305,6 +308,7 @@ if ( isset( $_SESSION['id'] ) )
 			<option value="7" <?php echo ($filter==7)?'selected':'' ?>>Leadership and Misc.</option>
 			<option value="9" <?php echo ($filter==9)?'selected':'' ?>>C/A/W Hours</option>
 			<option value="10" <?php echo ($filter==10)?'selected':'' ?>>Interviews</option>
+			<option value="11" <?php echo ($filter==11)?'selected':'' ?>>Fundraisers</option>
 		</select>
 	</div>
 	<div class="span6" style="text-align:center">

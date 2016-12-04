@@ -432,6 +432,16 @@ td.nested {
 .et10 a {  
 			padding:5px 0px 10px 0px;
 	color: black;}	    
+
+	/* Fundraisers */  
+.et11 {background-color: #ffffcc;
+	border-left-style:solid;
+		border-left-color: #f70;
+		border-left-width:6px;  } 
+ }
+.et10 a {  
+		padding:5px 0px 10px 0px;
+color: black;}	   
 	    
 .fourc0     {background-color:#ffeee3;
 	border-left-style:solid;
