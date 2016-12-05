@@ -8961,55 +8961,39 @@ td.nested {
   padding: 2px;
 }
 
-/*service      */
-.et1 {
-    background-color: #f5cfcf;
-}
+/* service */
+.et1 { background-color: #f5cfcf; }
 
-  /*fellowsip   */
-.et2 {
-    background-color:#e7e7f2;
-    } 
+/* fellowsip */
+.et2 { background-color:#e7e7f2; } 
 
 /*fundraiser*/
-.et3 {  
-    background-color: #ff69b4;
-       } 
+.et3 { background-color: #ff69b4; } 
 /*rush*/            
-.et4 {
-    background-color:#e7e7f2;
-} 
+.et4 { background-color:#e7e7f2; } 
 
 /*committee*/
-.et5 {background-color:#e7e7f2;
-}
+.et5 { background-color:#e7e7f2; }
 /*meeting*/ 
-.et6 {background-color:#d6d5ba ;
-   }    
+.et6 { background-color:#d6d5ba ; }    
 
 /*leadership*/    
-.et7 {  background-color:#d3b5d1;
-    }
+.et7 { background-color:#d3b5d1; }
 
 /*special eg pledge retreat*/
-.et8 {  background-color:#d1f4d4;
-    }     
+.et8 { background-color:#d1f4d4; }     
 
  /*CAW hours*/
-.et9 {background-color:#e7e7f2;
-
- } 
-      
+.et9 { background-color:#e7e7f2; } 
 
 /*Interviews*/
-.et10{background-color:#ffeee3;
+.et10{ background-color:#ffeee3; } 
 
-  } 
+/* Fundraisers */  
+.et11 { background-color: #ffffcc; }
 
-  /* Fundraisers */  
-.et11 {background-color: #ffffcc;
-
- }  
+/* PSFC */  
+.et12 { background-color: #eaffff; }  
       
       
 .fourc0     { background-color: #d11; }

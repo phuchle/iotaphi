@@ -423,6 +423,7 @@ td.nested {
 .et9 {background-color: #030;  border-radius:3px;} /*CAW hours*/
 .et10{background-color: #f70;  border-radius:3px;} /*Interviews*/
 .et11{background-color: #ffc;  border-radius:3px;} /*Fundraisers*/
+.et12 {background-color: #eaffff; } /* PSFC Events */
 
 .fourc0     { background-color: #d11; }
 .fourc0dark { background-color: #544; }
