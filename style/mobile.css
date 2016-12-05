@@ -463,14 +463,14 @@ td.calToday {
 /*calendar numbers, become links when logged in as excomm*/
 #calendar .number,
 #calendar .number a {
-	color:DarkGray;
+	color: #222;
     font-size: small;
     font-weight: bold;
     line-height: 98%;
 }
 #calendar .calOut .number,
 #calendar .calOut .number a {
-	color: WhiteSmoke;
+	color: #333;
 }
 /*event listing when signed up for that event*/
 a.signedUp {
