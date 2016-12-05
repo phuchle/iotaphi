@@ -8997,13 +8997,13 @@ td.nested {
 .et12 { background-color: #eaffff; }  
       
       
-.fourc0     { background-color: #d11; }
+.fourc0     { background-color: #FF9797; }
 .fourc0dark { background-color: #544; }
-.fourc1     { background-color: #1a1; }
+.fourc1     { background-color: #97FFAF; }
 .fourc1dark { background-color: #454; }
-.fourc2     { background-color: #990; }
+.fourc2     { background-color: #F7FF97; }
 .fourc2dark { background-color: #554; }
-.fourc3     { background-color: #11d; }
+.fourc3     { background-color: #97B5FF; }
 .fourc3dark { background-color: #445; }
 /*calendar heading row (days of week) */
 #calendar .heading {
