@@ -8930,6 +8930,7 @@ td.nested {
     padding: 0px;
     background: #ddd;
 }*/
+
 /* Calendar styes */
 #calendar {
   clear: both;
@@ -9024,6 +9025,7 @@ td.nested {
     font-family: Verdana;
     font-size:11px;
 }*/
+
 /*greyed calendar box for days before and after current month*/
 td.calOut {
     background: #E8E8E8;
