@@ -206,6 +206,10 @@ function fill()
 					show = (myevent.type == 9);
 				else if(txt == "10")
 					show = (myevent.type == 10);
+				else if(txt == "11")
+					show = (myevent.type == 11);
+				else if(txt == "12")
+					show = (myevent.type == 12);
 				else if(txt == "7")
 					show = (myevent.type != 1 && myevent.type != 2 && myevent.type != 5 && myevent.type != 6 && myevent.type != 9);
 				else if(txt == "myEvents")
@@ -265,6 +269,8 @@ show_calendarheader($head, 'fill()');
 	<option value="7" <?php echo ($filter==7)?'selected':'' ?>>Leadership</option>
 	<option value="9" <?php echo ($filter==9)?'selected':'' ?>>C/A/W Hours</option>
 	<option value="10" <?php echo ($filter==10)?'selected':'' ?>>Interviews</option>
+	<option value="11" <?php echo ($filter==11)?'selected':'' ?>>Fundraisers</option>
+	<option value="12" <?php echo ($filter==12)?'selected':'' ?>>PSFC</option>
 </select>
 </div></form>
 
