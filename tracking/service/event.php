@@ -96,7 +96,7 @@ function show_usersTrack($users, $name)
 if(!isset($event))
 {
 	// get service events
-	$list = getEvents(1, true);
+	$list = array_reverse(getEvents(1, true));
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/service/event.php">
 	<select name="event" size="1">
