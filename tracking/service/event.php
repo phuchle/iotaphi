@@ -96,7 +96,7 @@ function show_usersTrack($users, $name)
 if(!isset($event))
 {
 	// get service events
-	$list = array_reverse(getEvents(1, true));
+	$list = array_reverse(getEvents(1, true)); // events are listed new to old
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/service/event.php">
 	<select name="event" size="1">

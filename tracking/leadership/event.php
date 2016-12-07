@@ -76,7 +76,8 @@ function show_usersTrack($users, $name)
 if(!isset($event))
 {
 	// get leadership events
-	$list = getEvents(7, true); 
+	// listed new to old
+	$list = array_reverse(getEvents(7, true)); 
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/leadership/event.php">
 	<select name="event" size="1">

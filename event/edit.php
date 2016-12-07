@@ -1,6 +1,6 @@
 <?php 
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
-// include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
+include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/event.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 
@@ -50,8 +50,11 @@ function show_eventModify($new, $maybe)
 ?>
 	<form name="event" onsubmit="return valid(this)" 
         method="POST" action="/inputAdmin.php">
-	<?php forms_hiddenInput($new ? "eventCreate" : "eventUpdate", 
-                        "/calendar.php"); ?>
+
+	<?php
+		forms_hiddenInput($new ? "eventCreate" : "eventUpdate", "/calendar.php"); 
+	?>
+	
 	<?php forms_hidden('event_id', $maybe['id']); ?>
 	
 	<table id="eventTable" class="table table-condensed table-bordered">
@@ -173,6 +176,14 @@ function show_eventModify($new, $maybe)
 		<td>
 			<?php forms_radio('fund', '0', ($maybe['fund']==false) ) ?>No&nbsp;&nbsp;&nbsp;&nbsp;
 			<?php forms_radio('fund', '1', ($maybe['fund']==true) ) ?>Yes!
+		</td>
+		<td></td>
+	</tr>	
+	<tr>
+		<th>Fellowboat<br></th>
+		<td>
+			<?php forms_radio('fellowboat', '0', ($maybe['fellowboat']==false) ) ?>No&nbsp;&nbsp;&nbsp;&nbsp;
+			<?php forms_radio('fellowboat', '1', ($maybe['fellowboat']==true) ) ?>Yes!
 		</td>
 		<td></td>
 	</tr>

@@ -14,7 +14,7 @@ get_header();
 if($class != 'admin')
 	show_note('You must be an administrator to access this page.');
 
-//create or update?
+//create or update event?
 if($page == 'update')
 {
 	include_once (dirname(dirname(__FILE__))) . '/include/signup.inc.php';

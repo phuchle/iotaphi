@@ -85,7 +85,8 @@ function show_usersTrack($users, $name)
 if(!isset($event))
 {
 	// get fellowship events
-	$list = getEvents(2, true); 
+	// listed new to old
+	$list = array_reverse(getEvents(2, true)); 
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/fellowship/event.php">
 	<select name="event" size="1">

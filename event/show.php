@@ -117,6 +117,10 @@ if($event_id) {
 	if($class=='service')
 		$modifiable = true;
 
+	//Added 12/6/16 for Fellowship to modify fellowboats
+	if($class=='fellowship')
+		$modifiable = true;
+
 	$event = event_get($event_id); 
 	$shifts = shift_getAll($event_id);
 
@@ -147,6 +151,13 @@ if($event_id) {
 		// get shifts, if found show signups/attendance
 		show_signup($event, $class, $id);
 	}
+
+	// 12/6/16 add to grant permissions for fellowboats
+	if($class=='fellowship')
+	{
+		show_signup($event, $class, $id);
+	}
+
 }
 
 
@@ -237,7 +248,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
     
     // evaluate the conditions on which to display certain 
     // information and controls
-    $type = ($event['ic']==1?"IC ":"") . $event["type"];
+    $type = ($event['ic'] == 1 ? "IC " : "") . $event["type"];
     $num = 7;
     if($event['type']=="Service")
 	{
@@ -514,6 +525,12 @@ function show_shifts($event, $shifts, $class, $user_id)
 		$signup_days = INTERVIEWS_SIGNUP_DAYS;
 		$remove_days = INTERVIEWS_REMOVE_DAYS;
 		$modifiable = ($class=='admin');
+	}
+	elseif ($event['type']=='Fellowship')
+	{
+		$signup_days = INTERVIEWS_SIGNUP_DAYS;
+		$remove_days = INTERVIEWS_REMOVE_DAYS;
+		$modifiable = ($class=='admin' || $class=='fellowship');
 	}
 	else {
 		$modifiable = ($class=='admin');
@@ -945,7 +962,7 @@ function show_signup($event, $class, $user_id)
 			$signup_days = SIGNUP_DAYS;
 			$remove_days = REMOVE_DAYS;
 		}
-		elseif ($event['type']=='Interviews')
+		elseif ($event['type']=='Interviews' || $event['type']=='Fellowship')
 		{
 			$signup_days = INTERVIEWS_SIGNUP_DAYS;
 			$remove_days = INTERVIEWS_REMOVE_DAYS;

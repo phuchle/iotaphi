@@ -7,6 +7,7 @@ function event_getSignedUp($user)
 		. ' UNIX_TIMESTAMP(event_date) AS date, '
 		. ' event_ic AS ic, '
 		. ' event_fund AS fund, '
+		. ' event_fellowboat AS fellowboat, '
 		. ' event.event_id AS event, '
 		. ' shift_start AS start, '
 		. ' shift_end AS end, '
@@ -23,6 +24,7 @@ function event_getSignedUp($user)
 		. ' UNIX_TIMESTAMP(event_date) AS date, '
 		. ' event_ic AS ic, '
 		. ' event_fund AS fund, '
+		. ' event_fellowboat AS fellowboat, '
 		. ' event.event_id AS event, '
 		. ' event_date AS start, '
 		. ' event_enddate AS end, '
@@ -72,7 +74,7 @@ function event_getMonth($year, $month, $user = NULL)
 	//	ORDER BY event_date
 	
 	$sql = 'SELECT event_id AS id, event_name AS name, '
-	. ' UNIX_TIMESTAMP(event_date) AS date, eventtype_id AS type, event_ic as ic, event_fund as fund ';
+	. ' UNIX_TIMESTAMP(event_date) AS date, eventtype_id AS type, event_ic as ic, event_fund as fund, event_fellowboat as fellowboat ';
 	
 	if ($user === NULL)	
 		$sql .= ' FROM event ';
@@ -93,13 +95,13 @@ function event_getMonth($year, $month, $user = NULL)
 	return db_select($sql);
 }
 
-function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $location, $address, $map, $mileage, $description, $contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot)
+function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fellowboat, $location, $address, $map, $mileage, $description, $contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot)
 {
 	// parameter validation!
 	$query = 'INSERT INTO event(event_id, event_name, event_date, '
-		. ' event_enddate, eventtype_id, event_ic,event_fund, event_location , event_address , event_map , event_mileage, event_description, event_contact, event_custom1, event_custom2, event_custom3, event_custom4, event_custom5, event_hot) '
+		. ' event_enddate, eventtype_id, event_ic,event_fund, event_fellowboat, event_location , event_address , event_map , event_mileage, event_description, event_contact, event_custom1, event_custom2, event_custom3, event_custom4, event_custom5, event_hot) '
 		. " VALUES ('', '$name',FROM_UNIXTIME('$timestamp'), "
-		. " FROM_UNIXTIME('$endtimestamp'),'$type','$ic','$fund','$location', '$address' , '$map','$mileage','$description', '$contact', '$custom1', '$custom2', '$custom3', '$custom4', '$custom5', '$hot')";
+		. " FROM_UNIXTIME('$endtimestamp'),'$type','$ic','$fund','$fellowboat' , '$location', '$address' , '$map','$mileage','$description', '$contact', '$custom1', '$custom2', '$custom3', '$custom4', '$custom5', '$hot')";
 	
 	mysql_query($query) or die("Query failed =(");
 	
@@ -112,6 +114,7 @@ function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $locatio
 		. " eventtype_id = '$type' and "
 		. " event_ic = '$ic' and "
 		. " event_fund = '$fund' and "
+		. " event_fellowboat = '$fellowboat' and "
 		. " event_location = '$location' and "
 		. " event_map = '$map' AND "
 		. " event_mileage = '$mileage' AND "
@@ -132,7 +135,7 @@ function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $locatio
 	return $line['id'];
 } 
 
-function event_update($name, $timestamp, $endtimestamp, $type, $ic, $fund, $location, $address, $map, $mileage, $description, $id, $contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot)
+function event_update($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fellowboat, $location, $address, $map, $mileage, $description, $id, $contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot)
 {
 	// parameter validation!
 	
@@ -142,6 +145,7 @@ function event_update($name, $timestamp, $endtimestamp, $type, $ic, $fund, $loca
 		. " eventtype_id = '$type', "
 		. " event_ic = '$ic', "
 		. " event_fund = '$fund', "
+		. " event_fellowboat = '$fellowboat', "
 		. " event_location = '$location', "
 		. " event_address = '$address', "
 		. " event_map = '$map', "
@@ -202,7 +206,7 @@ function event_get($id)
 	$query = 'SELECT e.event_id AS id, e.event_name AS name, e.event_location AS location, '
 	. ' e.event_description AS description, '
 	. ' UNIX_TIMESTAMP(e.event_date) AS date, UNIX_TIMESTAMP(e.event_enddate) AS enddate, '
-	. ' t.eventtype_name AS type, t.eventtype_id AS typeid, e.event_ic as ic, e.event_fund as fund, e.event_contact as contact, '
+	. ' t.eventtype_name AS type, t.eventtype_id AS typeid, e.event_ic as ic, e.event_fund as fund, e.event_fellowboat as fellowboat, e.event_contact as contact, '
 	. ' e.event_address AS address, '
 	. ' e.event_mileage AS mileage, '
 	. ' e.event_custom1 AS custom1, e.event_custom2 AS custom2, e.event_custom3 AS custom3, e.event_custom4 AS custom4, e.event_custom5 AS custom5, '
@@ -216,7 +220,7 @@ function event_get($id)
 // Returns true if event type should have multiple shifts and shifts should be modifiable by ExComm.
 function event_multipleShifts($event) {
 	//if ($event['type']=='Service' || $event['type']=='Interviews' || $event['type']=='Leadership' || $event['ic'] == true) {
-	if ($event['type']=='Service' || $event['type']=='Interviews' || $event['type']=='Leadership') {
+	if ($event['type']=='Service' || $event['type']=='Interviews' || $event['type']=='Leadership' || $event['type'] == 'Fellowship') {
 		return true;
 	} else {
 		return false;

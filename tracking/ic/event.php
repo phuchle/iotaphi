@@ -84,7 +84,8 @@ function show_usersTrack($users, $name)
 if(!isset($event))
 {
 	// get ic events
-	$list = getEvents('*', true); 
+	// listed new to old
+	$list = array_reverse(getEvents('*', true)); 
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/ic/event.php">
 	<select name="event" size="1">

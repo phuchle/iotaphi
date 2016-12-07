@@ -13,7 +13,7 @@ if($action == 'eventCreate' or $action == 'eventUpdate')
 	if($hot!=1)
 		$hot=0;
 
-	if(isset($name, $date, $time, $type, $ic, $fund, $location, $mileage, $description, $custom1, $custom2, $custom3, $custom4, $custom5, $hot))
+	if(isset($name, $date, $time, $type, $ic, $fund, $fellowboat, $location, $mileage, $description, $custom1, $custom2, $custom3, $custom4, $custom5, $hot))
 	{
 		include_once 'include/event.inc.php';
 		// format inputs for database
@@ -23,14 +23,23 @@ if($action == 'eventCreate' or $action == 'eventUpdate')
 		$endtimestamp = strtotime("+$hour hours $minutes minutes", $timestamp);
 		
 		if($action=='eventUpdate') {
-			event_update($name,$timestamp,$endtimestamp,$type,$ic, $fund, $location, $address, $map,$mileage,$description,$event_id,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
+			event_update($name,$timestamp,$endtimestamp,$type,$ic, $fund, $fellowboat, $location, $address, $map,$mileage,$description,$event_id,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
 		}
 		elseif($action=='eventCreate') {
-			$event_id = event_add($name,$timestamp,$endtimestamp,$type,$ic, $fund, $location, $address, $map, $mileage,$description,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
+			$event_id = event_add($name,$timestamp,$endtimestamp,$type,$ic, $fund, $fellowboat, $location, $address, $map, $mileage,$description,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
 			
-			// If created event type doesn't have multiple shifts, automatically create a shift
 			include_once 'include/signup.inc.php';
-			if (!event_multipleShiftsNumeric($type)) {		
+			// If fellowboat, automatically create shift with cap of 10 people
+			if ($fellowboat == 1) {
+				// format inputs for database
+				$start_time = date('H:i:00', strtotime("$time"));
+				$end_time = date('H:i:00', strtotime("+$hour hours $minutes minutes", strtotime("$time")));
+
+				shift_add($event_id, $start_time, $end_time, 10, '');
+			}
+			// If created event type doesn't have multiple shifts, automatically create a shift
+			// fellowboats excluded
+			elseif (!event_multipleShiftsNumeric($type)) {		
 				shift_add($event_id,'00:00:00','00:00:00',0,'');
 			}
 		}	

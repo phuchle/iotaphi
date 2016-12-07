@@ -96,7 +96,8 @@ if(!isset($event))
 {
 
 	// get caw events
-	$list = getEvents(9, false); 
+	// listed new to old
+	$list = array_reverse(getEvents(9, false)); 
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/caw/event.php">
 	<select name="event" size="1">

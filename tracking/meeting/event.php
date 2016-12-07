@@ -28,7 +28,8 @@ if ( !( ($temp == 'recsecs' || $temp == 'admin') && $class=='admin') )
 if(!isset($event))
 {
 	// get meetings
-	$list = getEvents(6, false);
+	// listed new to old
+	$list = array_reverse(getEvents(6, false));
 
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/meeting/event.php">
