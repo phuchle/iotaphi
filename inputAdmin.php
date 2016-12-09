@@ -10,38 +10,44 @@ extract($_POST);
 
 if($action == 'eventCreate' or $action == 'eventUpdate')
 {
-	if($hot!=1)
-		$hot=0;
+	if($hot!=1) { $hot=0; }
 
 	if(isset($name, $date, $time, $type, $ic, $fund, $location, $mileage, $description, $custom1, $custom2, $custom3, $custom4, $custom5, $hot))
 	{
 		include_once 'include/event.inc.php';
-		// format inputs for database
-		$timestamp = strtotime("$date $time");
-		$hour = date('H',strtotime($duration));
-		$minutes = date('i',strtotime($duration));
-		$endtimestamp = strtotime("+$hour hours $minutes minutes", $timestamp);
-		
-		if($action=='eventUpdate') {
-			event_update($name,$timestamp,$endtimestamp,$type,$ic, $fund, $location, $address, $map,$mileage,$description,$event_id,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
-		}
-		elseif($action=='eventCreate') {
-			$event_id = event_add($name,$timestamp,$endtimestamp,$type,$ic, $fund, $location, $address, $map, $mileage,$description,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
+
+		foreach ($date as $index => $date) 
+		{
+			// format inputs for database
+			$timestamp = strtotime("$date $time");
+			$hour = date('H',strtotime($duration));
+			$minutes = date('i',strtotime($duration));
+			$endtimestamp = strtotime("+$hour hours $minutes minutes", $timestamp);
 			
-			// If created event type doesn't have multiple shifts, automatically create a shift
-			include_once 'include/signup.inc.php';
-			if (!event_multipleShiftsNumeric($type)) {		
-				shift_add($event_id,'00:00:00','00:00:00',0,'');
+			if($action=='eventUpdate') {
+				event_update($name,$timestamp,$endtimestamp,$type,$ic, $fund, $location, $address, $map,$mileage,$description,$event_id,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
 			}
-		}	
-		
-		// as long as four Cs are needed and service is type 1
-		if($type==1)
-			fourc_set($event_id,$c);
-	} else {
-		show_note('Error updating or creating event: one of the required fields was left blank.');
+			elseif($action=='eventCreate') {
+				$event_id = event_add($name,$timestamp,$endtimestamp,$type,$ic, $fund, $location, $address, $map, $mileage,$description,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
+				
+				// If created event type doesn't have multiple shifts, automatically create a shift
+				include_once 'include/signup.inc.php';
+				if (!event_multipleShiftsNumeric($type)) {		
+					shift_add($event_id,'00:00:00','00:00:00',0,'');
+				}
+			}	
+			
+			// as long as four Cs are needed and service is type 1
+			if($type==1) {
+				fourc_set($event_id,$c);
+			}
+		}		
+	}
+	else {
+				show_note('Error updating or creating event: one of the required fields was left blank.');
 	}
 }
+
 elseif($action == 'eventDelete')
 {
 	include_once 'include/event.inc.php';

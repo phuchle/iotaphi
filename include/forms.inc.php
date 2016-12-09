@@ -52,7 +52,7 @@ function forms_textarea($name, $default = '')
 
 function forms_date($name, $default, $form)
 {
-	echo "<input name=\"$name\" type=\"text\" size=\"10\" id=\"date\" maxlength=\"10\" value=\"$default\" />\n"; 
+	echo "<input name=\"$name\" type=\"text\" size=\"10\" id=\"date[]\" maxlength=\"10\" value=\"$default\" />\n"; 
 
 	/** script/cal.js isn't there
 
@@ -78,12 +78,6 @@ function forms_date($name, $default, $form)
 	**/
 	?>
 	<?php 
-}
-
-
-function forms_multiple_dates($name, $default, $form)
-{
-	echo "<input name=\"date[]\" type=\"text\" size=\"10\" id=\"date\" maxlength=\"10\" value=\"$default\" />\n"; 
 }
 
 function forms_time($name, $default = '')

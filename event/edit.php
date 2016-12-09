@@ -56,7 +56,7 @@ function show_eventModify($new, $event)
 		var date_container = document.getElementById('event_date_fields');
 		
 		var newSpan = document.createElement('span');
-		newSpan.innerHTML = '<br/> <input name="date[val][]" type="text" size="10" maxlength="10" value="" /> ';
+		newSpan.innerHTML = '<br/> <input name="date[]" type="text" size="10" id="date[]" maxlength="10"> ';
 
 		date_container.appendChild(newSpan);
 	}
@@ -81,7 +81,7 @@ function show_eventModify($new, $event)
 		<th>Date<br></th>
 		<td id="event_date_fields">
 		<!-- date[] will POST as 'date' => date[0], date[1], etc  -->
-			 <?php forms_date('date[val][]',$event['date'],'event.date') ?>
+			 <?php forms_date('date[]',$_GET["date"],'event.date') ?>
 		</td>
 		<td>MM/DD/YYYY<br>eg 09/12/2004</td>
 	</tr>
@@ -256,7 +256,8 @@ if($page == "update"):
 	show_eventModify(false,$defaults);
 elseif($page == "create"):
 	$defaults = array();
-	$defaults['date'] = $eventDate;
+	// removed so that an array of dates can be POSTed rather than just 1 date
+	// $defaults['date'] = $eventDate;
 	show_eventModify(true,$defaults);
 endif;
 
