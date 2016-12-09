@@ -53,10 +53,12 @@ function forms_textarea($name, $default = '')
 function forms_date($name, $default, $form)
 {
 	echo "<input name=\"$name\" type=\"text\" size=\"10\" id=\"date\" maxlength=\"10\" value=\"$default\" />\n"; 
-	?>
+
+	/** script/cal.js isn't there
+
 	<script language="JavaScript" type="text/javascript" SRC="/script/cal.js"> </script>
 	<script language="JavaScript" type="text/javascript">
-	<!--!
+
 	var cal = new CalendarPopup("calendardiv");
 	cal.setDateFormat('MM/dd/yyyy');
 	cal.setParseDateFormat('M/d/y');
@@ -71,9 +73,17 @@ function forms_date($name, $default, $form)
 	'name="anchor0" id="anchor0">' +
 	'<img src="/images/calendar.gif" width="34" height="21" alt="Click this calendar to choose a date." />' +
 	'</a>');
-	//-->
+
 	</script>
+	**/
+	?>
 	<?php 
+}
+
+
+function forms_multiple_dates($name, $default, $form)
+{
+	echo "<input name=\"date[]\" type=\"text\" size=\"10\" id=\"date\" maxlength=\"10\" value=\"$default\" />\n"; 
 }
 
 function forms_time($name, $default = '')

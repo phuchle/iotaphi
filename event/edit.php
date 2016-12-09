@@ -48,6 +48,20 @@ function show_eventModify($new, $event)
 		$event['custom5'] = "";
 	endif;
 ?>
+
+<script type="text/javascript">
+	// adds date fields to allow adding multiple events at once
+	// Added by Phuc Le Dec. 2016
+	function addDate() {
+		var date_container = document.getElementById('event_date_fields');
+		
+		var newSpan = document.createElement('span');
+		newSpan.innerHTML = '<br/> <input name="date[val][]" type="text" size="10" maxlength="10" value="" /> ';
+
+		date_container.appendChild(newSpan);
+	}
+</script>
+
 	<form name="event" onsubmit="return valid(this)" 
         method="POST" action="/inputAdmin.php">
 	<?php forms_hiddenInput($new ? "eventCreate" : "eventUpdate", 
@@ -65,8 +79,16 @@ function show_eventModify($new, $event)
 	</tr>
 	<tr>
 		<th>Date<br></th>
-		<td><?php forms_date('date',$event['date'],'event.date') ?></td>
+		<td id="event_date_fields">
+		<!-- date[] will POST as 'date' => date[0], date[1], etc  -->
+			 <?php forms_date('date[val][]',$event['date'],'event.date') ?>
+		</td>
 		<td>MM/DD/YYYY<br>eg 09/12/2004</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" class="btn btn-small"" onclick = "addDate();" value="Add Another Date" />
+		</td>
 	</tr>
 	<tr>
 		<th>Time<br></th>
