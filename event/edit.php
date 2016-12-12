@@ -8,54 +8,68 @@ $page = $_GET['page'];
 $event_id = $_GET['event_id'];
 
 if(isset($_GET["date"]))
-	$maybeDate = $_GET["date"];
+	$eventDate = $_GET["date"];
 else
-	$maybeDate = "";
+	$eventDate = "";
 
 if(isset($_SESSION['class']))
 	$class = $_SESSION['class'];
 
 get_header();
 
-// must take an array for $maybe
-// $maybe is array of columns in the event database table
+// must take an array for $event
+// $event is array of columns in the event database table
 // this func is called at the bottom of this file
-function show_eventModify($new, $maybe)
+function show_eventModify($new, $event)
 { 
 	// fill maybe with event info
 	if($new==false):
-		$maybe = event_get($maybe['id']);
-		$maybe['time'] = date('g:ia',$maybe['date']);
-		$seconds = $maybe['enddate'] - $maybe['date'];
+		$event = event_get($event['id']);
+		$event['time'] = date('g:ia',$event['date']);
+		$seconds = $event['enddate'] - $event['date'];
 		$minutes = (int)($seconds / 60);
 		$hours = (int)($minutes / 60);
 		$minutes %= 60;
 		if($minutes<10)
 			$minutes = '0'.$minutes;
-		$maybe['duration'] = $hours . ':' . $minutes;
-		$maybe['date'] = date("m/d/Y",$maybe['date']);
-		$maybe['c'] = fourC_get($maybe['id']);
+		$event['duration'] = $hours . ':' . $minutes;
+		$event['date'] = date("m/d/Y",$event['date']);
+		$event['c'] = fourC_get($event['id']);
 	else:
-		$maybe['duration'] = '0:00';
-		$maybe['description'] = "";
-		$maybe['location'] = "";
-		$maybe['mileage'] = 0;
-		$maybe['contact'] = "";
-		$maybe['custom1'] = "";
-		$maybe['custom2'] = "";
-		$maybe['custom3'] = "";
-		$maybe['custom4'] = "";
-		$maybe['custom5'] = "";
+		$event['duration'] = '0:00';
+		$event['description'] = "";
+		$event['location'] = "";
+		$event['mileage'] = 0;
+		$event['contact'] = "";
+		$event['custom1'] = "";
+		$event['custom2'] = "";
+		$event['custom3'] = "";
+		$event['custom4'] = "";
+		$event['custom5'] = "";
 	endif;
 ?>
+
+<script type="text/javascript">
+	// adds date fields to allow adding multiple events at once
+	// Added by Phuc Le Dec. 2016
+	function addDate() {
+		var date_container = document.getElementById('event_date_fields');
+		
+		var newSpan = document.createElement('span');
+		newSpan.innerHTML = '<br/> <input name="date[]" type="text" size="10" id="date[]" maxlength="10"> ';
+
+		date_container.appendChild(newSpan);
+	}
+</script>
+
 	<form name="event" onsubmit="return valid(this)" 
         method="POST" action="/inputAdmin.php">
 
 	<?php
 		forms_hiddenInput($new ? "eventCreate" : "eventUpdate", "/calendar.php"); 
 	?>
-	
-	<?php forms_hidden('event_id', $maybe['id']); ?>
+
+	<?php forms_hidden('event_id', $event['id']); ?>
 	
 	<table id="eventTable" class="table table-condensed table-bordered">
 	<tr>
@@ -63,23 +77,31 @@ function show_eventModify($new, $maybe)
 	</tr>
 	<tr>
 		<th>Name<br></th>
-		<td><?php forms_text_required(40,"name",$maybe['name']); ?></td>
+		<td><?php forms_text_required(40,"name",$event['name']); ?></td>
 		<td></td>
 	</tr>
 	<tr>
 		<th>Date<br></th>
-		<td><?php forms_date('date',$maybe['date'],'event.date') ?></td>
+		<td id="event_date_fields">
+		<!-- date[] will POST as 'date' => date[0], date[1], etc  -->
+			 <?php forms_date('date[]',$_GET["date"],'event.date') ?>
+		</td>
 		<td>MM/DD/YYYY<br>eg 09/12/2004</td>
 	</tr>
 	<tr>
+		<td>
+			<input type="button" class="btn btn-small"" onclick = "addDate();" value="Add Another Date" />
+		</td>
+	</tr>
+	<tr>
 		<th>Time<br></th>
-		<td><?php forms_time("time",$maybe['time']) ?></td>
+		<td><?php forms_time("time",$event['time']) ?></td>
 		<td>HH:MM (am|pm)<br>eg 12:34pm</td>
 	</tr>
 	<tr>
 		<th>Duration<br></th>
 		<td>
-			<?php forms_duration('duration',$maybe['duration']) ?>
+			<?php forms_duration('duration',$event['duration']) ?>
 		</td>
 		<td>H:MM<br>eg 1:30<br>(0:00 is unspecified)</td>
 	</tr>
@@ -87,7 +109,7 @@ function show_eventModify($new, $maybe)
 		<th>Location<br></th>
 		<td>
 			<?php forms_textarea('location',
-                    str_replace("\n",'',$maybe['location'])) ?>
+                    str_replace("\n",'',$event['location'])) ?>
 		<td>
 		</td>
 	</tr>
@@ -95,23 +117,23 @@ function show_eventModify($new, $maybe)
 		<th>Address [for driving directions]<br /></th>
 		<td>
 			<?php forms_textarea('address',
-                    str_replace("\n",'',$maybe['address'])) ?>
+                    str_replace("\n",'',$event['address'])) ?>
 		</td>
 	</tr>
 	<tr>
 		<th>Map<br></th>
 		<td>
-			<? forms_textarea('map',str_replace("\n",'',$maybe['map']));
+			<? forms_textarea('map',str_replace("\n",'',$event['map']));
 			?>
 		<td></td>
 	</tr>
 <?php
-	if ($new || $maybe['type'] == 'Service' || $maybe['type'] == 'Fellowship')
+	if ($new || $event['type'] == 'Service' || $event['type'] == 'Fellowship')
 	{ ?>
 	<tr>
 		<th>Trip Mileage<br></th>
 		<td>
-			<?php forms_text(4,"mileage",$maybe['mileage']); ?> miles
+			<?php forms_text(4,"mileage",$event['mileage']); ?> miles
 		</td>
 		<td></td>
 	</tr>
@@ -122,7 +144,9 @@ function show_eventModify($new, $maybe)
 ?>
 	<tr>
 		<script type="text/javascript">
-		var oldValue = <?php echo $maybe['typeid']?$maybe['typeid']:'1' ?>;
+		var oldValue = <?php echo $event['typeid']?$event['typeid']:'1' ?>;
+
+		// shows or hides the four Cs of service
 		function fourC()
 		{
 			var mySelect = document.getElementById('eventTypeSelect');
@@ -145,7 +169,7 @@ function show_eventModify($new, $maybe)
 		$types = eventtype_getAll();
 		foreach($types as $line)
 		{ 
-			$selected = ($maybe['typeid']==$line['id']?'selected':'');
+			$selected = ($event['typeid']==$line['id']?'selected':'');
 			echo "<option $selected value=\"{$line['id']}\">{$line['name']}</option>";
 		} ?>
 		</select></td>
@@ -154,10 +178,10 @@ function show_eventModify($new, $maybe)
 	<tr>
 		<th>Four C's</th>
 		<td name="fourCSelect">
-			<?php forms_radio('c','0', ($maybe['c']=='Chapter')) ?>Chapter
-			<?php forms_radio('c','1', ($maybe['c']=='Campus')) ?>Campus
-			<?php forms_radio('c','2', ($maybe['c']=='Community')) ?>Community
-			<?php forms_radio('c','3', ($maybe['c']=='Country')) ?>Country
+			<?php forms_radio('c','0', ($event['c']=='Chapter')) ?>Chapter
+			<?php forms_radio('c','1', ($event['c']=='Campus')) ?>Campus
+			<?php forms_radio('c','2', ($event['c']=='Community')) ?>Community
+			<?php forms_radio('c','3', ($event['c']=='Country')) ?>Country
 		</td>
 	</tr>
 	<script type="text/javascript">
@@ -166,16 +190,16 @@ function show_eventModify($new, $maybe)
 	<tr>
 		<th>IC<br></th>
 		<td>
-			<?php forms_radio('ic', '0', ($maybe['ic']==false) ) ?>No&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php forms_radio('ic', '1', ($maybe['ic']==true) ) ?>Yes!
+			<?php forms_radio('ic', '0', ($event['ic']==false) ) ?>No&nbsp;&nbsp;&nbsp;&nbsp;
+			<?php forms_radio('ic', '1', ($event['ic']==true) ) ?>Yes!
 		</td>
 		<td></td>
 	</tr>
 	<tr>
 		<th>Fundraiser<br></th>
 		<td>
-			<?php forms_radio('fund', '0', ($maybe['fund']==false) ) ?>No&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php forms_radio('fund', '1', ($maybe['fund']==true) ) ?>Yes!
+			<?php forms_radio('fund', '0', ($event['fund']==false) ) ?>No&nbsp;&nbsp;&nbsp;&nbsp;
+			<?php forms_radio('fund', '1', ($event['fund']==true) ) ?>Yes!
 		</td>
 		<td></td>
 	</tr>	
@@ -190,25 +214,25 @@ function show_eventModify($new, $maybe)
 	<tr>
 		<th>Description<br></th>
 		<td>
-			<?php forms_textarea('description',str_replace("\n",'',$maybe['description'])) ?>
+			<?php forms_textarea('description',str_replace("\n",'',$event['description'])) ?>
 		</td>
 		<td></td>
 	</tr>
 	<tr>
 		<th>Event Contact<br></th>
 		<td>
-			<?php forms_textarea('contact',str_replace("\n",'',$maybe['contact'])) ?>
+			<?php forms_textarea('contact',str_replace("\n",'',$event['contact'])) ?>
 		</td>
 		<td></td>
 	</tr>
 	<tr>
 		<th>Additional Info</th>
 		<td>
-			<?php forms_text(50,"custom1",$maybe['custom1']); ?><br />
-			<?php forms_text(50,"custom2",$maybe['custom2']); ?><br />
-			<?php forms_text(50,"custom3",$maybe['custom3']); ?><br />
-			<?php forms_text(50,"custom4",$maybe['custom4']); ?><br />
-			<?php forms_text(50,"custom5",$maybe['custom5']); ?>
+			<?php forms_text(50,"custom1",$event['custom1']); ?><br />
+			<?php forms_text(50,"custom2",$event['custom2']); ?><br />
+			<?php forms_text(50,"custom3",$event['custom3']); ?><br />
+			<?php forms_text(50,"custom4",$event['custom4']); ?><br />
+			<?php forms_text(50,"custom5",$event['custom5']); ?>
 		</td>
 		<td>Additional info you want from people when they sign up.<br />
 			eg What time can you leave?<br />
@@ -218,7 +242,7 @@ function show_eventModify($new, $maybe)
 	<tr>
 		<th>So Hot Right Now</th>
 		<td>
-			<?php forms_checkbox('hot',1,($maybe['hot']==1)); ?>
+			<?php forms_checkbox('hot',1,($event['hot']==1)); ?>
 		</td>
 		<td>This event is sooo hot right now! (It will be linked from the home page.)
 		</td>
@@ -243,7 +267,8 @@ if($page == "update"):
 	show_eventModify(false,$defaults);
 elseif($page == "create"):
 	$defaults = array();
-	$defaults['date'] = $maybeDate;
+	// removed so that an array of dates can be POSTed rather than just 1 date
+	// $defaults['date'] = $eventDate;
 	show_eventModify(true,$defaults);
 endif;
 

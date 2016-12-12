@@ -95,6 +95,7 @@ function event_getMonth($year, $month, $user = NULL)
 	return db_select($sql);
 }
 
+
 function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fellowboat, $location, $address, $map, $mileage, $description, $contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot)
 {
 	// parameter validation!
