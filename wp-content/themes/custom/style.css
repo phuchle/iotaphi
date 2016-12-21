@@ -9113,6 +9113,10 @@ div.notice {
   overflow: hidden;
 }
 
+.calborder form {
+  margin-bottom: 0;
+}
+
 .center{
   text-align: center;
 }
