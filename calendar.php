@@ -299,7 +299,7 @@ if ( isset( $_SESSION['id'] ) )
 
 <div  class="row-fluid">
 	<div class="span12 calborder">
-	<div class="span3 visible-desktop">
+	<div class="span3">
 		<select name="filters" onchange="fill()" class="span8 ">
 			<option value="0" <?php echo ($filter==0)?'selected':'' ?>>All Events except C/A/W hours</option>
 			<option value="myEvents" <?php echo ($filter=='myEvents')?'selected':'' ?>>My Events</option>

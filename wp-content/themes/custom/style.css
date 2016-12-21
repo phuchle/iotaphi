@@ -9108,8 +9108,9 @@ div.notice {
 .calborder{
   border: 1px solid lightgray;
   padding: 10px;
-  height: 53px;
+  height: auto;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .center{
