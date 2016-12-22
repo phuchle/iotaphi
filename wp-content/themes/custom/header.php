@@ -13,6 +13,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <script src="/script/bootstrap.min.js"></script>
+<script src="/js/mobile_menu.js"></script>
 <script type="text/javascript">
 <!--
 if (screen.width <= 699) {
@@ -49,28 +50,28 @@ document.location = "/mobile";
 	      else{
 	      	echo '<div id="header" class="container">'				
 			.'<a href="http://www.iotaphi.org"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" /></a>'
-			.'<div id="access" role="navigation" >';
+			.'<div id="access" role="navigation">';
 	      }
 	?>
 						
 	<?php
 	/* adding the menu swap here */
 	if($_SESSION['class'] == 'admin') { 
-		 wp_nav_menu( array( 'container_class' => 'menu-header', 'menu' => 'Excomm' , 'theme_location' => 'primary' ) );
+		 wp_nav_menu( array( 'container_class' => 'menu-header', 'menu' => 'Excomm' , 'theme_location' => 'primary', 'container_id' => 'cssmenu', 'walker' => new CSS_Menu_Walker() ) );
 	}
 	elseif(isset($_SESSION['id'])) {
 	 // if they are logged in
-	 wp_nav_menu( array( 'container_class' => 'menu-header', 'menu' => 'Logged_In' , 'theme_location' => 'primary' ) );
+	 wp_nav_menu( array( 'container_class' => 'menu-header', 'menu' => 'Logged_In' , 'theme_location' => 'primary', 'container_id' => 'cssmenu', 'walker' => new CSS_Menu_Walker() ) );
 	} 
 	///// Added 02/15/2014
 	elseif(is_page('sectionals')){ //check the current page you are viewing and see if it is the one specified
 	 //if they are viewing the sectionals page
-	 wp_nav_menu( array( 'container_class' => 'menu-header', 'menu' => 'Sectionals' , 'theme_location' => 'primary' ) );
+	 wp_nav_menu( array( 'container_class' => 'menu-header', 'menu' => 'Sectionals' , 'theme_location' => 'primary', 'container_id' => 'cssmenu', 'walker' => new CSS_Menu_Walker() ) );
 	}
 	/////
 	else {
 	 // they are not logged in
-	 wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) );
+	 wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'container_id' => 'cssmenu', 'walker' => new CSS_Menu_Walker() ) );
 	}
 	
 	?>
