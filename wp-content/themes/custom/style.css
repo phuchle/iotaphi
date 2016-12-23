@@ -7503,7 +7503,7 @@ header{
   width: 100%;
   margin: 0 auto;
   background-color: white;
-  height: 46px;
+  height: auto;
   border-bottom: 3px solid #414141;
 }
 
@@ -9247,6 +9247,7 @@ only screen and (max-width: 760px),
   padding: 0;
   line-height: 1;
   display: block;
+  z-index: 1;
   position: relative;
   /*font-family: 'PT Sans', sans-serif;*/
   -webkit-box-sizing: content-box;
@@ -9326,7 +9327,7 @@ only screen and (max-width: 760px),
   height: 0;
   width: 0;
   border: 3px solid transparent;
-  border-left-color: #ffffff;
+  border-left-color: #f2f2f2;
   z-index: 2;
   top: 15px;
   right: 15px;
@@ -9335,7 +9336,7 @@ only screen and (max-width: 760px),
   right: auto;
   left: 15px;
   border-left-color: transparent;
-  border-right-color: #ffffff;
+  border-right-color: #f2f2f2;
 }
 /* sub-menu links */
 #cssmenu ul li ul li a {
@@ -9402,7 +9403,7 @@ only screen and (max-width: 760px),
   width: 100%;
   height: 0;
   top: 0;
-  z-index: 1;
+  z-index: 0;
   background: #000000;
   border-radius: 4px;
   opacity: .05;
@@ -9440,13 +9441,13 @@ only screen and (max-width: 760px),
   top: 21px;*/
 }
 #cssmenu > ul > li > a {
-  color: #black;
+  color: black;
   /*padding: 15px 20px;*/
   /*font-weight: 700;*/
   /*letter-spacing: 1px;*/
   /*text-transform: uppercase;*/
   /*font-size: 14px;*/
-  /*z-index: 2;*/
+  z-index: 2;
   position: relative;
 }
 
@@ -9486,10 +9487,12 @@ only screen and (max-width: 760px),
 #cssmenu > ul > li > ul {
   width: 170px;
   display: block;
+  background-color: #F2F2F2;
 }
 #cssmenu > ul > li > ul > li {
   width: 170px;
   display: block;
+  text-align: right;
 }
 
 /* Responsive navigation */
@@ -9618,5 +9621,13 @@ only screen and (max-width: 760px),
     border-top: 2px solid #000000;
     right: 20px;
     top: 26px;
+  }
+  #access {
+    display: block;
+  }
+
+  #header {
+    text-align: left;
+    padding-left: 5%;
   }
 }
