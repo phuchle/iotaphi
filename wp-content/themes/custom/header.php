@@ -43,13 +43,19 @@ document.location = "/mobile";
 		Added this to give the sectionals page special viewing privileges
 	-->
 	<?php if(is_page('sectionals')){
-			echo '<div id="header" class="container">'				
-			.'<a href="http://www.iotaphi.org/sectionals"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" /></a>'
+			echo '<div id="header" class="container">'
+	    .'<div id="crest">'  						
+			.'<a href="http://www.iotaphi.org/sectionals"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" />'
+			.'<h2>UC Davis Chapter</h2></a>'
+			.'</div>'
 	    	.'<div id="access" role="navigation" >';
 	      }
 	      else{
-	      	echo '<div id="header" class="container">'				
-			.'<a href="http://www.iotaphi.org"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" /></a>'
+	      	echo '<div id="header" class="container">'	
+	    .'<div id="crest">'  				
+			.'<a href="http://www.iotaphi.org"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" />'
+			.'</a><p>UC Davis Chapter</p>'
+			.'</div>'
 			.'<div id="access" role="navigation">';
 	      }
 	?>

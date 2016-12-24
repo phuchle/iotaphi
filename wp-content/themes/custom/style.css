@@ -9193,6 +9193,14 @@ content: '';
   background-color: #EEE;
 }
 
+
+/* crest of APO and chapter that appears at top left of site */
+#crest {
+  display: inline-block;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -9233,7 +9241,7 @@ only screen and (max-width: 760px),
     white-space: nowrap;
   }
   
-  /
+  
 }
 
 /* New navigation styles */
@@ -9254,7 +9262,7 @@ only screen and (max-width: 760px),
   -moz-box-sizing: content-box;
   box-sizing: content-box;  
 }
-
+/* main menu */
 #cssmenu ul {
   list-style: none;
   margin: 0;
@@ -9340,7 +9348,7 @@ only screen and (max-width: 760px),
 }
 /* sub-menu links */
 #cssmenu ul li ul li a {
-  font-size: 14px;
+  font-size: .95em;
   font-weight: 400;
   text-transform: none;
   background-color: #F2F2F2;
@@ -9396,6 +9404,7 @@ only screen and (max-width: 760px),
 #cssmenu.align-right ul ul li a {
   text-align: right;
 }
+/* desktop hover effect on main menu items */
 #cssmenu > ul > li:after {
   content: '';
   display: block;
@@ -9404,7 +9413,7 @@ only screen and (max-width: 760px),
   height: 0;
   top: 0;
   z-index: 0;
-  background: #000000;
+  background-color: #000000;
   border-radius: 4px;
   opacity: .05;
   -webkit-transition: height .2s;
@@ -9454,7 +9463,7 @@ only screen and (max-width: 760px),
 #cssmenu > ul > li:hover:after,
 #cssmenu > ul > li.active:after {
   height: 100%;
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li.active > a {
@@ -9497,6 +9506,7 @@ only screen and (max-width: 760px),
 /* Responsive navigation */
 
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+  /* drop down menu when you press the button */
   #cssmenu > ul {
     max-height: 0;
     overflow: hidden;
@@ -9506,17 +9516,21 @@ only screen and (max-width: 760px),
     -o-transition: max-height 0.35s ease-out;
     transition: max-height 0.35s ease-out;
   }
+  /* sub-menu */
   #cssmenu > ul > li > ul {
     width: 100%;
     display: block;
   }
+  /* sub-menu links */
   #cssmenu.align-right ul li a {
     text-align: right;
   }
+  /* sub-menu list items */
   #cssmenu > ul > li > ul > li {
     width: 100%;
     display: block;
   }
+  /*links in sub-menu list item  */
   #cssmenu.align-right ul ul li a {
     text-align: right;
   }
@@ -9587,6 +9601,10 @@ only screen and (max-width: 760px),
   #cssmenu ul li ul li:hover > a {
     color: #000000;
   }
+  /* main menu hover */
+  #cssmenu > ul > li:hover > a {
+    background-color: #BBBBBB;
+  }
   #cssmenu #menu-button {
     display: block;
     -webkit-box-sizing: border-box;
@@ -9598,6 +9616,7 @@ only screen and (max-width: 760px),
     font-size: 14px;
     letter-spacing: 1px;
     color: #000000;
+    background-color: #f5f5f5;
     cursor: pointer;
   }
   #cssmenu #menu-button:after {
@@ -9627,8 +9646,10 @@ only screen and (max-width: 760px),
 
   #header {
     text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
     width: auto;
+  }
+
+  #crest {
+    padding-bottom: 10px;
   }
 }
