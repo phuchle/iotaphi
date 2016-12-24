@@ -82,16 +82,19 @@ document.location = "/mobile";
 	
 	?>
 	</div>
-	<?php 						
-			if(isset($_SESSION['id'])):
-			include_once 'user.inc.php'; 
-	?>
-			 <a class="btn btn-small btn-danger" href="/input.php?action=logout&amp;redirect=index.php">logout</a>
-		    <?php elseif(is_page('sectionals')): ?>
-		    <?php else: ?>		
-	<a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">Login</a>
-		<?php endif; ?>
-	</div>	
+	<div class="login-button">
+
+		<?php 						
+				if(isset($_SESSION['id'])):
+				include_once 'user.inc.php'; 
+		?>
+				 <a class="btn btn-small btn-danger" href="/input.php?action=logout&amp;redirect=index.php">Logout</a>
+			    <?php elseif(is_page('sectionals')): ?>
+			    <?php else: ?>		
+		<a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">Login</a>
+			<?php endif; ?>
+	</div> <!-- login_button -->
+	</div>	<!-- container -->
 	
 		</header>
 <!-- Modal -->
