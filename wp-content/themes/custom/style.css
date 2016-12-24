@@ -334,7 +334,7 @@ textarea {
 }
 
 body {
-  margin: -28px !important;
+  margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 20px;
@@ -7548,7 +7548,7 @@ float: left;
 
 #access {
   display: inline-block;
-  text-align: center;
+  /*text-align: center;*/
   vertical-align: middle;
 }
 #access .menu-header,
@@ -9492,7 +9492,6 @@ only screen and (max-width: 760px),
 #cssmenu > ul > li > ul > li {
   width: 170px;
   display: block;
-  text-align: right;
 }
 
 /* Responsive navigation */
@@ -9628,6 +9627,8 @@ only screen and (max-width: 760px),
 
   #header {
     text-align: left;
-    padding-left: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
   }
 }
