@@ -7505,6 +7505,7 @@ header{
   background-color: white;
   height: auto;
   border-bottom: 3px solid #414141;
+ padding-top: 10px;
 }
 
 #container{
@@ -9206,7 +9207,7 @@ content: '';
   vertical-align: middle;
 }
 
-/* responsive calendar / tables */
+/* responsive calendar / responsive tables */
 
 @media 
 only screen and (max-width: 760px),
@@ -9358,7 +9359,7 @@ only screen and (max-width: 760px),
   font-size: .95em;
   font-weight: 400;
   text-transform: none;
-  background-color: #F2F2F2;
+  border-bottom: 1px solid #F2F2F2;
   color: #000000;
   letter-spacing: 0;
   display: block;
@@ -9503,7 +9504,7 @@ only screen and (max-width: 760px),
 #cssmenu > ul > li > ul {
   width: 170px;
   display: block;
-  background-color: #F2F2F2;
+  background-color: #FFFFFF;
 }
 #cssmenu > ul > li > ul > li {
   width: 170px;
@@ -9604,7 +9605,9 @@ only screen and (max-width: 760px),
   #cssmenu ul li ul li a {
     padding: 8px 20px 8px 35px;
     color: #000000;
+    border: none;
   }
+
   #cssmenu ul li ul ul li a {
     padding: 8px 20px 8px 50px;
   }
@@ -9663,7 +9666,6 @@ only screen and (max-width: 760px),
   #header {
     text-align: left;
     width: auto;
-    padding-top: 20px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
