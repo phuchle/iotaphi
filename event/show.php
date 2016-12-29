@@ -6,6 +6,8 @@ include_once dirname(dirname(__FILE__)) . '/include/signup.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
 
+wp_enqueue_style( 'mobile_tables', $src = "", $deps, $ver, $media );
+
 if(isset($_GET['id']))
 	$event_id = (int)$_GET['id'];
 	
@@ -16,8 +18,6 @@ if(isset($_SESSION['class']))
 	$class = $_SESSION['class'];
 
 ?> 
-
-
 
 <?php
 
@@ -282,6 +282,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 		$num++;
 	// adding map..
 	?>
+
 	<table class="table table-condensed table-bordered">
 	<tr><td class="lead" colspan="4">Event Information  </td></tr> 
     <tr><th>Name</th><td colspan="2"><?= $event["name"] ?></td>
@@ -548,7 +549,7 @@ function show_shifts($event, $shifts, $class, $user_id)
         $passed = (NOW > shift_getStamp($shift['shift']));
         
 		?>
-		<table class="table table-condensed table-bordered">
+		<table class="table table-condensed table-bordered show-table">
 		<tr>
 		
 			<?php if (event_multipleShifts($event)) { ?>
@@ -565,7 +566,7 @@ function show_shifts($event, $shifts, $class, $user_id)
 				// support for personal google calendar API has been moved from the GData API to a new set of Authentication APIs
 				// functions declared no longer work properly
 				$remove_e = array( "\n" , "\0" , "\r" );
-				$remove_q = array( '”' , '“' , '"' );
+				$remove_q = array( 'â€' , 'â€œ' , '"' );
 				$name_e = $event['name'];
 				$name_e = str_replace( $remove_e , '' , $name_e );
 				$name_e = str_replace( $remove_q , '&quot;' , $name_e );
@@ -621,7 +622,7 @@ function show_shifts($event, $shifts, $class, $user_id)
 				
 				// editted in for personal google calendar 6-28-2011
 				$remove_e = array( "\n" , "\0" , "\r" );
-				$remove_q = array( '”' , '“' , '"' );
+				$remove_q = array( 'â€' , 'â€œ' , '"' );
 				$name_e = $event['name'];
 				$name_e = str_replace( $remove_e , '' , $name_e );
 				$name_e = str_replace( $remove_q , '&quot;' , $name_e );
@@ -684,6 +685,7 @@ function show_shifts($event, $shifts, $class, $user_id)
 				$signedup = true;
 ?>
             <tr<?php if($waitlisted) echo ' class="waitlist"'; ?>>
+            		<!-- allows td to collapse responsively with th -->
                 <td>
 					<?php 
 						if($class=='admin' || $class=='user')
@@ -978,8 +980,9 @@ function show_signup($event, $class, $user_id)
 		include_once dirname(dirname(__FILE__)) . '/include/user.inc.php'; 
 		include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 		$userlist = user_getAll(); ?>
+
 		<form action="/inputAdmin.php" method="POST">
-		<table cellspacing="0"><tr><td class="nested">
+		<table class="show-table" cellspacing="0"><tr><td class="nested">
 		<table style="width: 100%;" cellspacing="1">
 		<?php forms_hiddenInput('signup',"/event/show.php?id=$event_id"); ?>
 			<tr>
@@ -1070,8 +1073,21 @@ function show_comments($event_id,$user_id,$class) {
 <?php
 }
 ?>
-
-
+<script type="text/javascript">
+	var headertext = [];
+	var headers = document.querySelectorAll(".show-table th"),
+	tablerows = document.querySelectorAll(".show-table th"),
+	tablebody = document.querySelector(".show-table tbody");
+	for(var i = 0; i < headers.length; i++) {
+		var current = headers[i];
+		headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+	}
+	for (var i = 0, row; row = tablebody.rows[i]; i++) {
+		for (var j = 0, col; col = row.cells[j]; j++) {
+			col.setAttribute("data-th", headertext[j]);
+		}
+	}
+</script>
 
 </div>
 

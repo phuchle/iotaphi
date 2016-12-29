@@ -288,11 +288,12 @@ mysql_free_result($result_total);
 			</div>
 </div>
 <div  id="footer-widget-area">
-<span class="pull-left">
-  <a href="mailto:service@iotaphi.org"> <button class="btn btn-primary">Need Volunteers?</button> </a>
-  <a href="mailto:president@iotaphi.org"> <button class="btn btn-primary" >Want to Sponsor us?</button></a>
-</span>
- <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapodavis%3Ffref%3Dts&amp;width=450&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+	<span class="pull-left">
+	  <a href="mailto:service@iotaphi.org"> <button class="btn btn-primary">Need Volunteers?</button> </a>
+	  <a href="mailto:president@iotaphi.org"> <button class="btn btn-primary" >Want to Sponsor us?</button></a>
+	</span>
+	
+	 <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapodavis%3Ffref%3Dts&amp;width=450&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
 </div>
 		<?php } ?>
 <?php get_footer(); ?>

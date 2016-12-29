@@ -9240,13 +9240,13 @@ only screen and (max-width: 760px),
   
   td:before { 
     /* Now like a table header */
-    position: absolute;
+    /*position: absolute;*/
     /* Top/left values mimic padding */
-    top: 6px;
+/*    top: 6px;
     left: 6px;
     width: 45%; 
     padding-right: 10px; 
-    white-space: nowrap;
+    white-space: nowrap;*/
   }
   
   
@@ -9254,7 +9254,6 @@ only screen and (max-width: 760px),
 
 /* New navigation styles */
 
-/*@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);*/
 #cssmenu {
   background: #FFF;
   color: black;
@@ -9265,7 +9264,6 @@ only screen and (max-width: 760px),
   display: block;
   z-index: 1;
   position: relative;
-  /*font-family: 'PT Sans', sans-serif;*/
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;  
@@ -9694,3 +9692,45 @@ only screen and (max-width: 760px),
     padding-bottom: 15px;
   }
 }
+
+/* generated with SASS */
+.show-table {
+  min-width: 400px; }
+  .show-table tbody tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; }
+  .show-table tbody th {
+    display: none; }
+  .show-table tbody td {
+    display: block; }
+    .show-table tbody td:first-child {
+      padding-top: .5em; }
+    .show-table tbody td:last-child {
+      padding-bottom: .5em; }
+    .show-table tbody td:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 8.5em;
+      display: inline-block; }
+      @media (min-width: 800px) {
+        .show-table tbody td:before {
+          display: none; } }
+  .show-table tbody .lead:before {
+    content: none;
+    width: 0; }
+  .show-table tbody th,
+  .show-table tbody td {
+    text-align: left; }
+    @media (min-width: 800px) {
+      .show-table tbody th,
+      .show-table tbody td {
+        display: table-cell;
+        padding: .25em .5em; }
+        .show-table tbody th:first-child,
+        .show-table tbody td:first-child {
+          padding-left: 0; }
+        .show-table tbody th:last-child,
+        .show-table tbody td:last-child {
+          padding-right: 0; } }
+
+/*# sourceMappingURL=mobile_tables.css.map */
