@@ -22,18 +22,21 @@ if ( isset( $_SESSION['id'] ) )
 
 <div class="row-fluid">
 	<div class="span12">
-				<table class="table table-condensed table-bordered span3">
-				<tbody>
-				<th><h4 style="text-align:center">Upcoming Events</h4></th>
+	<div class="span3">
+		<table class="table table-condensed table-bordered homepage-top-table">
+			<tr>
+				<td class="lead"><h4 style="text-align:center">Upcoming Events</h4></td>
+			</tr>
 				<?php  // Show next 10 events and color by type
-                                        $query = 'SELECT event_id,event_name,eventtype_id FROM event WHERE event_date > NOW() ORDER BY event_date ASC LIMIT 10';
-                                        $result = db_select($query);
-                                        foreach ($result as $event) {
-											$event['event_name'] = htmlentities($event['event_name'], ENT_QUOTES);
-											echo '<tr class="black"><td class="et'.$event['eventtype_id'].'"><a href="/event/show.php?id='.$event['event_id'].'">'.$event['event_name'].'</a></td></tr>';
-                  }?>
-                  </tbody>
-                  </table>
+	        $query = 'SELECT event_id,event_name,eventtype_id FROM event WHERE event_date > NOW() ORDER BY event_date ASC LIMIT 10';
+	        $result = db_select($query);
+	        foreach ($result as $event) {
+						$event['event_name'] = htmlentities($event['event_name'], ENT_QUOTES);
+						echo '<tr class="black"><td class="et'.$event['eventtype_id'].'"><a href="/event/show.php?id='.$event['event_id'].'">'.$event['event_name'].'</a></td></tr>';
+	      }
+	      ?>
+    </table>
+  </div>
 <?php 
 ?>
 
@@ -42,13 +45,14 @@ $tempflag = 1;
 if ($tempflag) {
 $most = stats_service_byclass();
 echo '<div class="span3">';
-echo '<table  class="table table-bordered table-condensed">';
-echo '<thead>';
-echo '<tr><th colspan="4"> <h4 style="text-align:center">Most Service (by Class)</h4></th></tr>';
+echo '<table class="table table-bordered table-condensed homepage-top-table show-table">';
+echo '<tr><td class="lead">';
+echo '<h4 style="text-align:center">Most Service (by Class)</h4>';
+echo '</tr></td>';
+// echo '<thead>';
 echo '<tr><th>Rank</th><th>Class</th><th>Hours</th></tr>';
-echo '</thead>';
+// echo '</thead>';
 
-echo '<tbody>';
 foreach($most as $rank=>$class) {
 	echo '<tr>';
 	echo '<td>',$rank+1,'</td>';
@@ -56,7 +60,6 @@ foreach($most as $rank=>$class) {
 	echo '<td>',$class['hours'],'</td>';
 	echo '</tr>';
 }
-echo '</tbody>';
 echo '</table>';
 echo '</div>';
 }
@@ -65,18 +68,20 @@ echo '</div>';
 
 <!-- ////////SERVICE PERSON///////// -->
 <div class="span3">
-<table  class="table table-bordered table-condensed">
-<thead>
-<tr>
-	<th colspan="3"> <h4 style="text-align:center">Most Service (by Person)</h4></th>
-	</tr>
+<table class="table table-bordered table-condensed homepage-top-table show-table">
+		<tr>
+			<td class="lead">
+				<h4 style="text-align:center">Most Service (by Person)</h4>
+			</td>
+		</tr>
+<!-- <thead> -->
 <tr>
        <th>Rank</th>
        <th>Name</th>
-        <th>Hours</th>
+       <th>Hours</th>
   </tr>
-  </thead>
-<tbody>
+  <!-- </thead> -->
+
 
 
 <?php
@@ -92,25 +97,26 @@ foreach($most as $rank=>$person)
 	echo '</tr>';
 }
 ?>
-</tbody>
+
 </table>
 </div>
 
 
 <!-- ////////TOTAL PERSON///////// -->
 <div class="span3">
-<table  class="table table-bordered table-condensed">
-<thead>
-<tr>
-	<th colspan="3"> <h4 style="text-align:center">Most Fellowships(by Class)</h4></th>
-	</tr>
+<table  class="table table-bordered table-condensed homepage-top-table show-table">		<tr>
+		 <td class="lead"> 
+			 <h4 style="text-align:center">Most Fellowships (by Class)</h4>
+		 </td>
+	  </tr>
+<!-- <thead> -->
 <tr>
        <th>Rank</th>
        <th>Class</th>
         <th>Events</th>
   </tr>
-  </thead>
-<tbody>
+  <!-- </thead> -->
+
 
 
 <?php
@@ -125,7 +131,7 @@ foreach($most as $rank=>$class) {
 	echo '</tr>';
 }
 ?>
-</tbody>
+
 </table>
 </div>
 
@@ -244,6 +250,8 @@ mysql_free_result($result_total);
     }
 ?>
 </table>	 <!-- end of announcement -->
+
+
 </div>	
 <? } else { ?>
 	<div id="homecontent" role="main">
@@ -296,6 +304,25 @@ mysql_free_result($result_total);
 	 <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapodavis%3Ffref%3Dts&amp;width=450&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
 </div>
 		<?php } ?>
+
+<script type="text/javascript">
+	var headertext = [];
+	var headers = document.querySelectorAll(".show-table th");
+	var tablebody = document.querySelectorAll(".show-table tbody");
+
+	for(var i = 0; i < headers.length; i++) {
+		var current = headers[i];
+		headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+	}
+	
+	for (var tableCount = 0; tableCount < tablebody.length; tableCount++) {
+		for (var i = 0, row; row = tablebody[tableCount].rows[i]; i++) {
+			for (var j = 0, col; col = row.cells[j]; j++) {
+				col.setAttribute("data-th", headertext[j]);
+			}
+		}
+	}
+</script>
 <?php get_footer(); ?>
 
 			</div><!-- #content -->

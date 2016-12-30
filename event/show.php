@@ -1073,11 +1073,13 @@ function show_comments($event_id,$user_id,$class) {
 <?php
 }
 ?>
+
 <script type="text/javascript">
 	var headertext = [];
-	var headers = document.querySelectorAll(".show-table th"),
-	tablerows = document.querySelectorAll(".show-table th"),
-	tablebody = document.querySelector(".show-table tbody");
+	var headers = document.querySelectorAll(".show-table th");
+
+	var tablebody = document.querySelector(".show-table tbody");
+
 	for(var i = 0; i < headers.length; i++) {
 		var current = headers[i];
 		headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
