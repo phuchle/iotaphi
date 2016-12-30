@@ -324,7 +324,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 
     	if($break_or_not == 1)
 			{
-				echo "<iframe
+				echo "<iframe class='event-map'
 		 		 width='600'
 		  		height='450'
 		  		frameborder='0' style='border:0' 
@@ -333,7 +333,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 			}
 		else
 		{
-			echo "<iframe
+			echo "<iframe class='event-map'
 		 		 width='600'
 		  		height='450'
 		  		frameborder='0' style='border:0' 

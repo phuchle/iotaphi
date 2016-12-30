@@ -2078,6 +2078,7 @@ content: '';
 .homepage-top-table tr td, .homepage-top-table tr th {
   text-align: center;
 }
+
 /* responsive calendar / responsive tables */
 
 @media 
@@ -2119,8 +2120,12 @@ only screen and (max-width: 760px),
     padding-right: 10px; 
     white-space: nowrap;*/
   }
-  
-  
+
+  iframe.event-map {
+    width: 100%;
+    height: 600px;
+  }
+
 }
 
 /* New navigation styles */
@@ -2566,7 +2571,7 @@ only screen and (max-width: 760px),
 
 /* generated with SASS */
 .show-table {
-  min-width: 400px; }
+  min-width: 200px; }
   .show-table tbody tr {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd; }
@@ -2581,8 +2586,9 @@ only screen and (max-width: 760px),
     .show-table tbody td:before {
       content: attr(data-th) ": ";
       font-weight: bold;
-      width: 8.5em;
-      display: inline-block; }
+      width: 10em;
+      display: inline-block;
+      padding-right: 1em; }
       @media (min-width: 800px) {
         .show-table tbody td:before {
           display: none; } }
