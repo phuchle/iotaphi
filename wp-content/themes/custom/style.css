@@ -2113,21 +2113,14 @@ th-data appears to left of the <td> when in mobile
   .show-table tbody .lead:before {
     content: none;
     width: 0; }
-  .show-table tbody th,
-  .show-table tbody td {
-    text-align: center; }
-    @media (min-width: 800px) {
-      .show-table tbody th,
-      .show-table tbody td {
-        text-align: left;
-        display: table-cell;
-        padding: .25em .5em; }
-        .show-table tbody th:first-child,
-        .show-table tbody td:first-child {
-          padding-left: 0; }
-        .show-table tbody th:last-child,
-        .show-table tbody td:last-child {
-          padding-right: 0; } }
+  @media (min-width: 800px) {
+    .show-table tbody th,
+    .show-table tbody td {
+      display: table-cell;
+      padding: .25em .5em; }
+      .show-table tbody th:last-child,
+      .show-table tbody td:last-child {
+        padding-right: 0; } }
 
 /*# sourceMappingURL=mobile_tables.css.map */
 
@@ -2137,6 +2130,11 @@ th-data appears to left of the <td> when in mobile
 @media 
 only screen and (max-width: 800px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  .homepage-top-table tbody th,
+  .homepage-top-table tbody th {
+    text-align: left;
+  }
 
   /* Force table to not be like tables anymore */
   table, thead, tbody, td, th, tr { 
