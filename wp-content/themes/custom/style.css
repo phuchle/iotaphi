@@ -2079,10 +2079,63 @@ content: '';
   text-align: center;
 }
 
+/* responsive/mobile styles */
+
+/* 
+
+mobile styles for <th> elements works with JS 
+JS script inserts th-data class attr into <td> elements 
+th-data appears to left of the <td> when in mobile   
+
+*/
+
+.show-table {
+  min-width: auto; }
+  .show-table tbody tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; }
+  .show-table tbody th {
+    display: none; }
+  .show-table tbody td {
+    display: block; }
+    .show-table tbody td:first-child {
+      padding-top: .5em; }
+    .show-table tbody td:last-child {
+      padding-bottom: .5em; }
+    .show-table tbody td:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 10em;
+      display: inline-block; }
+      @media (min-width: 800px) {
+        .show-table tbody td:before {
+          display: none; } }
+  .show-table tbody .lead:before {
+    content: none;
+    width: 0; }
+  .show-table tbody th,
+  .show-table tbody td {
+    text-align: center; }
+    @media (min-width: 800px) {
+      .show-table tbody th,
+      .show-table tbody td {
+        text-align: left;
+        display: table-cell;
+        padding: .25em .5em; }
+        .show-table tbody th:first-child,
+        .show-table tbody td:first-child {
+          padding-left: 0; }
+        .show-table tbody th:last-child,
+        .show-table tbody td:last-child {
+          padding-right: 0; } }
+
+/*# sourceMappingURL=mobile_tables.css.map */
+
+
 /* responsive calendar / responsive tables */
 
 @media 
-only screen and (max-width: 760px),
+only screen and (max-width: 800px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
   /* Force table to not be like tables anymore */
@@ -2119,11 +2172,6 @@ only screen and (max-width: 760px),
     width: 45%; 
     padding-right: 10px; 
     white-space: nowrap;*/
-  }
-
-  iframe.event-map {
-    width: 100%;
-    height: 600px;
   }
 
 }
@@ -2387,7 +2435,13 @@ only screen and (max-width: 760px),
 
 /* Responsive navigation */
 
-@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+@media all and (max-width: 800px), 
+only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
+only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
+only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
+only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
+only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
+only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   /* container */
   /* allows cssmenu to switch places with login/logout button in mobile */
 
@@ -2567,47 +2621,13 @@ only screen and (max-width: 760px),
     order: 1;
     padding-bottom: 15px;
   }
-}
 
-/* generated with SASS */
-.show-table {
-  min-width: 200px; }
-  .show-table tbody tr {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd; }
-  .show-table tbody th {
-    display: none; }
-  .show-table tbody td {
-    display: block; }
-    .show-table tbody td:first-child {
-      padding-top: .5em; }
-    .show-table tbody td:last-child {
-      padding-bottom: .5em; }
-    .show-table tbody td:before {
-      content: attr(data-th) ": ";
-      font-weight: bold;
-      width: 10em;
-      display: inline-block;
-      padding-right: 1em; }
-      @media (min-width: 800px) {
-        .show-table tbody td:before {
-          display: none; } }
-  .show-table tbody .lead:before {
-    content: none;
-    width: 0; }
   .show-table tbody th,
   .show-table tbody td {
     text-align: left; }
-    @media (min-width: 800px) {
-      .show-table tbody th,
-      .show-table tbody td {
-        display: table-cell;
-        padding: .25em .5em; }
-        .show-table tbody th:first-child,
-        .show-table tbody td:first-child {
-          padding-left: 0; }
-        .show-table tbody th:last-child,
-        .show-table tbody td:last-child {
-          padding-right: 0; } }
 
-/*# sourceMappingURL=mobile_tables.css.map */
+  iframe.event-map {
+    width: 100%;
+    height: 600px;
+  }
+}

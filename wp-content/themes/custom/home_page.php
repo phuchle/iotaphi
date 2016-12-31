@@ -23,10 +23,8 @@ if ( isset( $_SESSION['id'] ) )
 <div class="row-fluid">
 	<div class="span12">
 	<div class="span3">
+		<h4 style="text-align:center">Upcoming Events</h4>
 		<table class="table table-condensed table-bordered homepage-top-table">
-			<tr>
-				<td class="lead"><h4 style="text-align:center">Upcoming Events</h4></td>
-			</tr>
 				<?php  // Show next 10 events and color by type
 	        $query = 'SELECT event_id,event_name,eventtype_id FROM event WHERE event_date > NOW() ORDER BY event_date ASC LIMIT 10';
 	        $result = db_select($query);
@@ -45,10 +43,8 @@ $tempflag = 1;
 if ($tempflag) {
 $most = stats_service_byclass();
 echo '<div class="span3">';
-echo '<table class="table table-bordered table-condensed homepage-top-table show-table">';
-echo '<tr><td class="lead">';
 echo '<h4 style="text-align:center">Most Service (by Class)</h4>';
-echo '</tr></td>';
+echo '<table class="table table-bordered table-condensed homepage-top-table show-table">';
 // echo '<thead>';
 echo '<tr><th>Rank</th><th>Class</th><th>Hours</th></tr>';
 // echo '</thead>';
@@ -68,14 +64,10 @@ echo '</div>';
 
 <!-- ////////SERVICE PERSON///////// -->
 <div class="span3">
-<table class="table table-bordered table-condensed homepage-top-table show-table">
-		<tr>
-			<td class="lead">
-				<h4 style="text-align:center">Most Service (by Person)</h4>
-			</td>
-		</tr>
+	<h4 style="text-align:center">Most Service (by Person)</h4>
+	<table class="table table-bordered table-condensed homepage-top-table show-table">
 <!-- <thead> -->
-<tr>
+	<tr>
        <th>Rank</th>
        <th>Name</th>
        <th>Hours</th>
@@ -104,17 +96,14 @@ foreach($most as $rank=>$person)
 
 <!-- ////////TOTAL PERSON///////// -->
 <div class="span3">
-<table  class="table table-bordered table-condensed homepage-top-table show-table">		<tr>
-		 <td class="lead"> 
-			 <h4 style="text-align:center">Most Fellowships (by Class)</h4>
-		 </td>
+	<h4 style="text-align:center">Most Fellowships (by Class)</h4>
+	<table  class="table table-bordered table-condensed homepage-top-table show-table">
+	<!-- <thead> -->
+	<tr>
+	       <th>Rank</th>
+	       <th>Class</th>
+	        <th>Events</th>
 	  </tr>
-<!-- <thead> -->
-<tr>
-       <th>Rank</th>
-       <th>Class</th>
-        <th>Events</th>
-  </tr>
   <!-- </thead> -->
 
 
@@ -224,7 +213,7 @@ mysql_free_result($result_total);
 
 <div class="row-fluid">
 <table class="table table-bordered">
-	<h4 class="lead center">General Announcements </h4>
+	<h4 class="center">General Announcements </h4>
 <?php
 
 
@@ -314,7 +303,7 @@ mysql_free_result($result_total);
 		var current = headers[i];
 		headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
 	}
-	
+
 	for (var tableCount = 0; tableCount < tablebody.length; tableCount++) {
 		for (var i = 0, row; row = tablebody[tableCount].rows[i]; i++) {
 			for (var j = 0, col; col = row.cells[j]; j++) {

@@ -325,7 +325,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
     	if($break_or_not == 1)
 			{
 				echo "<iframe class='event-map'
-		 		 width='600'
+		 		 max-width='600'
 		  		height='450'
 		  		frameborder='0' style='border:0' 
 		  		 src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCe6cLiLithQW9oWrQG9Irzs2G3z8PyjS0&q=$reverse' allowfullscreen>
@@ -334,7 +334,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 		else
 		{
 			echo "<iframe class='event-map'
-		 		 width='600'
+		 		 max-width='600'
 		  		height='450'
 		  		frameborder='0' style='border:0' 
 		  		 src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCe6cLiLithQW9oWrQG9Irzs2G3z8PyjS0&q=$location' allowfullscreen>
