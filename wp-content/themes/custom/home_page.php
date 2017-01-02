@@ -294,24 +294,10 @@ mysql_free_result($result_total);
 </div>
 		<?php } ?>
 
-<script type="text/javascript">
-	var headertext = [];
-	var headers = document.querySelectorAll(".show-table th");
-	var tablebody = document.querySelectorAll(".show-table tbody");
+<!-- inserts data-th attr into .homepage-top-table td elements -->
+<!-- enables responsive th behavior -->
+<script src="/js/homepage_responsive_th.js"></script>
 
-	for(var i = 0; i < headers.length; i++) {
-		var current = headers[i];
-		headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
-	}
-
-	for (var tableCount = 0; tableCount < tablebody.length; tableCount++) {
-		for (var i = 0, row; row = tablebody[tableCount].rows[i]; i++) {
-			for (var j = 0, col; col = row.cells[j]; j++) {
-				col.setAttribute("data-th", headertext[j]);
-			}
-		}
-	}
-</script>
 <?php get_footer(); ?>
 
 			</div><!-- #content -->

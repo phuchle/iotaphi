@@ -1074,22 +1074,9 @@ function show_comments($event_id,$user_id,$class) {
 }
 ?>
 
-<script type="text/javascript">
-	var headertext = [];
-	var headers = document.querySelectorAll(".show-table th");
-
-	var tablebody = document.querySelector(".show-table tbody");
-
-	for(var i = 0; i < headers.length; i++) {
-		var current = headers[i];
-		headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
-	}
-	for (var i = 0, row; row = tablebody.rows[i]; i++) {
-		for (var j = 0, col; col = row.cells[j]; j++) {
-			col.setAttribute("data-th", headertext[j]);
-		}
-	}
-</script>
+<!-- inserts data-th attr into .show-table td elements  -->
+<!-- enables responsive th behavior -->
+<script src="/js/event_show_responsive_th.js"></script>
 
 </div>
 

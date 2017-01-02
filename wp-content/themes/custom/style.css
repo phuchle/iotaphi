@@ -2089,7 +2089,7 @@ content: '';
 /* 
 
 mobile styles for <th> elements works with JS 
-JS script inserts th-data class attr into <td> elements 
+JS script inserts data-th attr into <td> elements 
 th-data appears to left of the <td> when in mobile   
 
 */
@@ -2445,8 +2445,6 @@ only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px),
 only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
 only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
-  /* container */
-  /* allows cssmenu to switch places with login/logout button in mobile */
 
   /* drop down menu when you press the button */
   #cssmenu > ul {
@@ -2584,7 +2582,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
     right: 20px;
     top: 26px;
   }
-  #access {
+  #access, .event-filter {
     width: 100%;
     display: block;
     -webkit-box-ordinal-group: 2;
@@ -2594,7 +2592,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
     order: 2;
   }
 
-  #header {
+  #header, #calendar-controls {
     text-align: left;
     width: auto;
     display: -webkit-box;
@@ -2616,7 +2614,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   }
 
 /* allows cssmenu to switch places with login/logout button in mobile */
-  .login-button {
+  .login-button, .month-selecter {
     -webkit-box-ordinal-group: 1;
     -moz-box-ordinal-group: 1;
     -ms-flex-order: 1;
