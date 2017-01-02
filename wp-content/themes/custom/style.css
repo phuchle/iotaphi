@@ -1816,6 +1816,11 @@ td.nested {
 #calendar p.fund{
     border: 1px solid green;
 }
+/* events in calendar will align to top of cell */
+#calendar tbody tr td {
+  vertical-align: top;
+}
+
 .calOut a{
   color: black;
 }
