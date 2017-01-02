@@ -1,0 +1,52 @@
+$breakpoint-alpha: 800px; // adjust to your needs
+
+.show-table {
+  min-width: auto; // adjust to your needs
+  tbody {
+    tr {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+    }
+    td {
+      display: block;
+      &:first-child {
+        padding-top: .5em;
+      }
+      &:last-child {
+        padding-bottom: .5em;
+      }
+      &:before {
+        content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+        font-weight: bold;
+        // optional stuff to make it look nicer
+        width: 10em; // magic number :( adjust according to your own content
+        display: inline-block;
+        // end options
+        @media (min-width: $breakpoint-alpha) {
+          display: none;
+        }
+      }
+    }
+    .lead:before{
+      content: none;
+      width: 0;
+    }
+    
+    th,
+    td {
+      @media (min-width: $breakpoint-alpha) {
+        display: table-cell;
+        padding: .25em .5em;
+        // &:first-child {
+        //   padding-left: 0;
+        // }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
