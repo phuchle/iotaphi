@@ -2129,58 +2129,6 @@ th-data appears to left of the <td> when in mobile
 /*# sourceMappingURL=mobile_tables.css.map */
 
 
-/* responsive calendar / responsive tables */
-
-@media 
-all and (max-width: 768px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
-
-.homepage-top-table tbody th,
-  .homepage-top-table tbody th {
-    text-align: left;
-  }
-
-  /* Force table to not be like tables anymore */
-  table, thead, tbody, td, th, tr { 
-    display: block; 
-  }
-  
-  /* Hide table headers (but not display: none;, for accessibility) */
-  tr.calheading, thead { 
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  
-  tr { 
-    border: 1px solid #ccc; 
-    width: 100%;
-  }
-  
-  td { 
-    /* Behave  like a "row" */
-    border: none;
-    border-bottom: 1px solid #eee; 
-    position: relative;
-    padding-left: 50%; 
-  }
-  
-  td:before { 
-    /* Now like a table header */
-    /*position: absolute;*/
-    /* Top/left values mimic padding */
-/*    top: 6px;
-    left: 6px;
-    width: 45%; 
-    padding-right: 10px; 
-    white-space: nowrap;*/
-
-  body, p, a {
-    font-size: 105%;
-
-  }
-
-}
 
 /* New navigation styles */
 
@@ -2284,7 +2232,7 @@ all and (max-width: 768px),
 }
 /* sub-menu links */
 #cssmenu ul li ul li a {
-  font-size: .95em;
+  font-size: 1em;
   font-weight: 400;
   text-transform: none;
   border-bottom: 1px solid #F2F2F2;
@@ -2420,7 +2368,7 @@ all and (max-width: 768px),
   max-height: 72px;
   position: relative;
 }
-#cssmenu #menu-button {
+#cssmenu > #menu-button {
   display: none;
 }
 #cssmenu > ul > li > a {
@@ -2439,19 +2387,72 @@ all and (max-width: 768px),
   display: block;
 }
 
+/* responsive calendar / responsive tables */
+
+@media 
+all and (max-width: 768px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+.homepage-top-table tbody th,
+  .homepage-top-table tbody th {
+    text-align: left;
+  }
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, td, th, tr { 
+    display: block; 
+  }
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+  tr.calheading, thead { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr { 
+    border: 1px solid #ccc; 
+    width: 100%;
+  }
+  
+  td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+  }
+  
+  td:before { 
+    /* Now like a table header */
+    /*position: absolute;*/
+    /* Top/left values mimic padding */
+/*    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;*/
+
+  body, p, a {
+    font-size: 105%;
+  }
+
+}
+
 /* Responsive navigation */
 
 
-@media all and (max-width: 768px), 
-only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
+/*only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
 only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
-only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
+@media all and (max-width: 769px) {
 
-  
-
+  #cssmenu li > a {
+    font-size: 105%;
+  }
   /* drop down menu when you press the button */
   #cssmenu > ul {
     max-height: 0;
