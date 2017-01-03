@@ -422,7 +422,7 @@ float: left;
 }
 #access .menu-header,
 div.menu {
-  font-size: 13px;
+  font-size: 1em;
   width: 100%;
 }
 #access .menu-header ul,
@@ -775,7 +775,7 @@ body.page .edit-link {
 
 .home #content .format-aside p,
 .home #content .category-asides p {
-  font-size: 14px;
+  font-size: 1em;
   line-height: 20px;
   margin-bottom: 10px;
   margin-top: 0;
@@ -937,7 +937,7 @@ img.aligncenter {
 
 .navigation {
   color: #888;
-  font-size: 12px;
+  font-size: 1em;
   line-height: 18px;
   overflow: hidden;
 }
@@ -985,7 +985,7 @@ img.aligncenter {
 h3#comments-title,
 h3#reply-title {
   color: #000;
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 0;
 }
@@ -1036,7 +1036,7 @@ h3#comments-title {
   font-style: italic;
 }
 .comment-meta {
-  font-size: 12px;
+  font-size: .95em;
   margin: 0 0 18px 0;
 }
 .comment-meta a:link,
@@ -1053,7 +1053,7 @@ h3#comments-title {
 .commentlist .bypostauthor {
 }
 .reply {
-  font-size: 12px;
+  font-size: .95em;
   padding: 0 0 24px 0;
 }
 .reply a,
@@ -1087,12 +1087,12 @@ a.comment-edit-link:hover {
 #comments .pingback p {
   color: #888;
   display: block;
-  font-size: 12px;
+  font-size: .95em;
   line-height: 18px;
   margin: 0;
 }
 #comments .pingback .url {
-  font-size: 13px;
+  font-size: 1em;
   font-style: italic;
 }
 
@@ -1128,7 +1128,7 @@ h3#reply-title {
   margin: 0;
 }
 #cancel-comment-reply-link {
-  font-size: 12px;
+  font-size: .95em;
   font-weight: normal;
   line-height: 18px;
 }
@@ -1138,7 +1138,7 @@ h3#reply-title {
 }
 #respond label {
   color: #888;
-  font-size: 12px;
+  font-size: .95em;
 }
 #respond input {
   margin: 0 0 9px;
@@ -1149,7 +1149,7 @@ h3#reply-title {
 }
 #respond .form-allowed-tags {
   color: #888;
-  font-size: 12px;
+  font-size: .95em;
   line-height: 18px;
 }
 #respond .form-allowed-tags code {
@@ -1159,7 +1159,7 @@ h3#reply-title {
   margin: 12px 0;
 }
 #respond .form-submit input {
-  font-size: 14px;
+  font-size: 1em;
   width: auto;
 }
 
@@ -1374,14 +1374,14 @@ display: none;
     padding: 0;
   }
   #site-title {
-    font-size: 13pt;
+    font-size: 1em;
   }
   .entry-content {
-    font-size: 14pt;
+    font-size: 1em;
     line-height: 1.6em;
   }
   .entry-title {
-    font-size: 21pt;
+    font-size: 1.5em;
   }
   #access,
   #branding img,
@@ -1405,7 +1405,7 @@ display: none;
     width: 100%;
   }
   .wp-caption p {
-    font-size: 11pt;
+    font-size: .95em;
   }
   #site-info,
   #site-generator {
@@ -1493,7 +1493,7 @@ width: 960px;
 #bottomContainer .title, .special .title {
 display: block;
 line-height: 18px;
-font-size: 17px;
+font-size: 1.2em;
 font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 padding: 4px 8px;
 color: #06C;
@@ -1577,11 +1577,11 @@ text-align:right;
 }
 #copyright {
   text-align: center;
-  font-size: 13px;
+  font-size: 1em;
   color:black;
 }
 .textwidget {
-  font-size: 12px;
+  font-size: 1em;
 }
 /*#content-container {
   width: 960px;
@@ -2136,46 +2136,7 @@ th-data appears to left of the <td> when in mobile
 only screen and (max-width: 800px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
-  .homepage-top-table tbody th,
-  .homepage-top-table tbody th {
-    text-align: left;
-  }
 
-  /* Force table to not be like tables anymore */
-  table, thead, tbody, td, th, tr { 
-    display: block; 
-  }
-  
-  /* Hide table headers (but not display: none;, for accessibility) */
-  tr.calheading, thead { 
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  
-  tr { 
-    border: 1px solid #ccc; 
-    width: 100%;
-  }
-  
-  td { 
-    /* Behave  like a "row" */
-    border: none;
-    border-bottom: 1px solid #eee; 
-    position: relative;
-    padding-left: 50%; 
-  }
-  
-  td:before { 
-    /* Now like a table header */
-    /*position: absolute;*/
-    /* Top/left values mimic padding */
-/*    top: 6px;
-    left: 6px;
-    width: 45%; 
-    padding-right: 10px; 
-    white-space: nowrap;*/
-  }
 
 }
 
@@ -2438,13 +2399,54 @@ only screen and (max-width: 800px),
 
 /* Responsive navigation */
 
-@media all and (max-width: 800px), 
+@media screen and (max-width: 768px), 
 only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
 only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
 only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+
+  .homepage-top-table tbody th,
+  .homepage-top-table tbody th {
+    text-align: left;
+  }
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, td, th, tr { 
+    display: block; 
+  }
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+  tr.calheading, thead { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr { 
+    border: 1px solid #ccc; 
+    width: 100%;
+  }
+  
+  td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+  }
+  
+  td:before { 
+    /* Now like a table header */
+    /*position: absolute;*/
+    /* Top/left values mimic padding */
+/*    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;*/
+  }
 
   /* drop down menu when you press the button */
   #cssmenu > ul {
@@ -2555,7 +2557,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
     width: 100%;
     padding: 15px 20px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 1em;
     letter-spacing: 1px;
     color: #000000;
     background-color: #f5f5f5;
