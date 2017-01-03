@@ -16,11 +16,11 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <script src="/script/bootstrap.min.js"></script>
 <script src="/js/mobile_menu.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	if (screen.width <= 699) {
 		document.location = "/mobile";
 	}
-</script>
+</script> -->
 
 <?php if ( !is_user_logged_in() ){ ?>
 	    <style>
