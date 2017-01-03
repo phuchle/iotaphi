@@ -2133,7 +2133,7 @@ th-data appears to left of the <td> when in mobile
 /* responsive calendar / responsive tables */
 
 @media 
-only screen and (max-width: 800px),
+all and (max-width: 768px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
   .homepage-top-table tbody th,
@@ -2438,15 +2438,17 @@ only screen and (max-width: 800px),
 
 /* Responsive navigation */
 
-@media all and (max-width: 800px), 
+@media all and (max-width: 768px), 
 only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
 only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
 only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
-  /* container */
-  /* allows cssmenu to switch places with login/logout button in mobile */
+
+  body, p, a {
+    font-size: 120%;
+  }
 
   /* drop down menu when you press the button */
   #cssmenu > ul {
