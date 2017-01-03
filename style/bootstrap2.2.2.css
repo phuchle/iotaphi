@@ -229,7 +229,7 @@ body {
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
-  margin-top: -28px !important; /*some plugin is adding the adminbar even when not logged in, display:none the admin bar, and reduce the margin */
+  /*margin-top: -28px !important; some plugin is adding the adminbar even when not logged in, display:none the admin bar, and reduce the margin */
 }
 
 a {

@@ -1917,7 +1917,6 @@ td.calToday a{
 #calendar .number,
 #calendar .number a {
   color:black;
-    font-size: small;
     font-weight: bold;
     line-height: 98%;
 }
@@ -2133,7 +2132,7 @@ th-data appears to left of the <td> when in mobile
 /* responsive calendar / responsive tables */
 
 @media 
-only screen and (max-width: 800px),
+all and (max-width: 768px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
 
@@ -2399,7 +2398,8 @@ only screen and (max-width: 800px),
 
 /* Responsive navigation */
 
-@media screen and (max-width: 768px), 
+
+@media all and (max-width: 768px), 
 only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
@@ -2446,6 +2446,10 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
     width: 45%; 
     padding-right: 10px; 
     white-space: nowrap;*/
+=======
+  body, p, a {
+    font-size: 105%;
+>>>>>>> mobile
   }
 
   /* drop down menu when you press the button */
