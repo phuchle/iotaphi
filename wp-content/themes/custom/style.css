@@ -1917,7 +1917,6 @@ td.calToday a{
 #calendar .number,
 #calendar .number a {
   color:black;
-    font-size: small;
     font-weight: bold;
     line-height: 98%;
 }
@@ -2447,7 +2446,7 @@ only screen and (min-resolution: 192dpi) and (max-width: 1024px),
 only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 
   body, p, a {
-    font-size: 120%;
+    font-size: 105%;
   }
 
   /* drop down menu when you press the button */
