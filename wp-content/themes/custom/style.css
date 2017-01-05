@@ -2195,7 +2195,8 @@ all and (max-width: 768px),
   padding: 0;
   line-height: 1;
   display: block;
-  z-index: 1;
+  /* puts it in front of the dashboard */
+  z-index: 2; 
   position: relative;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -2456,6 +2457,14 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu > ul > li > ul > li > a, 
   #cssmenu ul li a {
     font-size: 105%;
+  }
+
+  #calendar p, #calendar a {
+    padding: 10px 5px;
+  }
+
+   .event-filter {
+    padding-bottom: 5px;
   }
 
   /* drop down menu when you press the button */

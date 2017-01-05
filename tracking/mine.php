@@ -254,10 +254,12 @@ if ( mysql_num_rows( $result ) > 0 )
     $fellowReq = 12;
 ?>
 
+<!-- Dashboard built with ExtJS version 4.0.1 -->
 
     <link rel="stylesheet" type="text/css" href="http://www.iotaphi.org/extjs/resources/css/ext-all.css" />
     <link rel="stylesheet" type="text/css" href="http://www.iotaphi.org/extjs/shared/example.css" />
     <script type="text/javascript" src="http://www.iotaphi.org/extjs/ext-all.js"></script>
+
 	<style type="text/css">
 	.left {
 		padding: 10px;
@@ -266,6 +268,7 @@ if ( mysql_num_rows( $result ) > 0 )
 		line-height: 16px;
 	}
 	</style>
+
 	<script type="text/javascript">
 	Ext.require('Ext.chart.*');
 Ext.require(['Ext.Window', 'Ext.fx.target.Sprite', 'Ext.layout.container.Fit']);
@@ -289,22 +292,28 @@ Ext.onReady(function () {
 	$result = term_get($_GET['term']);
 	$term_id = $result['class_id'];
 	$events = getTrackedUser($id, 1, $term_id);
+
 	class Event {
 		public $date, $type, $event, $hours, $required, $credit, $chair, $c, $people, $miles , $letters;
 	}
+
 	$allEvents = array();
+
 	if (count($events) > 0)	//to make it null if no person is selected.
 		$total['d'] = 0;
+
 	array_unshift($events,array('date' => '', 'event_name' => 'Starting service requirement', 'h' => -$serviceReq, 'ppl' => 0, 'mi' => 0, 'event_id' => 0)); // add a dummy event to the beginning of events array for baseline hours requirement
 	$i=0;
 	$total['h'] = 0;
 	$total['r'] = 0;
 	$total['p'] = 0;
 	$total['c'] = 0;
+
 	foreach($events as $event){
 		if ($event['h']>0) { // if they got negative hours, add to "additional required hours"
 			$total['h'] += $event['h'];
-		} else {
+		} 
+		else {
 			$total['r'] += -1*$event['h'];
 		}
 		$total['p'] += $event['p'];
@@ -328,6 +337,7 @@ Ext.onReady(function () {
 		$temp->credit = '';
 		$temp->people = '';
 		$temp->miles = '';
+
 		array_push( $allEvents , $temp );
 	?>{ date: '<?php echo $date;?>', event: '<?php echo $text ?>' , <?php if ($event['h'] > 0) // decide which column to display event hours in
 				{
@@ -761,26 +771,27 @@ Ext.onReady(function () {
 				echo $totals['fundraiser']; ?> }
 		]
 	});
+// begin tracking window views
     var win = Ext.create('Ext.Window', {
-        width: Ext.get("dashboard").getWidth(),
-		height: Ext.get("dashboard").getHeight(),
-        hidden: false,
-        shadow: false,
-        maximizable: false,
-		closable: false,
-		draggable: false,
-		resizable: false,
-		renderTo: Ext.get("dashboard"),
-		constrain: true,
-        style: 'overflow: hidden;',
-		title: "<?php
-	$name = user_get($id, 'fl');
-	$result = term_get($_GET['term']);
-	$term_nick = $result['class_nick'];
-    //echo $selected_class_id;
-	echo "{$name['name']}'s Tracking for {$term_nick} Term"; ?>",
+      width: Ext.get("dashboard").getWidth(),
+			height: Ext.get("dashboard").getHeight(),
+      hidden: false,
+      shadow: false,
+      maximizable: false,
+			closable: false,
+			draggable: false,
+			resizable: false,
+			renderTo: Ext.get("dashboard"),
+			constrain: true,
+      style: 'overflow: hidden;',
+			title: "<?php
+				$name = user_get($id, 'fl');
+				$result = term_get($_GET['term']);
+				$term_nick = $result['class_nick'];
+			    //echo $selected_class_id;
+				echo "{$name['name']}'s Tracking for {$term_nick} Term"; ?>",
 		activeItem: 1,
-        layout: {
+    layout: {
 			type: 'card'
 		},
 		highlight: true,
