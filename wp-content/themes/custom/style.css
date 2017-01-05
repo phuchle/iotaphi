@@ -2132,7 +2132,7 @@ th-data appears to left of the <td> when in mobile
 
 @media (min-device-width: 768px) and (max-device-width: 1024px) {
   #crest, .login-button {
-    padding-left: 20px;
+    padding-left: 20px !important;
   }
 }
 
@@ -2196,7 +2196,7 @@ all and (max-width: 768px),
   line-height: 1;
   display: block;
   /* puts it in front of the dashboard */
-  z-index: 2; 
+  z-index: 1; 
   position: relative;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;

@@ -1866,6 +1866,12 @@ Ext.onReady(function () {
 		font-size: 11px;
 	}
 	
+	#window-1014 {
+		z-index: 0;
+		position: relative !important;
+		top: 0 !important;
+		left: 0 !important;
+	}
 	</style>
 </div>
 </div>
