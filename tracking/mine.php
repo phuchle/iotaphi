@@ -1865,7 +1865,7 @@ Ext.onReady(function () {
 		display: block;
 		font-size: 11px;
 	}
-	
+	/* targets the dashboard container so it isn't fixed on page */
 	#window-1014 {
 		z-index: 0;
 		position: relative !important;
