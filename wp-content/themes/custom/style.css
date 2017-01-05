@@ -2130,7 +2130,8 @@ th-data appears to left of the <td> when in mobile
 
 /* crest and login align correctly for ipad sized devices */
 
-@media (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 768px), 
+(min-device-width: 768px) and (max-device-width: 1024px) {
   #crest, .login-button {
     padding-left: 20px !important;
   }

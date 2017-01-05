@@ -6829,8 +6829,8 @@ a.badge:hover {
 
 @media (max-width: 767px) {
   body {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 0;
+    padding-left: 0;
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom,
