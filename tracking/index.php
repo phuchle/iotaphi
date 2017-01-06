@@ -28,7 +28,7 @@ if(!isset($event))
 	$list = getGoodEvents($id); 
 	?>
 	<?php if ( !( ($temp == 'admin') && $class=='admin') ){ ?>
-	<table class="table table-condensed table-bordered">
+	<table class="table table-condensed table-bordered show-table">
         <tr><td class="heading" colspan="3">My Chaired Events</td></tr>
         <tr><th>Date</th><th>Event</th><th>Submitted</th></tr>
 		<?php foreach($list as $line): 
@@ -68,13 +68,13 @@ if(!isset($event))
 	$events = tracking_blame();
 
 ?>
-	<table class="table table-condensed table-bordered">
-	<tr><td class="heading" colspan="4">Events to be tracked</td></tr>
+	<h3 class="heading" colspan="4">Events to be tracked</h3>
+	<table class="table table-condensed table-bordered show-table">
 	<tr>
 		<th style="width: 40px">Date</th>
 		<th>Type</th>
 		<th style="width: 200px">Event</th>
-		<th>Waiting on: </th>
+		<th>Waiting on</th>
 	</tr>
 	
 	<?php $events_to_be_tracked = 0;
@@ -220,3 +220,6 @@ function tracking_blame()
 	return db_select($sql);
 }
 ?>
+<!-- this script automatically adds data-th attributes to all <td> -->
+<!-- allows for <th> elements to show up responsively/in mobile views -->
+<script src="/js/event_show_responsive_th.js"></script>
