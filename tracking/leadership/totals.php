@@ -65,7 +65,7 @@ $everyone = user_getAll();
 show_filter();
 ?>
 
-<table id="usertable" class="table table-condensed table-bordered">
+<table id="usertable" class="table table-condensed table-bordered show-table">
 	<tr>
 		<th>Name  </th>
 		<th>Credit</th>
@@ -77,6 +77,10 @@ show_filter();
 		show_eventsTrack($one['name'], $one['id']);
 	?>
 </table>
+
+<!-- this script automatically adds data-th attributes to all <td> -->
+<!-- allows for <th> elements to show up responsively/in mobile views -->
+<script src="/js/event_show_responsive_th.js"></script>
 
 <?php
 show_footer();
