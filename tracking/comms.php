@@ -24,11 +24,16 @@ if ( !($class=='admin') )
 $everyone = getCommTracking();
 
 ?>
+<h3>Comm & Due Credit</h3>
 <form action="/tracking/input.php" method="POST">
 <?php forms_hiddenInput('setcommtracking', '/tracking/comms.php') ?>
-<table>
-	<tr><td class="heading" colspan="4">Comm & Due Credit</td></tr>
-	<tr><th>Name</th><th>Credit?</th><th>Dues?</th><th>Details</th></tr>
+<table class="show-table">
+	<tr>
+		<th>Name</th>
+		<th>Credit?</th>
+		<th>Dues?</th>
+		<th>Details</th>
+	</tr>
 	<?php
 	foreach($everyone as $person)
 	{
@@ -47,6 +52,11 @@ $everyone = getCommTracking();
 	<tr><td colspan="3"><?php forms_submit('Update', 'Update') ?></td></tr>
 </table>
 </form>
+
+<!-- this script automatically adds data-th attributes to all <td> -->
+<!-- allows for <th> elements to show up responsively/in mobile views -->
+<script src="/js/event_show_responsive_th.js"></script>
+
 <?php
 show_footer();
 ?>
