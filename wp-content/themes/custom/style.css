@@ -2618,7 +2618,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
     order: 2;
   }
 
-  #header, #calendar-controls {
+  #header {
     text-align: left;
     width: auto;
     display: -webkit-box;
@@ -2637,6 +2637,11 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
     -ms-flex-align: start;
     -webkit-align-items: flex-start;
     align-items: flex-start;
+  }
+
+  #calendar-controls {
+    text-align: center;
+    width: 100%;
   }
 
 /* allows cssmenu to switch places with login/logout button in mobile */

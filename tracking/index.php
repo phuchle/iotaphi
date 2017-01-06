@@ -53,14 +53,14 @@ if(!isset($event))
 	  <h1>Chapter Tracking<small> An overview of all tracking</small></h1>
 	</div>
   	<p><h1><small> What type of events are you tracking?</small></h1></p>
-	<div class="btn-group">
-  		<a href="/tracking/leadership/event.php"><button class="btn">Leadership</button></a>
-  		<a href="/tracking/fellowship/event.php"><button class="btn">Fellowship</button></a>
-  		<a href="/tracking/service/event.php"><button class="btn">Service</button></a>
-  		<a href="/tracking/meeting/event.php"><button class="btn">Meetings</button></a>
-  		<a href="/tracking/caw/event.php"><button class="btn">CAW Hours</button></a>
-  		<a href="/tracking/ic/event.php"><button class="btn">IC</button></a>
-  		<a href="/tracking/comms.php"><button class="btn">Committee Tracking</button></a>
+	<div class="tracking-buttons">
+  		<a class="btn" href="/tracking/leadership/event.php">Leadership</a>
+  		<a class="btn" href="/tracking/fellowship/event.php">Fellowship</a>
+  		<a class="btn" href="/tracking/service/event.php">Service</a>
+  		<a class="btn" href="/tracking/meeting/event.php">Meetings</a>
+  		<a class="btn" href="/tracking/caw/event.php">CAW Hours</a>
+  		<a class="btn" href="/tracking/ic/event.php">IC</a>
+  		<a class="btn" href="/tracking/comms.php">Committee Tracking</a>
   	<!--<a href="/tracking/pictures.php"><button class="btn">Picture Tracking</button></a>-->
 	</div>
 <?php }
