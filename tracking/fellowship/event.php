@@ -28,7 +28,7 @@ if ( !( ($temp == 'fellowship' || $temp == 'admin') && $class=='admin') )
 function show_usersTrack($users, $name)
 {
 	?>
-	<table  class="table table-condensed table-bordered">
+	<table  class="table table-condensed table-bordered show-table">
 	<tr><td class="heading" colspan="4"><?php echo $name ?></td></tr>
 	<tr>
 		<th>Name</th>

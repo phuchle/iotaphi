@@ -31,8 +31,8 @@ if ( !( ($temp == 'service' || $temp == 'admin') && $class=='admin') )
 function show_usersTrack($users, $name)
 {
 	?>
-	<table id="usertable" class="table table-condensed table-bordered">
-	<tr><td class="heading" colspan="6"><?php echo $name ?></td></tr>
+	<h3 class="heading" colspan="6"><?php echo $name ?></h3>
+	<table id="usertable" class="table table-condensed table-bordered show-table">
 	<tr>
 		<th width="120">Name</th>
 		<th width="50">Hours </th>
@@ -90,6 +90,11 @@ function show_usersTrack($users, $name)
 		echo '</tr>';
 	} ?>
 	</table>
+
+	<!-- this script automatically adds data-th attributes to all <td> -->
+	<!-- allows for <th> elements to show up responsively/in mobile views -->
+	<script src="/js/event_show_responsive_th.js"></script>
+
 	<?php 
 }
 

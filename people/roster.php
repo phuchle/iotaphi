@@ -112,6 +112,7 @@ function peopleFilter(filter)
 </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
 <script>
 	$(document).ready( function() {
 		var tid = "#srch";
