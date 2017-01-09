@@ -85,63 +85,91 @@ function show_filters() //This is a filter status to where the current array is 
 {
 	?>
     <form>
-    <div class="general" style="width: 150px;">
-    <font class="big">Status Filter: </font>
-    <select name="filters" onchange="peopleFilter(this.value)" style="margin: 0px; padding: 0px">
-        <option value="0">Signed Up</option>
-        <option value="1">Non-Pledges</option>
-        <option value="2">Pledges</option>
-       <!-- <option value="3">Everyone</option> -->
-    </select>
-    </div></form>
+	    <div class="general" style="width: 150px;">
+		    <font class="big">Status Filter: </font>
+		    <select name="filters" onchange="peopleFilter(this.value)" style="margin: 0px; padding: 0px">
+		        <option value="0">Signed Up</option>
+		        <option value="1">Non-Pledges</option>
+		        <option value="2">Pledges</option>
+		       <!-- <option value="3">Everyone</option> -->
+		    </select>
+	    </div>
+    </form>
     
-	<script type="text/javascript">
-	users = Array();
-	<?php 
-	$sql = 'SELECT user_id, user_name AS name, status_id '
-		. " FROM user WHERE user_hidden = '0' ";
-	foreach(db_select($sql) as $user)
-	    echo "users['r'+'{$user['user_id']}'] = {status: {$user['status_id']} };";
-	?>
-	
-	function peopleFilter(filter)
-	{
-		var pledge;
-		var element;
-		var attended;
+    <div class="name-search">
+	    <p>Search Names:</p>
+	  	<input type="text" id="nameInput" onkeyup="filterByNameInTable()" placeholder="Enter first or last name">
+  	<div>
 
-		var rows = document.getElementById('usertable').rows;
-		var count = 0;
-		
-		for(var row in rows)
-		{
-			element = rows[row];
-			var i = element.id;
-			count++;
-			
-			// skip the heading row and any erroneous rows
-			if(users[i] == null)
-				continue;
-			
-			pledge = (users[i].status == <?= STATUS_PLEDGE ?>);
-			attended = (users[i].attended == true);
-			
-			if(filter == 3)
-			{
-				if(attended)
-					element.style.display = "";
-				else
-					element.style.display = "compact";
-				continue;
-							pledge = (users[i].status == <?= STATUS_ACTIVE ?>);			
-				attended = (users[i].attended == true);
+	<script type="text/javascript">
+		users = Array();
+		<?php 
+		$sql = 'SELECT user_id, user_name AS name, status_id '
+			. " FROM user WHERE user_hidden = '0' ";
+		foreach(db_select($sql) as $user)
+		    echo "users['r'+'{$user['user_id']}'] = {status: {$user['status_id']} };";
+		?>
+
+	// added Jan. 2017 by Phuc Le
+	// general function to search for names in tables
+	// add name-list as table ID to make this work
+		function filterByNameInTable () {
+			var input, searchTerm, table, tr, td, i;
+			input = document.getElementById("nameInput");
+			searchTerm = input.value.toUpperCase();
+			table = document.getElementById("name-list");
+			tr = table.getElementsByTagName("tr");
+
+			for (i = 0; i < tr.length; i++) {
+				// if more than one td, increment below to search in another td
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					if (td.innerHTML.toUpperCase().indexOf(searchTerm) > -1) {
+						tr[i].style.display = "";
+					}
+					else tr[i].style.display = "none";
+				}
 			}
-			if((pledge && filter==1) || (!pledge && filter==2))
-				element.style.display = "none";
-			else
-				element.style.display = "";
 		}
-	}
+	
+		function peopleFilter(filter)
+		{
+			var pledge;
+			var element;
+			var attended;
+
+			var rows = document.getElementById('usertable').rows;
+			var count = 0;
+			
+			for(var row in rows)
+			{
+				element = rows[row];
+				var i = element.id;
+				count++;
+				
+				// skip the heading row and any erroneous rows
+				if(users[i] == null)
+					continue;
+				
+				pledge = (users[i].status == <?= STATUS_PLEDGE ?>);
+				attended = (users[i].attended == true);
+				
+				if(filter == 3)
+				{
+					if(attended)
+						element.style.display = "";
+					else
+						element.style.display = "compact";
+					continue;
+								pledge = (users[i].status == <?= STATUS_ACTIVE ?>);			
+					attended = (users[i].attended == true);
+				}
+				if((pledge && filter==1) || (!pledge && filter==2))
+					element.style.display = "none";
+				else
+					element.style.display = "";
+			}
+		}
 	</script>
 <?
 }
