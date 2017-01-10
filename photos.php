@@ -24,7 +24,7 @@ if(isset($_SESSION['id']))
 ?>
 <head>
 <body>
-<iframe src="http://iotaphi.smugmug.com" height = "900px" width = "997px">
+<iframe src="http://iotaphi.smugmug.com" height = "450px" width = "100%">
 </body>
 </head>
 </iframe>
