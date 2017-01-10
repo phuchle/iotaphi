@@ -24,7 +24,7 @@ if($class != 'admin')
 function show_usersTrack($users, $name)
 {
 	?>
-	<table  class="table table-condensed table-bordered">
+	<table id="name-list" class="table table-condensed table-bordered">
 	<tr><td class="heading" colspan="1"><?php echo $name ?></td></tr>
 	<tr>
 		<th>Name</th>
@@ -101,7 +101,7 @@ if(!isset($event))
 }
 else
 {
-	show_filter();
+	show_filters();
 	$name = event_get($event);
 	$users = getTrackedEventAll($event);
 	?><form name="settracking" method="POST" action="/tracking/input.php">

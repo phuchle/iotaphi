@@ -16,7 +16,7 @@ if(!$_SESSION['class'])
 <div class="page-header">
   <h1>Tracking<small> What type of events are you tracking?</small></h1>
 </div>
-<div class="btn-group">
+<div class="btn-group-vertical">
   <a href="/tracking/leadership/event.php"><button class="btn">Leadership</button></a>
   <a href="/tracking/fellowship/event.php"><button class="btn">Fellowship</button></a>
   <a href="/tracking/service/event.php"><button class="btn">Service</button></a>

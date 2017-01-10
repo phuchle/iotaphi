@@ -62,10 +62,10 @@ function show_eventsTrack($name, $user)
 
 $everyone = user_getAll(); 
 
-show_filter();
+show_filters();
 ?>
 
-<table id="usertable" class="table table-condensed table-bordered show-table">
+<table id="name-list" class="table table-condensed table-bordered show-table">
 	<tr>
 		<th>Name  </th>
 		<th>Credit</th>

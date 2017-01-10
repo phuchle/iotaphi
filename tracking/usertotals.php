@@ -57,10 +57,10 @@ function show_eventsTrack($name, $user)
 
 $everyone = user_getAll(); 
 
-show_filter();
+show_filters();
 ?>
 
-<table id="usertable" cellspacing="1">
+<table id="name-list" cellspacing="1">
 	<tr>
 		<td>Name  </td>
 	</tr>

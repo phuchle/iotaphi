@@ -122,6 +122,7 @@ function show_filters() //This is a filter status to where the current array is 
 
 			for (i = 0; i < tr.length; i++) {
 				// if more than one td, increment below to search in another td
+				// assumes name is in the first td
 				td = tr[i].getElementsByTagName("td")[0];
 				if (td) {
 					if (td.innerHTML.toUpperCase().indexOf(searchTerm) > -1) {

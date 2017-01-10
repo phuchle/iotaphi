@@ -46,7 +46,7 @@ function getGoodEvents($user)
 function show_usersTrack($users, $event)
 {
 	?>
-	<table class="table table-condensed table-bordered">
+	<table id="name-list" class="table table-condensed table-bordered">
 	<tr><td class="heading" colspan="5">
 			<?php echo date('m/d/y', $event['date']) . ' ' . $event['name'] ?></td></tr>
 	<tr>
@@ -97,7 +97,7 @@ if(!isset($event))
 }
 else
 {
-	show_filter();
+	show_filters();
 
 	$name = event_get($event);
 	$users = getTrackedEvent($event, 1);

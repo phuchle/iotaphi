@@ -4,6 +4,7 @@ include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once 'sql.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/user.inc.php';
+include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
 
@@ -18,16 +19,18 @@ if(isset($_SESSION['class']))
 $temp=user_get($id, 'f');
 $temp=$temp['name'];
 
-if ( !($class=='admin') )
+if ( !($class=='admin') ) {
 	show_note('You must be logged in as ExComm to access this page.');
+}
 
+show_filters();
 $everyone = getCommTracking();
 
 ?>
 <h3>Comm & Due Credit</h3>
 <form action="/tracking/input.php" method="POST">
 <?php forms_hiddenInput('setcommtracking', '/tracking/comms.php') ?>
-<table class="show-table">
+<table id="name-list" class="show-table">
 	<tr>
 		<th>Name</th>
 		<th>Credit?</th>

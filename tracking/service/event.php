@@ -32,7 +32,7 @@ function show_usersTrack($users, $name)
 {
 	?>
 	<h3 class="heading" colspan="6"><?php echo $name ?></h3>
-	<table id="usertable" class="table table-condensed table-bordered show-table">
+	<table id="name-list" class="table table-condensed table-bordered show-table">
 	<tr>
 		<th width="120">Name</th>
 		<th width="50">Hours </th>
