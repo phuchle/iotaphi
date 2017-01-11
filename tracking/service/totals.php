@@ -51,7 +51,7 @@ function show_eventsTrack($name, $user)
 		<?php 
 			$total = getTotal($user);
 			if( $total['h'] > 0 || $total['p'] > 0){
-				echo "<tr id=\"r<?php echo $user ?>\">";
+				echo "<tr id=\"r$user\">";
 				$fourc_totals = getCTotal($user, db_currentClass('class_id'));
 				echo "<td><a href=\"/tracking/service/user.php?user=$user\">$name</a></td>";
 				echo "<td>{$total['h']}</td>";

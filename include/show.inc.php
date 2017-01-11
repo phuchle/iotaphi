@@ -115,6 +115,7 @@ function show_filters() //This is a filter status to where the current array is 
 	// add name-list as table ID to make this work
 		function filterByNameInTable () {
 			var input, searchTerm, table, tr, td, i;
+
 			input = document.getElementById("nameInput");
 			searchTerm = input.value.toUpperCase();
 			table = document.getElementById("name-list");
@@ -139,7 +140,7 @@ function show_filters() //This is a filter status to where the current array is 
 			var element;
 			var attended;
 
-			var rows = document.getElementById('usertable').rows;
+			var rows = document.getElementById('name-list').rows;
 			var count = 0;
 			
 			for(var row in rows)
@@ -165,6 +166,7 @@ function show_filters() //This is a filter status to where the current array is 
 								pledge = (users[i].status == <?= STATUS_ACTIVE ?>);			
 					attended = (users[i].attended == true);
 				}
+
 				if((pledge && filter==1) || (!pledge && filter==2))
 					element.style.display = "none";
 				else
@@ -205,7 +207,7 @@ function show_filter()
 		var element;
 		var attended;
 
-		var rows = document.getElementById('usertable').rows;
+		var rows = document.getElementById('name-list').rows;
 		var count = 0;
 		
 		for(var row in rows)

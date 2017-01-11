@@ -107,7 +107,7 @@ function show_eventModify($new, $event)
 		<td>H:MM<br>eg 1:30<br>(0:00 is unspecified)</td>
 	</tr>
 	<tr>
-		<th>Shift Capacity (0 is unlimited)</th>
+		<th>Optional Event Capacity (0 is unlimited)</th>
 		<td>
 		<?php forms_capacity('capacity', $event['capacity']) ?>
 		</td>
