@@ -37,6 +37,7 @@ function show_eventModify($new, $event)
 		$event['c'] = fourC_get($event['id']);
 	else:
 		$event['duration'] = '0:00';
+		$event['capacity'] = "";
 		$event['description'] = "";
 		$event['location'] = "";
 		$event['mileage'] = 0;
@@ -104,6 +105,12 @@ function show_eventModify($new, $event)
 			<?php forms_duration('duration',$event['duration']) ?>
 		</td>
 		<td>H:MM<br>eg 1:30<br>(0:00 is unspecified)</td>
+	</tr>
+	<tr>
+		<th>Shift Capacity (0 is unlimited)</th>
+		<td>
+		<?php forms_capacity('capacity', $event['capacity']) ?>
+		</td>
 	</tr>
 	<tr>
 		<th>Location<br></th>

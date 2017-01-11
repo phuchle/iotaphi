@@ -31,8 +31,15 @@ if($action == 'eventCreate' or $action == 'eventUpdate')
 				$event_id = event_add($name,$timestamp,$endtimestamp,$type,$ic, $fund, $fellowboat, $location, $address, $map, $mileage,$description,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
 				
 				include_once 'include/signup.inc.php';
+
+				if ($capacity > 0) {
+					$start_time = date('H:i:00', strtotime("$time"));
+					$end_time = date('H:i:00', strtotime("+$hour hours $minutes minutes", strtotime("$time")));
+
+					shift_add($event_id, $start_time, $end_time, $capacity, '');
+				}
 				// If fellowboat, automatically create shift with cap of 10 people
-				if ($fellowboat == 1) {
+				elseif ($fellowboat == 1) {
 					// format inputs for database
 					$start_time = date('H:i:00', strtotime("$time"));
 					$end_time = date('H:i:00', strtotime("+$hour hours $minutes minutes", strtotime("$time")));
