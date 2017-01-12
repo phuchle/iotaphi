@@ -8,11 +8,12 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 ?>
 <!DOCTYPE html>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<!-- <meta charset="<?php bloginfo( 'charset' ); ?>" /> -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alpha Phi Omega | Iota Phi</title>
 <link rel="stylesheet" type="text/css" media="all" href="/style/bootstrap2.2.2.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <script src="/script/bootstrap.min.js"></script>
 <script src="/js/mobile_menu.js"></script>

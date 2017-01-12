@@ -79,21 +79,22 @@ $everyone = user_getAll();
 
 show_filters();
 ?>
-
-<table id="name-list" class="table table-condensed table-bordered show-table">
-	<tr>
-		<th width="50%">Name  </th>
-		<th width="10%">Hours </th>
-		<th width="10%">Projects</th>
-		<th width="10%">Chair </th>
-		<th width="20%">Times Driving</th>
-		<th width="10%" colspan="4">C's</th>
-	</tr>
-	<?php
-	foreach($everyone as $one)
-		show_eventsTrack($one['name'], $one['id']);
-	?>
-</table>
+<div id="name-list-container">
+	<table id="name-list" class="table table-condensed table-bordered show-table">
+		<tr>
+			<th width="50%">Name  </th>
+			<th width="10%">Hours </th>
+			<th width="10%">Projects</th>
+			<th width="10%">Chair </th>
+			<th width="20%">Times Driving</th>
+			<th width="10%" colspan="4">C's</th>
+		</tr>
+		<?php
+		foreach($everyone as $one)
+			show_eventsTrack($one['name'], $one['id']);
+		?>
+	</table>
+</div>
 
 <!-- this script automatically adds data-th attributes to all <td> -->
 <!-- allows for <th> elements to show up responsively/in mobile views -->

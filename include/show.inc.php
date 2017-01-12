@@ -91,6 +91,7 @@ function show_filters() //This is a filter status to where the current array is 
 		        <option value="0">Signed Up</option>
 		        <option value="1">Non-Pledges</option>
 		        <option value="2">Pledges</option>
+		        <!-- option 3 needs to be fixed -->
 		       <!-- <option value="3">Everyone</option> -->
 		    </select>
 	    </div>
@@ -100,6 +101,10 @@ function show_filters() //This is a filter status to where the current array is 
 	    <p>Search Names:</p>
 	  	<input type="text" id="nameInput" onkeyup="filterByNameInTable()" placeholder="Enter first or last name">
   	<div>
+
+  	<div class="exportExcel">
+	  	<button id="btnExport" class="btn btn-small">Export to Excel file</button>
+  	</div>
 
 	<script type="text/javascript">
 		users = Array();
@@ -161,7 +166,7 @@ function show_filters() //This is a filter status to where the current array is 
 					if(attended)
 						element.style.display = "";
 					else
-						element.style.display = "compact";
+						element.style.display = "none";
 					continue;
 								pledge = (users[i].status == <?= STATUS_ACTIVE ?>);			
 					attended = (users[i].attended == true);
@@ -173,6 +178,29 @@ function show_filters() //This is a filter status to where the current array is 
 					element.style.display = "";
 			}
 		}
+
+$(document).ready(function() {
+  $("#btnExport").click(function(e) {
+    e.preventDefault();
+
+    //getting data from our table
+    var data_type = 'data:application/vnd.ms-excel';
+    var table_div = document.getElementById('name-list-container');
+    var table_html = table_div.outerHTML.replace(/ /g, '%20');
+
+    //date for the file
+	  var dt = new Date();
+    var day = dt.getDate();
+    var month = dt.getMonth() + 1;
+    var year = dt.getFullYear();
+    var postfix = day + "-" + month + "-" + year;
+
+    var a = document.createElement('a');
+    a.href = data_type + ', ' + table_html;
+    a.download = 'exported_table_' + postfix + '.xls';
+    a.click();
+  });
+});
 	</script>
 <?
 }
