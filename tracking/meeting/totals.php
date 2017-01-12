@@ -51,20 +51,22 @@ function show_eventsTrack($name, $user)
 
 $everyone = user_getAll(); 
 
-show_filter();
+show_filters();
 ?>
 
-<table id="name-list" class="table table-condensed table-bordered show-table">
-	<tr>
-		<th>Name  </th>
-		<th>Credit</th>
-		<th>Pin/Letters </th>
-	</tr>
-	<?php
-	foreach($everyone as $one)
-		show_eventsTrack($one['name'], $one['id']);
-	?>
-</table>
+<div id="name-list-container">
+	<table id="name-list" class="table table-condensed table-bordered show-table">
+		<tr>
+			<th>Name  </th>
+			<th>Credit</th>
+			<th>Pin/Letters </th>
+		</tr>
+		<?php
+		foreach($everyone as $one)
+			show_eventsTrack($one['name'], $one['id']);
+		?>
+	</table>
+</div>
 
 <!-- this script automatically adds data-th attributes to all <td> -->
 <!-- allows for <th> elements to show up responsively/in mobile views -->

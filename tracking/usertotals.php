@@ -59,16 +59,17 @@ $everyone = user_getAll();
 
 show_filters();
 ?>
-
-<table id="name-list" cellspacing="1">
-	<tr>
-		<td>Name  </td>
-	</tr>
-	<?php
-	foreach($everyone as $one)
-		show_eventsTrack($one['name'], $one['id']);
-	?>
-</table>
+<div id="name-list-container">
+	<table id="name-list" cellspacing="1">
+		<tr>
+			<td>Name  </td>
+		</tr>
+		<?php
+		foreach($everyone as $one)
+			show_eventsTrack($one['name'], $one['id']);
+		?>
+	</table>
+</div>
 
 <?php
 show_footer();
