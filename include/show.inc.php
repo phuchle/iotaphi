@@ -103,6 +103,7 @@ function show_filters() //This is a filter status to where the current array is 
   	<div>
 
   	<div class="exportExcel">
+  		<p>Export this table to an .xls format</p>
 	  	<button id="btnExport" class="btn btn-small">Export to Excel file</button>
   	</div>
 
@@ -179,28 +180,44 @@ function show_filters() //This is a filter status to where the current array is 
 			}
 		}
 
-$(document).ready(function() {
-  $("#btnExport").click(function(e) {
-    e.preventDefault();
+		// Exports table data by targeting the wrapper variable, table_div
+		$(document).ready(function() {
+			// pages on website where the export button will appear
+			var validExcelExportPages = [
+				"/tracking/service/totals.php",
+				"/tracking/fellowship/totals.php",
+				"/tracking/ic/totals.php",
+				"/tracking/leadership/totals.php",
+				"/tracking/caw/totals.php",
+				"/tracking/meeting/totals.php",
+				"/tracking/comms.php",
+				"/tracking/usertotals.php"
+			];
 
-    //getting data from our table
-    var data_type = 'data:application/vnd.ms-excel';
-    var table_div = document.getElementById('name-list-container');
-    var table_html = table_div.outerHTML.replace(/ /g, '%20');
+			$( ".exportExcel" ).toggle(
+		    $.inArray( location.pathname, validExcelExportPages ) >= 0
+			);
+		  $("#btnExport").click(function(e) {
+		    e.preventDefault();
 
-    //date for the file
-	  var dt = new Date();
-    var day = dt.getDate();
-    var month = dt.getMonth() + 1;
-    var year = dt.getFullYear();
-    var postfix = day + "-" + month + "-" + year;
+		    //getting data from our table
+		    var data_type = 'data:application/vnd.ms-excel';
+		    var table_div = document.getElementById('name-list-container');
+		    var table_html = table_div.outerHTML.replace(/ /g, '%20');
 
-    var a = document.createElement('a');
-    a.href = data_type + ', ' + table_html;
-    a.download = 'exported_table_' + postfix + '.xls';
-    a.click();
-  });
-});
+		    //date for the file
+			  var dt = new Date();
+		    var day = dt.getDate();
+		    var month = dt.getMonth() + 1;
+		    var year = dt.getFullYear();
+		    var postfix = day + "-" + month + "-" + year;
+
+		    var a = document.createElement('a');
+		    a.href = data_type + ', ' + table_html;
+		    a.download = 'exported_table_' + postfix + '.xls';
+		    a.click();
+		  });
+		});
 	</script>
 <?
 }
