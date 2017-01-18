@@ -28,7 +28,7 @@ $temp=$temp['name'];
 if ( !( ($temp == 'service' || $temp == 'admin') && $class=='admin') )
 	show_note('You must be logged in as service to access this page.');
 
-function show_usersTrack($users, $name)
+function show_usersTrack($users, $name, $event)
 {
 	?>
 	<h3 class="heading" colspan="6"><?php echo $name ?></h3>
@@ -78,7 +78,10 @@ function show_usersTrack($users, $name)
 		forms_checkbox("p[{$user['user_id']}]", 1, $user['p']);
 		
 		echo "</td><td class=\"$class\">";
-		forms_checkbox("c[{$user['user_id']}]", 1, $user['c']);
+	
+		//$user_check_for_chair returns true if user is chair, else false
+		$user_check_for_chair = user_isChair($user['user_id'], $event);
+		forms_checkbox("c[{$user['user_id']}]", 1, $user_check_for_chair);
 		
 		echo "</td><td class=\"$class\" align=\"center\">";
 		forms_text(40,"details[{$user['user_id']}]", $user['details']);
@@ -125,7 +128,7 @@ else
 	?><form name="settracking" method="POST" action="/tracking/input.php">
 	<?php forms_hiddenInput("settracking","/tracking/service/event.php?event=$event");
 	forms_hidden('event', $event);
-	show_usersTrack($users, date('m/d/y', $name['date']) . ' ' . $name['name']);
+	show_usersTrack($users, date('m/d/y', $name['date']) . ' ' . $name['name'], $event);
 	forms_submit('Set Tracking');
 	?></form>
 	<?php

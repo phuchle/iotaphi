@@ -29,6 +29,27 @@ function user_getID($name, $password)
 	return $id;
 }
 
+function user_isChair($user_ID, $event_ID)
+{
+  $sql = 
+    "SELECT signup.user_id AS user_id, signup.shift_id AS shift, signup.signup_chair AS chair "
+    . ' FROM signup ' 
+    . ' INNER JOIN shift '
+    . ' ON signup.shift_id = shift.shift_id '
+    . " WHERE user_id = '$user_ID' AND signup_chair = '1' "
+    . " AND event_id = '$event_ID' ";
+
+   //db_select1 returns array of columns
+  $shift_values = db_select1($sql);
+
+  if ($user_ID == $shift_values['user_id']) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 function user_validate($name, $password)
 {
 	// name can be email, first+last, screen name, or either phone
