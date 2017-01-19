@@ -56,15 +56,17 @@ function makerow(u, row)
   var user = myusers[u];
   var miles_shown;
     
-    row.insertCell(0);
-    row.insertCell(0);
+    for (var i = 0; i < 3; i++) {
+      row.insertCell(0);
+    }
     
     row.cells[0].innerHTML = '<input type="hidden" ' +
         'name="user[]" value="'+user.id+'" />' +
         user.name;
-  row.cells[1].innerHTML = 
+    row.cells[1].innerHTML = 
       '<input type="text" name="details['+user.id+']" size="100" ' +
             ' value="'+user.comments+'" />';
+    row.cells[2].innerHTML = '<input type ="text" name="hours" value="" size="5" />';
     <?php if(!$coho): ?>
     row.insertCell(-1);
 
@@ -123,7 +125,9 @@ default:
 }
 
 $title = date('m/d/y',$event['date']).' '.$event['name'];
-$heading = "<th>Name</th><th>$comments</th> <th> </th>";
+$heading = "<th>Name</th>"
+            . "<th>$comments</th>"
+            . "<th>Total Service Hours(decimals OK)</th>";
 
 echo '<div class="general">';
 echo "<a href=\"$link\">Old Tracking Page</a>";

@@ -29,7 +29,8 @@ Tracking.prototype.write = function(title, heading)
 Tracking.prototype.newrow = function(u, row)
 {
     this.makerow(u, row);
-    row.insertCell(-1);
+    // remove below because it creates an extra td
+    // row.insertCell(-1);
 
     // add the last cell
     var a = document.createElement("a");
