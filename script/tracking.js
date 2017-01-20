@@ -16,7 +16,7 @@ Tracking.prototype.start = function()
 Tracking.prototype.write = function(title, heading)
 {
     document.write(
-    '<table style="float: right" id="'+this.name+'list">' +
+    '<table style="float: right" id="'+this.name+'list" class="show-table">' +
         '<tr><td class="heading" colspan="5">' +
             title +
         '</td></tr>' +

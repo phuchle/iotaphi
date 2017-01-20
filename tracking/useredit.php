@@ -82,6 +82,8 @@ function makerow(u, row)
          '<input name="mi['+user.id+']" type="text" id="decimal" size="2" ' + 
         'maxlength="5" value="'+miles_shown+'" />mi';*/
     <?php endif; ?>
+
+    applyDataTH();
 }
 
 function save(u, row)
@@ -91,6 +93,31 @@ function save(u, row)
     myusers[u].passengers = row.cells[2].firstChild.value;
     myusers[u].miles = row.cells[2].childNodes[2].value;
     <?php endif; ?>
+}
+// helper function for applyDataTH
+function getTableHeaders() {
+  var headertext = [];
+  var headers = document.querySelectorAll(".show-table th");
+  
+  for(var i = 0; i < headers.length; i++) {
+    var current = headers[i];
+    headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+  }
+  
+  return headertext;
+}
+
+// Applies data-th property for mobile headers
+function applyDataTH(){
+  var tablebody = document.querySelector(".show-table tbody");
+
+  headertext = getTableHeaders();
+
+  for (var i = 0, row; row = tablebody.rows[i]; i++) {
+    for (var j = 0, col; col = row.cells[j]; j++) {
+      col.setAttribute("data-th", headertext[j]);
+    }
+  }
 }
 </script>
 <?php
@@ -165,6 +192,7 @@ document.write("<div style=\"clear: both\"></div>");
 
 t.start();
 s.start();
+applyDataTH();
 </script>
 
 <?php
