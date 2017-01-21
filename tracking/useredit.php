@@ -66,7 +66,7 @@ function makerow(u, row)
     row.cells[1].innerHTML = 
       '<input type="text" name="details['+user.id+']" size="100" ' +
             ' value="'+user.comments+'" />';
-    row.cells[2].innerHTML = '<input type ="text" name="hours" value="" size="5" />';
+    row.cells[2].innerHTML = '<input type ="text" name="service_hours['+user.id+']" size="5" />';
     <?php if(!$coho): ?>
     row.insertCell(-1);
 
@@ -83,6 +83,8 @@ function makerow(u, row)
         'maxlength="5" value="'+miles_shown+'" />mi';*/
     <?php endif; ?>
 
+
+    // applies the mobile headers every time a new row is created
     applyDataTH();
 }
 

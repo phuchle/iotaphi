@@ -101,7 +101,7 @@ function show_usersTrack($users, $name, $event)
 	<?php 
 }
 
-if(!isset($event))
+if(!isset($event)) // show list of events to track
 {
 	// get service events
 	$list = array_reverse(getEvents(1, true)); // events are listed new to old
@@ -118,21 +118,22 @@ if(!isset($event))
 	</form>
 	<?php
 }
-else
+else // shows tracking page for the specific event
 {
 	show_filters();
 
 	$name = event_get($event);  //$event is an id
 	
-	$users = getTrackedEvent($event); //the behavior of this function has changed, see sql.php
-	?><form name="settracking" method="POST" action="/tracking/input.php">
+	$users = getTrackedEvent($event); //the behavior of this function has changed, it now returns an array of arrays, containing an array for each non-hidden user, with each sub-array containing tracking, trackingbyuser, and chair info for that user and the input event
+	?>
+	<form name="settracking" method="POST" action="/tracking/input.php">
 	<?php forms_hiddenInput("settracking","/tracking/service/event.php?event=$event");
 	forms_hidden('event', $event);
 	show_usersTrack($users, date('m/d/y', $name['date']) . ' ' . $name['name'], $event);
 	forms_submit('Set Tracking');
 	?></form>
 	<?php
-	$submits = getTrackingTime($event);
+	$submits = getTrackingTime($event); // reads time from trackingtime
 	echo '<table cellspacing="1"><tr><th>Chair Modification History</th></tr>';
 	foreach($submits as $submit)
 	{

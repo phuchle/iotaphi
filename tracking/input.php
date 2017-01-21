@@ -51,7 +51,7 @@ function tracking_setUsers($users, $event, $h, $ph, $p, $c, $ppl0 = 0, $mi0 = 0)
 	}
 }
 
-function details_setUsers($users, $event, $details, $ppl0 = 0, $mi0 = 0)
+function details_setUsers($users, $event, $details, $service_hours = 0, $ppl0 = 0, $mi0 = 0)
 {
     // the case of no users being set
 	if(!is_array($users))
@@ -60,18 +60,20 @@ function details_setUsers($users, $event, $details, $ppl0 = 0, $mi0 = 0)
     foreach($users as $user)
 	{
 		$dd = $details[$user];
+		$service_done = ($service_hours == 0) ? 0 : $service_hours[$user];
 		$ppl = ($ppl0 == 0)? 0:$ppl0[$user];
 		$mi = ($mi0 == 0)? 0:$mi0[$user];
 	
 		$sql = 'INSERT INTO `trackingbyuser` ( `user_id` , '
-             . '`event_id` , `details`, `passengers`, `miles` ) '
-		    . " VALUES ('$user', '$event', '$dd', '$ppl', '$mi')";
+             . '`event_id` , `details`, `service_hours`, `passengers`, `miles` ) '
+		    . " VALUES ('$user', '$event', '$dd', '$service_done', '$ppl', '$mi')";
 	
 		if(!mysql_query($sql))
 		{
 			if(mysql_errno()==1062) // duplicate entry
 			{
 				$sql = "UPDATE trackingbyuser SET details = '$dd', "
+					. " service_hours = '$service_done', "
 					. " passengers = '$ppl', "
 					. " miles = '$mi' "
 					. " WHERE user_id = '$user' "
@@ -197,16 +199,16 @@ if($action=='settracking')
 		tracking_setUsers($_POST['user'], $_POST['event'], $_POST['h'], $_POST['ph'], $_POST['p'], $_POST['c']);
 	tracking_deleteUsers($_POST['user'], $_POST['event']);
 }
-elseif($action=='settrackinguser')
+elseif($action=='settrackinguser') // tracking confirmed by excomm
 {
 	$_SESSION['confirmation'] = 'Tracking updated.';
 	tracking_setEvents($_POST['event'], $_POST['user'], $_POST['h'], $_POST['p'], $_POST['c'], $_POST['ppl'], $_POST['mi']);
 	tracking_deleteEvents($_POST['event'], $_POST['all'], $_POST['user']);
 }
-elseif($action=='setdetails')
+elseif($action=='setdetails') // user (the chair) submits info to service VPs
 {
 	$_SESSION['confirmation'] = 'Tracking submitted to excomm.';
-	details_setUsers($_POST['user'], $_POST['event'],  $_POST['details'], $_POST['ppl'], $_POST['mi']);
+	details_setUsers($_POST['user'], $_POST['event'],  $_POST['details'], $_POST['service_hours'], $_POST['ppl'], $_POST['mi']);
 	details_deleteUsers($_POST['user'], $_POST['event']);
 	details_setTime($myid, $_POST['event'], NOW);
 }
