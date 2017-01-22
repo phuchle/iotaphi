@@ -200,6 +200,14 @@ function event_delete($id)
 	
 } 
 
+function event_get_date_time($event_id) {
+	$query = 'SELECT UNIX_TIMESTAMP(event_date) AS start_date, ' 
+						. ' UNIX_TIMESTAMP(event_enddate) AS end_date '
+						. " FROM event WHERE event_id = $event_id";
+
+	return db_select1($query);
+}
+
 function event_get($id)
 {
 	// parameter validation!

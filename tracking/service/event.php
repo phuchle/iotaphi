@@ -25,13 +25,21 @@ get_header();
 $temp=user_get($id, 'f');
 $temp=$temp['name'];
 
+
 if ( !( ($temp == 'service' || $temp == 'admin') && $class=='admin') )
 	show_note('You must be logged in as service to access this page.');
 
 function show_usersTrack($users, $name, $event)
 {
+	// returns [$start_date, $end_date]
+	$event_begin_and_end_dates = extract(event_get_date_time($event));
 	?>
+
 	<h3 class="heading" colspan="6"><?php echo $name ?></h3>
+	
+	<p>Start Time: <?php echo date('g:i a',$start_date); ?></p>
+	<p>End Time: <?php echo date('g:i a',$end_date); ?></p>
+
 	<table id="name-list" class="table table-condensed table-bordered show-table">
 	<tr>
 		<th width="120">Name</th>
