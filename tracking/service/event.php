@@ -43,7 +43,9 @@ function show_usersTrack($users, $name, $event)
 		<th width="40">Chair Comments </th>
 	</tr>
 
-	<?php foreach($users as $user){ 
+	<?php 
+
+	foreach($users as $user){ 
 		if(isset($user['h']))
 		{
 			$class = 'small';
@@ -66,7 +68,7 @@ function show_usersTrack($users, $name, $event)
         $disabled = $checked ? "" : "disabled";
         
         echo "<input id=h{$user['user_id']} name='h[{$user['user_id']}]' "
-           . "type='text' id='decimal' size='3' maxlength='6' value='{$user['h']}' $disabled />";
+           . "type='text' id='decimal' size='3' maxlength='6' value='{$user['service_hours']}' $disabled />";
 
 		echo " hrs </td><td class=\"$class\">";
 
@@ -80,6 +82,7 @@ function show_usersTrack($users, $name, $event)
 		echo "</td><td class=\"$class\">";
 	
 		//$user_check_for_chair returns true if user is chair, else false
+		//looks in the signup table for chair
 		$user_check_for_chair = user_isChair($user['user_id'], $event);
 		forms_checkbox("c[{$user['user_id']}]", 1, $user_check_for_chair);
 		
