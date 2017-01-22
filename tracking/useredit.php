@@ -26,13 +26,19 @@ $coho = ($event['typeid'] == 9);  // Coho tracking is different
 switch($event['typeid'])  // Make a link to the old tracking page
 {
 case 1:
-    $link = '/tracking/service/edit.php';
+    $link = '/tracking/service/edit.php'; 
     break;
 case 9:
     $link = '/tracking/caw/edit.php';
     break;
 default:
     $link = '/tracking/fellowship/edit.php';
+}
+
+if ($event['typeid'] == 1) { // you can't enter service hours for nonservice events
+  $service_hours_input_switch = 'required';
+} else {
+  $service_hours_input_switch = 'disabled';
 }
 
 $link .= '?event=' . $event_id;
@@ -48,6 +54,8 @@ function defaults(u)
         u.miles = <?= $event['mileage'] ?>;
     if(u.passengers == null)
         u.passengers = 0;
+    if (u.serviceHours == null)
+        u.serviceHours = 0;
     <?php endif; ?>
 }
 
@@ -66,7 +74,11 @@ function makerow(u, row)
     row.cells[1].innerHTML = 
       '<input type="text" name="details['+user.id+']" size="100" ' +
             ' value="'+user.comments+'" />';
-    row.cells[2].innerHTML = '<input type ="text" name="service_hours['+user.id+']" size="5" />';
+    row.cells[2].innerHTML = 
+      '<input type ="digit" name="service_hours['+user.id+']" size="5" ' 
+      + 'value="'+user.serviceHours+'" ' 
+      + '<?php echo $service_hours_input_switch ?> />';
+
     <?php if(!$coho): ?>
     row.insertCell(-1);
 
@@ -92,8 +104,9 @@ function save(u, row)
 {
     myusers[u].comments = row.cells[1].firstChild.value;
     <?php if(!$coho): ?>
-    myusers[u].passengers = row.cells[2].firstChild.value;
-    myusers[u].miles = row.cells[2].childNodes[2].value;
+    // myusers[u].passengers = row.cells[2].firstChild.value;
+    // myusers[u].miles = row.cells[2].childNodes[2].value;
+    myusers[u].serviceHours = row.cells[2].firstChild.value;
     <?php endif; ?>
 }
 // helper function for applyDataTH
@@ -136,6 +149,7 @@ function build_myusers($users)
         extract($user);
         echo "{ id:$user_id, name:'$name', ",
                  "comments:'", htmlentities($details, ENT_QUOTES), "', ",
+                 "serviceHours: $service_hours, ",
                  "passengers: $ppl, miles: $mi }";
     }
   }

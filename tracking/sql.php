@@ -222,7 +222,7 @@ function getTrackedEvent($event)
 	mysql_free_result($result);
 	
 	// Get tracking info from trackingbyuser table for all non-hidden users for input event
-	$sql = "SELECT user_id, details, passengers, miles"
+	$sql = "SELECT user_id, details, service_hours, passengers, miles"
 		. " FROM trackingbyuser"
 		. " WHERE event_id = '$event' AND user_id IN ($set)";
 		
@@ -231,6 +231,7 @@ function getTrackedEvent($event)
 	while($line = mysql_fetch_assoc($result)) // Add trackingbyuser info to users array
 	{
 		$users[$line['user_id']]['details'] = $line['details'];
+		$users[$line['user_id']]['service_hours'] = $line['service_hours'];
 		if(!isset($users[$line['user_id']]['h']))
 		{
 			$users[$line['user_id']]['ppl'] = $line['passengers'];
