@@ -42,8 +42,11 @@ function show_usersTrack($users, $name, $event)
 	<p>Start Time: <?php echo date('g:i a',$start_date); ?></p>
 	<p>End Time: <?php echo date('g:i a',$end_date); ?></p>
 	<p>
+		Reported Hours - Tracked Hours = Tracked Hours
+	</p>
+	<p>
 		<strong>
-			Reported Hours - Tracked Hours = Tracked Hours
+			Note: nothing is saved until the Submit Tracking button is pressed.
 		</strong>
 	</p>
 
@@ -51,8 +54,8 @@ function show_usersTrack($users, $name, $event)
 	<tr>
 		<th width="120">Name</th>
 		<th width="50">Reported Hours </th>
-		<th width="100">Positive Hours</th>
-		<th width="100">Tracked Hours</th>
+		<th width="50">Positive Hours</th>
+		<th width="50">Tracked Hours</th>
 		<th width="40">Project</th>
 		<th width="40">Chair </th>
 		 <!--<th width="120">Driving<br>People / Miles</th> //temporary solution to the tracking problem// --> 
@@ -72,8 +75,10 @@ function show_usersTrack($users, $name, $event)
 			$class = 'small waitlist';
 			$checked = '';
 		}
-			
+		
 		?><tr id="r<?php echo $user['user_id'] ?>"><?php
+		$all_hour_fields_set = isset($user['h']) && isset($user['service_hours']);
+
 		echo "<td class=\"$class\">";
        echo "<input name=\"user[]\" type=\"checkbox\" $checked value=\"{$user['user_id']}\" "
          . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked';" 
@@ -83,7 +88,7 @@ function show_usersTrack($users, $name, $event)
 
 				echo "<td class=\"$class\">"; // reported hours
 
-				echo "<input id=reported-hours{$user['user_id']} value=\"{$user['service_hours']}\">";
+				echo "<input class='hours-input' id=reported-hours{$user['user_id']} type='text' size='5' value=\"{$user['service_hours']}\">";
 				echo " hrs </td>";
 
 		echo "<td class=\"$class\">"; // positive hours
@@ -98,16 +103,16 @@ function show_usersTrack($users, $name, $event)
 			$reported_hours_JS = "'reported-hours{$user['user_id']}'";
 			$tracked_totals_for_JS = "'h{$user['user_id']}'";
 
-		echo "<input id=ph{$user['user_id']} name='ph[{$user['user_id']}]' "
-           . "type='text' size='3' maxlength='6' value='$positive_hour_input' "
-           . "onkeyup=\"calculateServiceHours(this.value, $reported_hours_JS, $tracked_totals_for_JS);\"/>";
+		echo "<input class='hours-input' id=ph{$user['user_id']} name='ph[{$user['user_id']}]' "
+	   . "type='text' size='5' maxlength='6' value='$positive_hour_input' "
+     . "onkeyup=\"calculateServiceHours(this.value, $reported_hours_JS, $tracked_totals_for_JS);\"/>";
 		echo " hrs </td>";
 
     echo "<td class=\"$class\">"; // tracked hours
 	    $disabled = $checked ? "" : "disabled";
 	    
-	    echo "<input id=h{$user['user_id']} name='h[{$user['user_id']}]' "
-	       . "type='text' size='3' maxlength='6' value='{$user['h']}' "
+	    echo "<input class='hours-input' id=h{$user['user_id']} name='h[{$user['user_id']}]' "
+	       . "type='text' size='5' maxlength='6' value='{$user['h']}' "
 	       . " $disabled /> hrs";
 		echo " </td>";
 
