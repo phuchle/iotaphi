@@ -2086,6 +2086,12 @@ content: '';
   text-align: center;
 }
 
+td .tracking-hours-reported, 
+td .tracking-hours-positive, 
+td .tracking-hours-total {
+  width: auto;
+}
+
 /* responsive/mobile styles */
 
 /* 

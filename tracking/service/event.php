@@ -20,11 +20,12 @@ if(isset($_SESSION['id']))
 if(isset($_SESSION['class']))
 	$class = $_SESSION['class'];
 
+echo '<script type="text/javascript" src="/js/calculate_tracking_hours.js"></script>';
+
 get_header();
 
 $temp=user_get($id, 'f');
 $temp=$temp['name'];
-
 
 if ( !( ($temp == 'service' || $temp == 'admin') && $class=='admin') )
 	show_note('You must be logged in as service to access this page.');
@@ -40,11 +41,18 @@ function show_usersTrack($users, $name, $event)
 	<p>Start Time: <?php echo date('g:i a',$start_date); ?></p>
 	<p>End Time: <?php echo date('g:i a',$end_date); ?></p>
 
+	<p>
+		<strong>
+			NOTE: Reported Hours (from the chair) - Positive Hours (SVPs enter) = 
+			Total Hours
+		</strong>
+	</p>
 	<table id="name-list" class="table table-condensed table-bordered show-table">
 	<tr>
 		<th width="120">Name</th>
-		<th width="50">Hours </th>
+		<th width="50">Reported Hours</th>
 		<th width="100">Positive Hours</th>
+		<th width="100">Total Hours</th>
 		<th width="40">Project</th>
 		<th width="40">Chair </th>
 		 <!--<th width="120">Driving<br>People / Miles</th> //temporary solution to the tracking problem// --> 
@@ -68,23 +76,33 @@ function show_usersTrack($users, $name, $event)
 		?><tr id="r<?php echo $user['user_id'] ?>"><?php
 		echo "<td class=\"$class\">";
        echo "<input name=\"user[]\" type=\"checkbox\" $checked value=\"{$user['user_id']}\" "
-           . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked'/>";
+           . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked; clearDisabledInput();'/>";
         echo "<span title=\"{$user['class_nick']} Class\">{$user['name']}</span></td>";
 		
-        echo "<td class=\"$class\">";
+        echo "<td class=\"$class\">"; // reported hours
         
-        $disabled = $checked ? "" : "disabled";
-        
-        echo "<input id=h{$user['user_id']} name='h[{$user['user_id']}]' "
-           . "type='text' id='decimal' size='3' maxlength='6' value='{$user['service_hours']}' $disabled />";
+        echo "<input class=\"tracking-hours-reported\" id='reported-hours' type='text' size='3' maxlength='6' value=\"{$user['service_hours']}\"> hrs ";
 
-		echo " hrs </td><td class=\"$class\">";
+		echo "</td><td class=\"$class\">"; // positive hours
 
-		echo "<input id=ph{$user['user_id']} name='ph[{$user['user_id']}]' "
-           . "type='text' id='decimal' size='3' maxlength='6' value='{$user['ph']}' />";
+		echo "<input class='tracking-hours-positive' "
+					 . "id='positive-hours' name='ph[{$user['user_id']}]' "
+           . "type='text' id='decimal' size='3' maxlength='6' " 
+           . "value='{$user['ph']}' onkeyup='calculateServiceHours(this.value)'/>";
 
 		
-		echo " hrs </td><td class=\"$class\">";
+		echo " hrs </td>";
+
+		echo "<td class=\"$class\">";
+			$disabled = $checked ? "" : "disabled";
+			$total_hours_field = isset($user['h']) ? $user['h'] : "";
+        
+        echo "<input class='tracking-hours-total' id='h{$user['user_id']}'" 
+        . "name='h[{$user['user_id']}]' type='text' id='decimal' "
+        . " size='3' maxlength='6' value='{$user['h']}' $disabled /> hrs";
+		echo "</td>";
+
+		echo "<td class=\"$class\">";
 		forms_checkbox("p[{$user['user_id']}]", 1, $user['p']);
 		
 		echo "</td><td class=\"$class\">";
@@ -95,7 +113,7 @@ function show_usersTrack($users, $name, $event)
 		forms_checkbox("c[{$user['user_id']}]", 1, $user_check_for_chair);
 		
 		echo "</td><td class=\"$class\" align=\"center\">";
-		forms_text(40,"details[{$user['user_id']}]", $user['details']);
+		forms_text(30,"details[{$user['user_id']}]", $user['details']);
 		
 	   //  forms_decimal("mi[{$user['user_id']}]", $user['mi']);
 	   // 	echo " mi </td><td class=\"$class\">";
