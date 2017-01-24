@@ -213,6 +213,8 @@ function fill()
 					show = (myevent.type == 11);
 				else if (event == "12")
 					show = (myevent.type == 12);
+				else if (event == "13")
+					show = (myevent.type == 13);
 				else if(event == "7")
 					show = (myevent.type != 1 && myevent.type != 2 && myevent.type != 5 && myevent.type != 6 && myevent.type != 9);
 				else if(event == "myEvents")
@@ -313,6 +315,7 @@ if ( isset( $_SESSION['id'] ) )
 			<option value="10" <?php echo ($filter==10)?'selected':'' ?>>Interviews</option>
 			<option value="11" <?php echo ($filter==11)?'selected':'' ?>>Fundraisers</option>
 			<option value="12" <?php echo ($filter==12)?'selected':'' ?>>PFSC</option>
+			<option value="13" <?php echo ($filter==13)?'selected':'' ?>>Outreach</option>
 		</select>
 	</div>
 

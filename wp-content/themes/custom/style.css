@@ -1869,7 +1869,10 @@ td.nested {
 .et11 { background-color: #ffffcc; }
 
 /* PSFC */  
-.et12 { background-color: #eaffff; }  
+.et12 { background-color: #eaffff; } 
+
+/* PSFC */  
+.et13 { background-color: #d6fcff; }  
       
       
 .fourc0     { background-color: #FF9797; }
@@ -2429,7 +2432,7 @@ all and (max-width: 768px),
     border: none;
     border-bottom: 1px solid #eee; 
     position: relative;
-    padding-left: 10px; 
+    padding-left: 50%; 
   }
   
   td:before { 
