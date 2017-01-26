@@ -29,7 +29,7 @@ function getShiftDurations() {
 	$classStartDate = db_currentClass('start');
 	$sql = 'SELECT '
 					  . "event.event_name AS 'event_name', "
-					  . "DATE(EVENT.event_date) AS date, "
+					  . "DATE(event.event_date) AS date, "
 					  . "shift.shift_start, "
 					  . "shift.shift_end, "
 					  . "COUNT(signup.user_id) as 'members_per_shift', "
