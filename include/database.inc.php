@@ -73,16 +73,23 @@ function db_close()
  */
 function db_select($query, $where = 'error', $array = false)
 {
-    $result = mysql_query($query) or die($where . ': ' . mysql_error());
+		// $mysqli = new mysqli$name=DB_NAME, $host=DB_HOST, $user=DB_USER, $pass=DB_PASS
+		$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+		$result = mysqli_query($link, $query) or die(mysqli_error($link)); 
+    // $result = mysql_query($link, $query) or die($where . ': ' . mysql_error());
 
     $rows = array();
 
-    if($array)
-        while($line = mysql_fetch_array($result))
-            array_push($rows,$line);
-    else
-        while($line = mysql_fetch_assoc($result))
-            array_push($rows,$line);
+    if($array){
+      while($line = mysqli_fetch_array($result)) {
+        array_push($rows,$line);
+      }
+    }
+    else {
+      while($line = mysqli_fetch_assoc($result)) {
+        array_push($rows,$line);
+      }
+    }
     
     mysql_free_result($result);
     

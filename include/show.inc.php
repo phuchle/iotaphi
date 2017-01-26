@@ -101,7 +101,7 @@ function show_filters() //This is a filter status to where the current array is 
 	    <p>Search Names:</p>
 	  	<input type="text" id="nameInput" onkeyup="filterByNameInTable()" placeholder="Enter first or last name">
   	<div>
-
+  	<!-- see code below -->
   	<div class="exportExcel">
   		<p>Export this table to an .xls format</p>
 	  	<button id="btnExport" class="btn btn-small">Export to Excel file</button>
@@ -191,7 +191,9 @@ function show_filters() //This is a filter status to where the current array is 
 				"/tracking/caw/totals.php",
 				"/tracking/meeting/totals.php",
 				"/tracking/comms.php",
-				"/tracking/usertotals.php"
+				"/tracking/usertotals.php",
+				"/tracking/service/overview.php",
+				"/tracking/service/this_term_events.php"
 			];
 
 			$( ".exportExcel" ).toggle(
