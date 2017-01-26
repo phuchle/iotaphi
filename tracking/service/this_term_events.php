@@ -25,7 +25,8 @@ if($class != 'admin'){
 function getCurrentTermServiceEvents() {
 	$classStartDate = db_currentClass('start');
 
-	$sql = 'SELECT DISTINCT event_name, event_date '
+	$sql = 'SELECT DISTINCT event_name, DATE(event_date) as event_date, '
+				. 'TIME(event_date) as event_time '
 				. 'FROM event, tracking '
 				. 'WHERE eventtype_id = 1 AND event.event_id = tracking.event_id ' 
 				. 'AND tracking.hours > 0 '
@@ -41,12 +42,19 @@ function show_CurrentTermServiceEvents() {
 	
 	foreach ($result as $row) {
 		echo "<tr>";
+
 			echo "<td>";
 				echo $row['event_name'];
 			echo "</td>";
+
 			echo "<td>";
 				echo $row['event_date'];
 			echo "</td>";
+
+			echo "<td>";
+				echo $row['event_time'];
+			echo "</td>";
+
 		echo "</tr>";
 	}
 
@@ -60,8 +68,9 @@ show_filters();
  <h1>All Service Events From This Term</h1>
 	<table id="name-list" class="table table-condensed table-bordered show-table">
 		<tr>
-			<th width="50%">Event Name</th>
-			<th width="50%">Date</th>
+			<th width="34%">Event Name</th>
+			<th width="33%">Date</th>
+			<th width="33%">Time</th>
 		</tr>
 		<?php
 			show_CurrentTermServiceEvents();

@@ -20,6 +20,14 @@ if(!$_SESSION['class'])
 <a href="/tracking/comms.php">Committees & Dues</a><br/>
 <a href="/tracking/usertotals.php">Total Users</a><br/>
 <a href="/tracking/usersuperall.php">Complete Users (doesn't show in roster)</a><br/>
+
+<a href="/tracking/service/overview.php">
+	Overview of Service per Shift and Brothers per Shift
+</a><br/>
+
+<a href="/tracking/service/this_term_events.php">
+	List of Service Events and Dates for this Term
+</a><br/>
 <!-- <a href="/tracking/pictures.php">Pictures</a><br/> -->
 </div>
 

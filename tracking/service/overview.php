@@ -48,15 +48,6 @@ function getShiftDurations() {
   return db_select($sql);
 }
 
-// function getCurrentTermServiceEvents(){
-// 	$sql = 'SELECT DISTINCT event_name, event_date '
-// 				. 'FROM event, tracking '
-// 				. 'WHERE eventtype_id = 1 AND event.event_id = tracking.event_id ' 
-// 				. 'AND tracking.hours > 0'
-// 				. 'AND event_date > ' . db_currentClass('start');
-
-//   return db_select($sql, "getCurrentTermServiceEvents");
-// }
 
 function show_ShiftDurations() {
 	$result = getShiftDurations();
@@ -83,6 +74,10 @@ function show_ShiftDurations() {
 			echo "<td>";
 				echo $row['hours_per_shift'];
 			echo "</td>";
+			echo "<td>";
+				echo ($row['members_per_shift'] * $row['hours_per_shift']);
+			echo "</td>";
+
 		echo "</tr>";
 	}
 }
@@ -93,15 +88,16 @@ show_filters();
 ?>
 
 <div id="name-list-container">
- <h1>Overview of </h1>
+ <h1>Service per Shift and Brothers per Shift</h1>
 	<table id="name-list" class="table table-condensed table-bordered show-table">
 		<tr>
 			<th width="30%">Event Name</th>
 			<th width="10%">Date</th>
-			<th width="15%">Shift Start</th>
-			<th width="15%">Shift End</th>
-			<th width="15%">Brothers per shift</th>
-			<th width="15%" colspan="4">Hours per shift</th>
+			<th width="10%">Shift Start</th>
+			<th width="10%">Shift End</th>
+			<th width="13%">Brothers per shift</th>
+			<th width="12%">Hours per shift</th>
+			<th width="15%">Total Hours (brothers x hours per shift)</th>
 		</tr>
 		<?php
 			show_ShiftDurations();
