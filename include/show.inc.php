@@ -103,7 +103,7 @@ function show_filters() //This is a filter status to where the current array is 
   	<div>
   	<!-- see code below -->
   	<div class="exportExcel">
-  		<p>Export this table to an .xls format</p>
+  		<p>Export this table to an .xls format:</p>
 	  	<button id="btnExport" class="btn btn-small">Export to Excel file</button>
   	</div>
 

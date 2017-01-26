@@ -1,9 +1,3 @@
-// just do it in PHP and store it lmao????
-
-function activatePositiveHours(checked, positiveHours) {	
-	positiveHours.disabled = checked;
-}
-
 function calculateServiceHours(positiveHours, reportedHours, totalHours) {
 	if (positiveHours === "") { return totalHours.value = ""; }
 	var reportedHours = document.getElementById(reportedHours).value;

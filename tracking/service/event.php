@@ -88,9 +88,8 @@ function show_usersTrack($users, $name, $event)
 
 		echo "<td class=\"$class\">";
        echo "<input name=\"user[]\" type=\"checkbox\" $checked value=\"{$user['user_id']}\" "
-<<<<<<< HEAD
-         . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked';" 
-         . "clearDisabledHours();/>";
+         . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked; " 
+         . "clearDisabledInput(\"h{$user['user_id']}\", \"ph{$user['user_id']}\");'/>";
 
         echo "<span title=\"{$user['class_nick']} Class\">{$user['name']}</span></td>";
 
@@ -123,33 +122,7 @@ function show_usersTrack($users, $name, $event)
 	       . "type='text' size='5' maxlength='6' value='{$user['h']}' "
 	       . " $disabled /> hrs";
 		echo " </td>";
-=======
-           . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked; clearDisabledInput();'/>";
-        echo "<span title=\"{$user['class_nick']} Class\">{$user['name']}</span></td>";
-		
-        echo "<td class=\"$class\">"; // reported hours
-        
-        echo "<input class=\"tracking-hours-reported\" id='reported-hours' type='text' size='3' maxlength='6' value=\"{$user['service_hours']}\"> hrs ";
 
-		echo "</td><td class=\"$class\">"; // positive hours
-
-		echo "<input class='tracking-hours-positive' "
-					 . "id='positive-hours' name='ph[{$user['user_id']}]' "
-           . "type='text' id='decimal' size='3' maxlength='6' " 
-           . "value='{$user['ph']}' onkeyup='calculateServiceHours(this.value)'/>";
-
-		
-		echo " hrs </td>";
-
-		echo "<td class=\"$class\">";
-			$disabled = $checked ? "" : "disabled";
-			$total_hours_field = isset($user['h']) ? $user['h'] : "";
-        
-        echo "<input class='tracking-hours-total' id='h{$user['user_id']}'" 
-        . "name='h[{$user['user_id']}]' type='text' id='decimal' "
-        . " size='3' maxlength='6' value='{$user['h']}' $disabled /> hrs";
-		echo "</td>";
->>>>>>> 65925e637ccef82b98b89a3d873e84332568bc7c
 
 		echo "<td class=\"$class\">";
 		forms_checkbox("p[{$user['user_id']}]", 1, $user['p']);
