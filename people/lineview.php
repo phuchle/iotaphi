@@ -1,4 +1,3 @@
-
 <?php
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';

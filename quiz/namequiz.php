@@ -1,24 +1,3 @@
-<!--
-
-<html>
-
-<audio autoplay>
-<source src="whatsgoingonfull.mp3" type="audio/mpeg">
-</audio>
-
-
-<center> <p> HI LITTLE BRO </p>
-	<img src="https://annemurray99.files.wordpress.com/2015/03/huge-dancing-banana-2.gif" alt="YOU'RE GONNA GET PIED" align="middle" style="width:500px;height:555x"> 
-
-<p> HOPE YOU LIKE PI<a href="https://www.youtube.com/watch?v=Lr7CKWxqhtw">E </a> :] </p>
-
-</center>
-
-</html>
-
--->
-
-
 <?php
 
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
@@ -153,4 +132,3 @@ for($i=0; $i < $count; $i++) {
 <?php show_footer(); 
 
 ?> 
-
