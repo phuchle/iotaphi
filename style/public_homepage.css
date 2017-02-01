@@ -12,7 +12,7 @@
 
 .cover-image {
   top: 0;
-  background-image: url('http://localhost:8888/download/IMG_1400-1.jpg');
+  background-image: url('/download/IMG_1400-1.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
