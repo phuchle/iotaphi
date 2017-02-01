@@ -1974,13 +1974,12 @@ div.notice {
 }
 
 #footer, #copyright{
-  padding: 10px;
   background: #1F1F1F;
   color: #FFFFFF;
 }
 
 #footer {
-  width: 100%;
+  padding: 10px;
 }
 
 .calborder{

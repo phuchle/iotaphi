@@ -15,7 +15,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 </div>
 </div>
 </div>
-	<div id="footer" class="container">
+	<div id="footer" class="footer">
 						<div id="copyright">
 		 <p>&copy; All Copyright Reserved |  Alpha Phi Omega - University of California, Davis</p>
 		 	</div>
