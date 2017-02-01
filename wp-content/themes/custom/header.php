@@ -17,6 +17,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <script src="/script/bootstrap.min.js"></script>
 <script src="/js/mobile_menu.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <!-- <script type="text/javascript">
 	if (screen.width <= 699) {
 		document.location = "/mobile";
@@ -45,19 +46,23 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 		Added this to give the sectionals page special viewing privileges
 	-->
 	<?php if(is_page('sectionals')){
-			echo '<div id="header" class="container">'
+			echo '<div id="header" class="container navbar-fixed-top">'
 	    .'<div id="crest">'  						
-			.'<a href="http://www.iotaphi.org/sectionals"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" />'
+			.'<a class="home-button" href="http://www.iotaphi.org/sectionals"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" />'
 			.'<h2>UC Davis Chapter</h2></a>'
 			.'</div>'
 	    	.'<div id="access" role="navigation" >';
 	      }
 	      else{
-	      	echo '<div id="header" class="container">'	
+	      	echo '<div id="header" class="container navbar-fixed-top">'	
 	    .'<div id="crest">'  				
-			.'<a href="http://www.iotaphi.org"><img src="/images/crest.png" alt="Alpha Phi Omega Crest" />'
-			.'</a><p>UC Davis Chapter</p>'
+			.'<a class="home-button" href="http://www.iotaphi.org">'
+				.'<h1>ΑΦΩ - ΙΦ</h1>'
+			// . '<img src="/images/crest.png" alt="Alpha Phi Omega Crest" />'
+			.'</a>'
+			// .'<p class="small">UC Davis Chapter</p>'
 			.'</div>'
+			// .'<div class="nav-links">'
 			.'<div id="access" role="navigation">';
 	      }
 	?>
@@ -97,7 +102,42 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 			<?php endif; ?>
 	</div> <!-- login_button -->
 	</div>	<!-- container -->
+
+<?php if ( !isset($_SESSION['id']) ) { ?>
+	<?php if (is_front_page()) { ?>
+		<div class="cover-image">
+			<div class="homepage-overlay">
+				<div class="content lead">
+
+					<p class="lead"><strong>ALPHA PHI OMEGA</strong></p>
+					<hr class="home-page-hr">
+					<p class="lead"><strong>LEADERSHIP, FRIENDSHIP, SERVICE</strong></p>
+				</div> <!-- content lead -->
+			</div> <!-- homepage-overlay -->
+				<div class="learn-more">				
+					<a id="about-us-links" class="lead ps2id" href="/#about-us">
+						<strong>
+							Learn More
+							<p>&#8675</p>
+						</strong>
+					</a>
+				</div>
+		</div> <!-- cover-image -->
+	<?php } ?>
+<!-- adds nav bg-color when scrolling past cover -->
+<script src="/js/nav-coloring.js"></script>
 	
+<link rel="stylesheet" type="text/css" href="/style/public_homepage.css">
+<?php	
+} 
+else {
+?>
+
+<link rel="stylesheet" type="text/css" href="/style/logged_in.css">
+
+<?php } ?>
+</header>
+
 		</header>
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -1,0 +1,45 @@
+#header {
+	background-color: #1F1F1F;
+	padding-bottom: 20px;
+}
+
+#cssmenu > ul > li > a {
+  color: #FFF;
+  /*padding: 15px 20px;*/
+  font-weight: none;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  /*font-size: 14px;*/
+  z-index: 2;
+  position: relative;
+}
+
+.homepage-boards {
+	padding-top: 40px;
+	position: relative;
+}
+
+@media all and (max-width: 769px) {
+	#cssmenu > ul > li,
+	#cssmenu > ul > li > a,
+	#cssmenu > ul > li > ul > li,
+	#cssmenu > ul > li > ul > li > a {
+		background-color: white;
+	}
+
+
+	#cssmenu > ul > li > a {
+	  color: #000000;
+	}
+
+  #container {
+    margin-top: 0;
+    padding: 0 10px 0 10px;
+  }
+
+  #header {
+  	position: relative;
+  	padding-top: 40px;
+  	padding-bottom: 0;
+  }
+}

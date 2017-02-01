@@ -366,19 +366,20 @@ header{
   min-height: 370px;
 }
 #header{
-  position: relative;
+  /*position: relative;*/
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  background-color: white;
+  /*background-color: #FFF;*/
   height: auto;
-  border-bottom: 3px solid #414141;
- padding-top: 10px;
+  /*border-bottom: 3px solid #414141;*/
+  padding-top: 10px;
 }
 
 #container{
-  padding: 54px 20px 10px 20px;
-  border: 1px solid lightgray;
+  padding: 125px 20px 10px 20px;
+  border: 0;
+  max-width: 767px;
 }
 .calheading td{
   text-align: center;
@@ -392,23 +393,17 @@ header{
   margin: 0 auto;*/
 }
 #site-title {
-  color: #fff;
+  color: #000;
   font-size: 30px;
   line-height: 36px;
   margin: 0;
   padding: 0px;
-float: left;
+  float: left;
 }
 #site-title a {
-  color: #fff;
+  color: #000;
   font-weight: bold;
   text-decoration: none;
-}
-#site-description {
-  font-style: italic;
-  margin: 15px 0 18px 0;
-  width: 220px;
-  display: none;
 }
 
 
@@ -440,7 +435,7 @@ display: inline;
   display: inline;
   /*line-height: 38px;*/
   padding: 5px 10px;
-  border-right: 1px solid #F2F2F2;
+  /*border-right: 1px solid #F2F2F2;*/
 /*  border-top: 4px solid #1B1B1B;
   padding-bottom: 8px;
   text-decoration: none;
@@ -1978,8 +1973,14 @@ div.notice {
   text-align: center;
 }
 
-#footer{
+#footer, #copyright{
   padding: 10px;
+  background: #1F1F1F;
+  color: #FFFFFF;
+}
+
+#footer {
+  width: 100%;
 }
 
 .calborder{
@@ -2089,6 +2090,22 @@ td .hours-input {
   width: auto;
 }
 
+.widget-container {
+  list-style: none;
+}
+
+.xoxo {
+  margin: 0;
+}
+
+.nav-links {
+  display: inline-block;
+}
+
+#crest .home-button {
+  transition: all 0.5s;
+}
+
 /* responsive/mobile styles */
 
 /* 
@@ -2147,7 +2164,6 @@ th-data appears to left of the <td> when in mobile
 /* New navigation styles */
 
 #cssmenu {
-  background: #FFF;
   color: black;
   margin: 0;
   width: auto;
@@ -2303,8 +2319,12 @@ th-data appears to left of the <td> when in mobile
 #cssmenu.align-right ul ul li a {
   text-align: right;
 }
-/* desktop hover effect on main menu items */
+
 #cssmenu > ul > li:after {
+  transition: all .2s ease;
+}
+/* desktop hover effect on main menu items */
+#cssmenu > ul > li:hover:after {
   content: '';
   display: block;
   position: absolute;
@@ -2312,15 +2332,17 @@ th-data appears to left of the <td> when in mobile
   height: 0;
   top: 0;
   z-index: 0;
-  background-color: #000000;
+  background-color: #FFFFFF;
   border-radius: 4px;
-  opacity: .05;
+  opacity: .5;
   -webkit-transition: height .2s;
   -moz-transition: height .2s;
   -ms-transition: height .2s;
   -o-transition: height .2s;
   transition: height .2s;
 }
+
+
 
 #cssmenu > ul > li.has-sub > a {
   /*padding-right: 40px;*/
@@ -2349,11 +2371,11 @@ th-data appears to left of the <td> when in mobile
   top: 21px;*/
 }
 #cssmenu > ul > li > a {
-  color: black;
+  color: #000;
   /*padding: 15px 20px;*/
-  /*font-weight: 700;*/
-  /*letter-spacing: 1px;*/
-  /*text-transform: uppercase;*/
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   /*font-size: 14px;*/
   z-index: 2;
   position: relative;
@@ -2362,11 +2384,14 @@ th-data appears to left of the <td> when in mobile
 #cssmenu > ul > li:hover:after,
 #cssmenu > ul > li.active:after {
   height: 100%;
-  /*background-color: #FFFFFF;*/
+  background-color: #FFFFFF;
+  /*background-color: #000000;*/
+  border-radius: 4px;
+  opacity: .5;
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li.active > a {
-  color: #000000;
+  color: #000;
 }
 #cssmenu > ul > li:hover > a:after,
 #cssmenu > ul > li.active > a:after {
@@ -2407,6 +2432,10 @@ th-data appears to left of the <td> when in mobile
 @media 
 all and (max-width: 768px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+body {
+  margin-top: 0;
+}
 
 .homepage-top-table tbody th,
   .homepage-top-table tbody th {
@@ -2457,17 +2486,17 @@ all and (max-width: 768px),
 /* Responsive navigation */
 
 
+@media all and (max-width: 769px) {
 /*only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
 only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
 only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
 only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
-@media all and (max-width: 769px) {
   body, p, a, 
   #cssmenu > ul > li > ul > li > a, 
   #cssmenu ul li a {
-    font-size: 105%;
+    font-size: 100%;
   }
 
   #calendar p, #calendar a {
@@ -2476,6 +2505,10 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
 
    .event-filter {
     padding-bottom: 5px;
+  }
+
+  #container {
+    padding-top: 20px;
   }
 
   /* drop down menu when you press the button */
@@ -2487,6 +2520,9 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
     -ms-transition: max-height 0.35s ease-out;
     -o-transition: max-height 0.35s ease-out;
     transition: max-height 0.35s ease-out;
+  }
+  #cssmenu > ul > li > a {
+    color: #000;
   }
   /* sub-menu */
   #cssmenu > ul > li > ul {

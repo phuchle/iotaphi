@@ -225,11 +225,15 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
-  /*margin-top: -28px !important; some plugin is adding the adminbar even when not logged in, display:none the admin bar, and reduce the margin */
+  text-rendering: optimizeLegibility!important;
+  -webkit-font-smoothing: antialiased!important;
+  margin-top: -40px; 
+  /* some plugin is adding the adminbar even when not logged in, 
+  display:none the admin bar, and reduce the margin */ 
 }
 
 a {
@@ -239,7 +243,7 @@ a {
 
 a:hover {
   color: #005580;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .img-rounded {
@@ -6983,7 +6987,7 @@ a.badge:hover {
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom {
-    position: static;
+    /*position: static;*/
   }
   .navbar-fixed-top {
     margin-bottom: 20px;

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /* template name:Home Page */
 ?>
@@ -20,7 +20,7 @@ get_header();
 if ( isset( $_SESSION['id'] ) )
 { ?>
 
-<div class="row-fluid">
+<div class="row-fluid homepage-boards">
 	<div class="span12">
 	<div class="span3">
 		<h4 style="text-align:center">Upcoming Events</h4>
@@ -242,7 +242,9 @@ mysql_free_result($result_total);
 
 
 </div>	
-<? } else { ?>
+<? } 
+// Public homepage / not logged in
+else { ?>
 	<div id="homecontent" role="main">
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -258,6 +260,22 @@ mysql_free_result($result_total);
 				<?php if ( comments_open() ) comments_template( '', true ); ?>
 
 			<?php endwhile; ?>
+
+		<div id="main-sidebars">
+
+			<?php if ( is_active_sidebar( 'feature-widget-area' ) ) : ?>
+
+			<div id="feature" class="widget-area" role="complementary">
+				<ul class="xoxo">
+					<?php dynamic_sidebar( 'feature-widget-area' ); ?>
+				</ul>
+			</div>
+		<?php endif; ?>
+
+
+		</div>
+
+
 	<div id="footer-widget-area" class="row-fluid">
 		<div class="span12">
 			<?php if ( is_active_sidebar( 'first-footer-widget-area' ) ) : ?>
@@ -282,15 +300,16 @@ mysql_free_result($result_total);
 					</ul>
 				</div><!-- #third .widget-area -->
 			<?php endif; ?>	
-			</div>
+		</div>
+
 </div>
-<div  id="footer-widget-area">
+<div id="homepage-footer-buttons">
 	<span class="pull-left">
 	  <a class="btn btn-small btn-primary" href="mailto:service@iotaphi.org">Need Volunteers?</a>
 	  <a class="btn btn-small btn-primary" href="mailto:president@iotaphi.org">Want to Sponsor us?</a>
 	</span>
 	
-	 <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapodavis%3Ffref%3Dts&amp;width=450&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+	 <iframe class="pull-right" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapodavis%3Ffref%3Dts&amp;width=450&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:auto; height:35px; display:block;" allowTransparency="true"></iframe>
 </div>
 		<?php } ?>
 
