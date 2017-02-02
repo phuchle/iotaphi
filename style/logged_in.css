@@ -3,6 +3,10 @@
 	padding-bottom: 20px;
 }
 
+#container {
+	width: auto;
+}
+
 #cssmenu > ul > li > a {
   color: #FFF;
   /*padding: 15px 20px;*/

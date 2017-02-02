@@ -71,7 +71,7 @@ a#about-us-links {
 }
 
 #homecontent {
-  text-align: center;
+  text-align: left;
 }
 
 #site-title a {
@@ -105,7 +105,11 @@ a#about-us-links {
 }
 
 #homepage-footer-buttons {
-	align: center;
+	padding-top: 20px;
+}
+
+.leadership-footer p, .service-footer p {
+	text-align: justify;
 }
 
 @media all and (max-width: 769px) {

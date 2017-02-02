@@ -5,6 +5,7 @@ include_once dirname(dirname(__FILE__)) . '/include/event.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/signup.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
+get_header();
 
 wp_enqueue_style( 'mobile_tables', $src = "", $deps, $ver, $media );
 

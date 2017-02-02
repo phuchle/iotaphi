@@ -3,7 +3,7 @@ include_once 'include/template.inc.php';
 include_once 'include/event.inc.php';
 include_once 'include/signup.inc.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
-
+get_header();
 
 $id = $class = false;
 
