@@ -109,7 +109,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 			<div class="homepage-overlay">
 				<div class="content lead">
 
-					<p class="lead"><strong>ALPHA PHI OMEGA</strong></p>
+					<p class="lead"><strong>ALPHA PHI OMEGA @ UC DAVIS</strong></p>
 					<hr class="home-page-hr">
 					<p class="lead"><strong>LEADERSHIP, FRIENDSHIP, SERVICE</strong></p>
 				</div> <!-- content lead -->
