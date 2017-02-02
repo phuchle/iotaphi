@@ -24,12 +24,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 	}
 </script> -->
 
-<?php if ( !is_user_logged_in() ){ ?>
-	    <style>
-            #wpadminbar{ display:none; }
-	    html { margin-top: 28px !important}
-            </style>
-		<?php } ?>
 <?php
 	/* Always have wp_head() just before the closing </head>
 	 * tag of your theme, or you will break many plugins, which
@@ -38,6 +32,12 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/include/session.inc.php');
 	 */
 	wp_head();
 ?>
+<?php if ( !is_user_logged_in() ){ ?>
+	    <style>
+            #wpadminbar{ display:none; }
+	    html { margin-top: 0 !important}
+            </style>
+		<?php } ?>
 </head>
 
 <body>

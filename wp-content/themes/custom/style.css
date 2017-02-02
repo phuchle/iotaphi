@@ -2071,6 +2071,10 @@ content: '';
 
 
 /* crest of APO and chapter that appears at top left of site */
+#crest > a > h1{
+  font-size: 38.5px;
+  vertical-align: middle;
+}
 #crest {
   display: inline-block;
   padding-right: 10px;
@@ -2078,6 +2082,7 @@ content: '';
 }
 
 .login-button {
+  vertical-align: middle;
   display: inline-block;
   vertical-align: middle;
 }
@@ -2323,7 +2328,8 @@ th-data appears to left of the <td> when in mobile
   transition: all .2s ease;
 }
 /* desktop hover effect on main menu items */
-#cssmenu > ul > li:hover:after {
+#cssmenu > ul > li:hover:after,
+#cssmenu > ul > li.active:after {
   content: '';
   display: block;
   position: absolute;
