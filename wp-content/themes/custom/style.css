@@ -11,7 +11,7 @@ Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-backgr
 
 
  =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
--------------------------------------------------------------- 
+--------------------------------------------------------------
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -57,7 +57,7 @@ a img {
 }
 
  =Layout
--------------------------------------------------------------- 
+--------------------------------------------------------------
 
 
 LAYOUT: Two columns
@@ -376,12 +376,13 @@ header{
   padding-top: 10px;
 }
 
-#container{
-  padding: 125px 20px 10px 20px;
+#container {
+  padding: 20px 20px 10px 20px;
+  margin-top: 100px;
   border: 0;
   max-width: 800px;
 }
-.calheading td{
+.calheading td {
   text-align: center;
 }
 
@@ -492,7 +493,7 @@ display: inline;
 
 
 /* =Content
--------------------------------------------------------------- 
+--------------------------------------------------------------
 
 #main {
   clear: both;
@@ -1683,7 +1684,7 @@ padding: 3px;
     font-weight: bold;
     border: 1px black solid;
     width: 140px;
-    list-style-type: none; 
+    list-style-type: none;
 }
 
 
@@ -1710,7 +1711,7 @@ padding: 3px;
 #bottom {
   width: 1000px;
   height: 30px;
-  background: url("/images/original/menu_bg_off.png") repeat-x center;  
+  background: url("/images/original/menu_bg_off.png") repeat-x center;
     text-align: center;
   color: #EEE;
 }
@@ -1721,7 +1722,7 @@ padding: 3px;
   margin-left: auto;
   margin-right: auto;
 }
-span.copyright {  
+span.copyright {
   position: relative;
   top: 0.4em;
   font-family: Book Antiqua, Georgia, Times New Roman, serif;
@@ -1784,7 +1785,7 @@ td.total {
 }
 /*for notes*!/
 td.note {
-    text-align: center; 
+    text-align: center;
     font-style: italic;
 }
 td.waitlist, tr.waitlist td {
@@ -1836,40 +1837,40 @@ td.nested {
 .et1 { background-color: #f5cfcf; }
 
 /* fellowsip */
-.et2 { background-color:#e7e7f2; } 
+.et2 { background-color:#e7e7f2; }
 
 /*fundraiser*/
-.et3 { background-color: #ff69b4; } 
-/*rush*/            
-.et4 { background-color:#e7e7f2; } 
+.et3 { background-color: #ff69b4; }
+/*rush*/
+.et4 { background-color:#e7e7f2; }
 
 /*committee*/
 .et5 { background-color:#e7e7f2; }
-/*meeting*/ 
-.et6 { background-color:#d6d5ba ; }    
+/*meeting*/
+.et6 { background-color:#d6d5ba ; }
 
-/*leadership*/    
+/*leadership*/
 .et7 { background-color:#d3b5d1; }
 
 /*special eg pledge retreat*/
-.et8 { background-color:#d1f4d4; }     
+.et8 { background-color:#d1f4d4; }
 
  /*CAW hours*/
-.et9 { background-color:#e7e7f2; } 
+.et9 { background-color:#e7e7f2; }
 
 /*Interviews*/
-.et10{ background-color:#ffeee3; } 
+.et10{ background-color:#ffeee3; }
 
-/* Fundraisers */  
+/* Fundraisers */
 .et11 { background-color: #ffffcc; }
 
-/* PSFC */  
-.et12 { background-color: #eaffff; } 
+/* PSFC */
+.et12 { background-color: #eaffff; }
 
-/* PSFC */  
-.et13 { background-color: #d6fcff; }  
-      
-      
+/* PSFC */
+.et13 { background-color: #d6fcff; }
+
+
 .fourc0     { background-color: #FF9797; }
 .fourc0dark { background-color: #544; }
 .fourc1     { background-color: #97FFAF; }
@@ -1969,7 +1970,7 @@ div.notice {
 #frontpage {
   min-height: 400px;
   background-image: url("/images/original/coatofarms.jpg");
-  background-position: center 20px; 
+  background-position: center 20px;
   text-align: center;
 }
 
@@ -2056,13 +2057,13 @@ content: '';
 {
     line-height: 1em;
     padding: 0;
-    background: #57B; 
-    border: 1px solid black; 
+    background: #57B;
+    border: 1px solid black;
     margin: 2px;
     width: 130px;
-    text-align: center; 
+    text-align: center;
     display: inline;
-    
+
 }
 
 .waitlist{
@@ -2112,11 +2113,11 @@ td .hours-input {
 
 /* responsive/mobile styles */
 
-/* 
+/*
 
-mobile styles for <th> elements works with JS 
-JS script inserts data-th attr into <td> elements 
-th-data appears to left of the <td> when in mobile   
+mobile styles for <th> elements works with JS
+JS script inserts data-th attr into <td> elements
+th-data appears to left of the <td> when in mobile
 
 */
 
@@ -2157,7 +2158,7 @@ th-data appears to left of the <td> when in mobile
 
 /* crest and login align correctly for ipad sized devices */
 
-@media (max-width: 768px), 
+@media (max-width: 768px),
 (min-device-width: 768px) and (max-device-width: 1024px) {
   #crest, .login-button {
     padding-left: 20px !important;
@@ -2175,11 +2176,11 @@ th-data appears to left of the <td> when in mobile
   line-height: 1;
   display: block;
   /* puts it in front of the dashboard */
-  z-index: 1; 
+  z-index: 1;
   position: relative;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
-  box-sizing: content-box;  
+  box-sizing: content-box;
 }
 /* main menu */
 #cssmenu ul {
@@ -2434,7 +2435,7 @@ th-data appears to left of the <td> when in mobile
 
 /* responsive calendar / responsive tables */
 
-@media 
+@media
 all and (max-width: 768px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
@@ -2448,38 +2449,38 @@ body {
   }
 
   /* Force table to not be like tables anymore */
-  table, thead, tbody, td, th, tr { 
-    display: block; 
+  table, thead, tbody, td, th, tr {
+    display: block;
   }
-  
+
   /* Hide table headers (but not display: none;, for accessibility) */
-  tr.calheading, thead { 
+  tr.calheading, thead {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-  
-  tr { 
-    border: 1px solid #ccc; 
+
+  tr {
+    border: 1px solid #ccc;
     width: 100%;
   }
-  
-  td { 
+
+  td {
     /* Behave  like a "row" */
     border: none;
-    border-bottom: 1px solid #eee; 
+    border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 50%; 
+    padding-left: 50%;
   }
-  
-  td:before { 
+
+  td:before {
     /* Now like a table header */
     /*position: absolute;*/
     /* Top/left values mimic padding */
 /*    top: 6px;
     left: 6px;
-    width: 45%; 
-    padding-right: 10px; 
+    width: 45%;
+    padding-right: 10px;
     white-space: nowrap;*/
 
   body, p, a {
@@ -2492,14 +2493,14 @@ body {
 
 
 @media all and (max-width: 769px) {
-/*only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), 
-only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), 
-only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), 
-only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), 
-only screen and (min-resolution: 192dpi) and (max-width: 1024px), 
+/*only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px),
+only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px),
+only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px),
+only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px),
+only screen and (min-resolution: 192dpi) and (max-width: 1024px),
 only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
-  body, p, a, 
-  #cssmenu > ul > li > ul > li > a, 
+  body, p, a,
+  #cssmenu > ul > li > ul > li > a,
   #cssmenu ul li a {
     font-size: 100%;
   }
@@ -2514,6 +2515,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
 
   #container {
     padding-top: 20px;
+    margin-top: 0;
   }
 
   /* drop down menu when you press the button */
@@ -2562,7 +2564,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) */
   }
   #cssmenu > ul.open {
     z-index: 1000;
-    max-height: 1000px;
+    max-height: 100%;
     border-top: 1px solid rgba(110, 110, 110, 0.25);
   }
   #cssmenu ul {

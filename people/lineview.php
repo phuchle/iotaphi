@@ -2,7 +2,7 @@
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
-get_headers();
+get_header();
 
 if(!isset($_SESSION['class']))
     show_note('You must be logged in to view this page.');
@@ -273,6 +273,4 @@ if($_SESSION['class'] != 'admin' || $_SESSION['id'] != $user)
 
 }
 show_footer();
-
-
 ?>

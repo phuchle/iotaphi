@@ -1,14 +1,4 @@
-<script type="text/javascript" src="https://raw.github.com/snaptortoise/konami-js/master/konami.js"></script>
-<script type="text/javascript">
-	var success = function() {
-document.getElementsByTagName("body")[0].style.cursor = "url('/images/cody.gif'), auto";
-	}
-	
-	var konami = new Konami(success);
-	
-</script>
-<?php 
-
+<?php
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
@@ -31,6 +21,20 @@ if($class=='admin')
 	else
 		show_note('No user selected!');
 }
+
+?>
+
+<script type="text/javascript" src="https://raw.github.com/snaptortoise/konami-js/master/konami.js"></script>
+<script type="text/javascript">
+	var success = function() {
+document.getElementsByTagName("body")[0].style.cursor = "url('/images/cody.gif'), auto";
+	}
+
+	var konami = new Konami(success);
+
+</script>
+
+<?php
 
 function class_getAll()
 {
@@ -61,11 +65,11 @@ if(isset($_POST['submit']))
     extract($_POST);
 
     $sql = "UPDATE user SET user_address= '$user_address', ";
-    if(isset($family_id)) 
+    if(isset($family_id))
         $sql .= " family_id = '$family_id', ";
-    if(isset($status_id)) 
+    if(isset($status_id))
         $sql .= " status_id = '$status_id', ";
-    if(isset($class_id)) 
+    if(isset($class_id))
         $sql .= " class_id = '$class_id', ";
 	//prevent people from deciding that they are too sexy for a shirt
 	//(excomm can still do this to people)
@@ -74,8 +78,8 @@ if(isset($_POST['submit']))
     $sql .= " user_phone = '$user_phone', user_cell = '$user_cell', "
 		  . " user_email = '$user_email', user_snapchat = '$user_snapchat', "
 		  . " user_bday = CONCAT($year,'-',$month,'-',$day), style_id = '$style_id' , text_id = '$text_id' , major = '$major'";
-		  
-	
+
+
     if($class != 'admin' && strcmp($user_password, 'jesuisunconninmouflant')!= 0 )
 	{
 		if ( strcmp($user_password, $user_password_confirm) == 0 )
@@ -133,12 +137,12 @@ extract($line);
 		<select size="1" name="text_id">
 		<?php
 		$types = text_getAll();
-		foreach($types as $line): 
+		foreach($types as $line):
 			echo "<option ";
 			if($text_id==$line['text_id']) echo "selected ";
 			echo "value=\"{$line['text_id']}\">{$line['text_type']}</option>";
 		endforeach; ?>
-	</tr> 
+	</tr>
 	<tr>
 		<td>E-mail: </td>
 		<td><?php forms_text(32,"user_email",$user_email) ?></td>
@@ -174,30 +178,30 @@ extract($line);
 		<td>T-Shirt Size: </td>
 		<td>
 		<select size="1" name="shirt_id">
-		<?php 
+		<?php
 		$types = shirt_getAll();
-		foreach($types as $line): 
+		foreach($types as $line):
 			echo "<option ";
 			if($shirt_id==$line['shirt_id']) echo "selected ";
 			echo "value=\"{$line['shirt_id']}\">{$line['shirt_size']}</option>";
 		endforeach; ?>
 		</select>
 		</td>
-		
+
 <tr>
 	 <td>Website Style: </td>
 		<td>
 		<select size="1" name="style_id">
 		<?php
 		$types = style_getAll();
-		foreach($types as $line): 
+		foreach($types as $line):
 			echo "<option ";
 			if($style_id==$line['style_id']) echo "selected ";
 			echo "value=\"{$line['style_id']}\">{$line['style_name']}</option>";
 		endforeach; ?>
 	</tr>
 	<?php
-		
+
 	if($class != 'admin')
 	{
 		?>
@@ -210,14 +214,14 @@ extract($line);
 		<td>Re-type Password: </td>
 	<td><?php forms_password(32,"user_password_confirm", 'jesuisunconninmouflant') ?></td>
 	</tr>
-	
+
 	<tr>
 		<td>Major:</td>
 		<td colspan='2'><?php forms_text(100,"major",$major) ?></td>
 	</tr>
-	<?php 
+	<?php
 	}	//end password
-	
+
 	if($class=="admin"): ?>
 	<tr>
 		<td>Family: </td>
@@ -225,7 +229,7 @@ extract($line);
 		<select size="1" name="family_id">
 		<?php
 		$families = Array(0 => '?', 1=> 'Tight', 2=> 'Close', 3 => 'Loose');
-		foreach($families as $key => $value): 
+		foreach($families as $key => $value):
 			echo "<option ";
 			if($family_id==$key) echo "selected ";
 			echo "value=\"$key\">$value</option>";
@@ -239,7 +243,7 @@ extract($line);
 		<select size="1" name="status_id">
 		<?php
 		$statues = Array(0 => '?', 1=> 'Pledge', 2=> 'Admin', 3 => 'Alumni', 4 => 'Associate', 5 => 'Depledge', 6 => 'Neophyte', 7 => 'Inactive', 8 => 'Active', 9 => 'Deactivated');
-		foreach($statues as $key => $value): 
+		foreach($statues as $key => $value):
 			echo "<option ";
 			if($status_id==$key) echo "selected ";
 			echo "value=\"$key\">$value</option>";
@@ -251,9 +255,9 @@ extract($line);
 		<td>Class: </td>
 		<td>
 		<select size="1" name="class_id">
-		<?php 
+		<?php
 		$types = class_getAll();
-		foreach($types as $line): 
+		foreach($types as $line):
 			echo "<option ";
 			if($class_id==$line['class_id']) echo "selected ";
 			echo "value=\"{$line['class_id']}\">{$line['class_name']}</option>";
@@ -263,15 +267,15 @@ extract($line);
 	</tr>
 	<?php endif; ?>
 	<tr>
-		<td colspan="3" align="center"><input type="submit" name="submit" value="Update!"></td> 
+		<td colspan="3" align="center"><input type="submit" name="submit" value="Update!"></td>
 	</tr>
 	<?php if($_GET['updated']): ?>
 	<tr>
 		<td colspan="3" align="center"><font color="#00FF00"><b>Update successful.</b></font></td>
 	</tr>
 	<?php endif; ?>
-	
-</form> 
+
+</form>
 </table>
 
 <?php show_footer(); ?>
