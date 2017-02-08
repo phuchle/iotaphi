@@ -1,11 +1,11 @@
 #header {
 	background-color: #1F1F1F;
 	padding-bottom: 20px;
-	margin-top: 175px
 }
 
 #container {
 	width: auto;
+	margin-top: 175px
 }
 
 #cssmenu > ul > li > a {
