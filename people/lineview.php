@@ -2,6 +2,7 @@
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
+get_headers();
 
 if(!isset($_SESSION['class']))
     show_note('You must be logged in to view this page.');
@@ -34,7 +35,7 @@ function users_get()
 $head = '
 <script type="text/javascript">
 
-function change() 
+function change()
 {
     // only if req shows "complete"
     if (req.readyState == 4)
@@ -58,40 +59,40 @@ function change()
 			{
 				var user = bigs[i].getElementsByTagName("user")[0].firstChild.data;
 				var name = bigs[i].getElementsByTagName("name")[0].firstChild.data;
-				bigHTML += 
+				bigHTML +=
 					"<div id=\"big" + i + "\" class=\"span3\">" +
 					"<a href=\"javascript: load(\'/people/tree.xml.php?self=" + user + "\',change); \">" +
-					"<img class=\"img-polaroid \"  src=\"/images/profiles/" + 
-					user + ".jpg\"/><br/>" 
+					"<img class=\"img-polaroid \"  src=\"/images/profiles/" +
+					user + ".jpg\"/><br/>"
 					+ name + "</a></div>";
 			}
-			
+
 			for(var i=0; i<littles.length; i++)
 			{
-				var user = 
+				var user =
                     littles[i].getElementsByTagName("user")[0].firstChild.data;
-				var name = 
+				var name =
                     littles[i].getElementsByTagName("name")[0].firstChild.data;
-				littleHTML += 
+				littleHTML +=
 					"<div class=\"span3\">" +
 					"<a href=\"javascript: load(\'/people/tree.xml.php?self=" + user + "\',change)\">" +
-					"<img class=\"img-polaroid max\" src=\"/images/profiles/" + 
-					user + ".jpg\"/><br/>" 
+					"<img class=\"img-polaroid max\" src=\"/images/profiles/" +
+					user + ".jpg\"/><br/>"
 					+ name + "</a></div>";
 			}
-			
+
 			if(littles.length == 0)
 				littleHTML = "<div class=\"general\"><h3>(No Known Littles)</h3></div>";
-				
+
 			if(bigs.length == 0)
 				bigHTML = "<div class=\"general\"><h3>(No Known Bigs)</h3></div>";
-			
-			document.getElementById("bigs").innerHTML = 
+
+			document.getElementById("bigs").innerHTML =
                 "<div class=\"row-fluid\">" + bigHTML + "</div>";
-			document.getElementById("littles").innerHTML = 
+			document.getElementById("littles").innerHTML =
                 "<div class=\"row-fluid\">" + littleHTML + "</div>";
-            
-            document.getElementById("self_img").src = 
+
+            document.getElementById("self_img").src =
                 "/images/profiles/" +
                 self.getElementsByTagName("user")[0].firstChild.data +
                 ".jpg";
@@ -123,9 +124,9 @@ function change()
                 self.getElementsByTagName("family")[0].firstChild.data;
             document.getElementById("self_class").innerHTML =
                 self.getElementsByTagName("class")[0].firstChild.data;
-			        
+
         } else {
-            alert("There was a problem retrieving the XML data:\n" + 
+            alert("There was a problem retrieving the XML data:\n" +
 					req.statusText);
         }
     }
@@ -197,7 +198,7 @@ div.clear
 
 </style>";
 
-show_calhead($head, "load('/people/tree.xml.php?self=$user',change)"); 
+show_calhead($head, "load('/people/tree.xml.php?self=$user',change)");
 
 ?>
 <div class="page-header">
@@ -220,7 +221,7 @@ show_calhead($head, "load('/people/tree.xml.php?self=$user',change)");
 
 <?php
 if($_SESSION['class'] != 'admin' || $_SESSION['id'] != $user)
-{ 
+{
 	?>
 	<div id="bigs" class="thumbnail"></div><div class="clear"></div>
 	<div class="thumbnail">
@@ -257,7 +258,7 @@ if($_SESSION['class'] != 'admin' || $_SESSION['id'] != $user)
 	<tr>
 		<td>Family: </td>
 		<td id="self_family"></td>
-	</tr> 
+	</tr>
 	<tr>
 		<td>Class: </td>
 		<td id="self_class"></td>
@@ -269,7 +270,7 @@ if($_SESSION['class'] != 'admin' || $_SESSION['id'] != $user)
     <div id="littles" class="thumbnail"></div><div class="clear"></div>
 	<div class="general">Please report wrong/missing links to <a href="mailto:historians@iotaphi.org">Historians</a>.</div>
     <?php
-    
+
 }
 show_footer();
 
