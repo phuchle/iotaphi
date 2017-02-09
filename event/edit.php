@@ -84,14 +84,14 @@ function show_eventModify($new, $event)
 	<tr>
 		<th>Date<br></th>
 		<td id="event_date_fields">
-		<!-- date[] will POST as 'date' => date[0], date[1], etc  -->
-			 <?php forms_date('date[]',$event['date'],'event.date') ?>
+		<!-- date[] will POST as an array 'date' => date[0], date[1], etc  -->
+			 <?php forms_date('date[]', $event['date'],'event.date') ?>
 		</td>
 		<td>MM/DD/YYYY<br>eg 09/12/2004</td>
 	</tr>
 	<tr>
 		<td>
-			<input type="button" class="btn btn-small"" onclick = "addDate();" value="Add Another Date" />
+			<input type="button" class="btn btn-small" onclick = "addDate();" value="Add Another Date" />
 		</td>
 	</tr>
 	<tr>
@@ -256,7 +256,7 @@ function show_eventModify($new, $event)
 	</tr>
 	<tr><td class="out">
 	<?php
-	forms_submit($new?'Create':'Update', ''); ?>
+	forms_submit($new ? 'Create' : 'Update', ''); ?>
 	</td></tr>
 	</table>
 	</form>
@@ -274,8 +274,7 @@ if($page == "update"):
 	show_eventModify(false,$defaults);
 elseif($page == "create"):
 	$defaults = array();
-	// removed so that an array of dates can be POSTed rather than just 1 date
-	// $defaults['date'] = $eventDate;
+	$defaults['date'] = $eventDate;
 	show_eventModify(true,$defaults);
 endif;
 
