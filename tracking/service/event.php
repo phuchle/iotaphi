@@ -1,6 +1,4 @@
-<script type="text/javascript" src="/js/calculate_tracking_hours.js"></script>
-
-<?php 
+<?php
 include_once dirname(dirname(dirname(__FILE__))) . '/include/template.inc.php';
 include_once dirname(dirname(dirname(__FILE__))) . '/include/forms.inc.php';
 include_once dirname(dirname(dirname(__FILE__))) . '/include/show.inc.php';
@@ -8,17 +6,15 @@ include_once dirname(dirname(dirname(__FILE__))) . '/include/event.inc.php';
 include_once dirname(dirname(dirname(__FILE__))) . '/include/user.inc.php';
 include_once '../sql.php';
 
-
-
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
 
 
 if(isset($_GET['event']))
 	$event = $_GET['event'];
-	
+
 if(isset($_SESSION['id']))
 	$id = $_SESSION['id'];
-	
+
 if(isset($_SESSION['class']))
 	$class = $_SESSION['class'];
 
@@ -39,7 +35,7 @@ function show_usersTrack($users, $name, $event)
 	?>
 
 	<h3 class="heading" colspan="6"><?php echo $name ?></h3>
-	
+
 	<p>Start Time: <?php echo date('g:i a',$start_date); ?></p>
 	<p>End Time: <?php echo date('g:i a',$end_date); ?></p>
 	<p>
@@ -53,7 +49,7 @@ function show_usersTrack($users, $name, $event)
 
 	<p>
 		<strong>
-			NOTE: Reported Hours (from the chair) - Positive Hours (SVPs enter) = 
+			NOTE: Reported Hours (from the chair) - Positive Hours (SVPs enter) =
 			Total Hours
 		</strong>
 	</p>
@@ -65,13 +61,13 @@ function show_usersTrack($users, $name, $event)
 		<th width="50">Tracked Hours</th>
 		<th width="40">Project</th>
 		<th width="40">Chair </th>
-		 <!--<th width="120">Driving<br>People / Miles</th> //temporary solution to the tracking problem// --> 
+		 <!--<th width="120">Driving<br>People / Miles</th> //temporary solution to the tracking problem// -->
 		<th width="40">Chair Comments </th>
 	</tr>
 
-	<?php 
+	<?php
 
-	foreach($users as $user){ 
+	foreach($users as $user){
 		if(isset($user['h']))
 		{
 			$class = 'small';
@@ -82,13 +78,13 @@ function show_usersTrack($users, $name, $event)
 			$class = 'small waitlist';
 			$checked = '';
 		}
-		
+
 		?><tr id="r<?php echo $user['user_id'] ?>"><?php
 		$all_hour_fields_set = isset($user['h']) && isset($user['service_hours']);
 
 		echo "<td class=\"$class\">";
        echo "<input name=\"user[]\" type=\"checkbox\" $checked value=\"{$user['user_id']}\" "
-         . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked; " 
+         . "onclick='javascript:document.getElementById(\"h{$user['user_id']}\").disabled = !this.checked; "
          . "clearDisabledInput(\"h{$user['user_id']}\", \"ph{$user['user_id']}\");'/>";
 
         echo "<span title=\"{$user['class_nick']} Class\">{$user['name']}</span></td>";
@@ -117,7 +113,7 @@ function show_usersTrack($users, $name, $event)
 
     echo "<td class=\"$class\">"; // tracked hours
 	    $disabled = $checked ? "" : "disabled";
-	    
+
 	    echo "<input class='hours-input' id=h{$user['user_id']} name='h[{$user['user_id']}]' "
 	       . "type='text' size='5' maxlength='6' value='{$user['h']}' "
 	       . " $disabled /> hrs";
@@ -126,21 +122,21 @@ function show_usersTrack($users, $name, $event)
 
 		echo "<td class=\"$class\">";
 		forms_checkbox("p[{$user['user_id']}]", 1, $user['p']);
-		
+
 		echo "</td>";
 		echo "<td class=\"$class\">";
-	
+
 		//$user_check_for_chair returns true if user is chair, else false
 		//looks in the signup table for chair
 		$user_check_for_chair = user_isChair($user['user_id'], $event);
 		forms_checkbox("c[{$user['user_id']}]", 1, $user_check_for_chair);
-		
+
 		echo "</td><td class=\"$class\" align=\"center\">";
 		forms_text(30,"details[{$user['user_id']}]", $user['details']);
-		
+
 	   //  forms_decimal("mi[{$user['user_id']}]", $user['mi']);
 	   // 	echo " mi </td><td class=\"$class\">";
-	   
+
 		echo '</td>';
 		echo '</tr>';
 	} ?>
@@ -150,7 +146,7 @@ function show_usersTrack($users, $name, $event)
 	<!-- allows for <th> elements to show up responsively/in mobile views -->
 	<script src="/js/event_show_responsive_th.js"></script>
 
-	<?php 
+	<?php
 }
 
 if(!isset($event)) // show list of events to track
@@ -160,7 +156,7 @@ if(!isset($event)) // show list of events to track
 	?>
 	<form name="selecttracking" method="GET" action="/tracking/service/event.php">
 	<select name="event" size="1">
-			<?php foreach($list as $line): 
+			<?php foreach($list as $line):
 				$text = date("m/d/y", $line['date']) . ' ' . $line['event_name'];
 				echo "<option ";
 				echo "value=\"{$line['event_id']}\">$text</option>";
@@ -175,7 +171,7 @@ else // shows tracking page for the specific event
 	show_filters();
 
 	$name = event_get($event);  //$event is an id
-	
+
 	$users = getTrackedEvent($event); //the behavior of this function has changed, it now returns an array of arrays, containing an array for each non-hidden user, with each sub-array containing tracking, trackingbyuser, and chair info for that user and the input event
 	?>
 	<form name="settracking" method="POST" action="/tracking/input.php">
@@ -198,5 +194,4 @@ else // shows tracking page for the specific event
 foreach($list as $user){
 	echo $user['name'];
 }
-show_footer();
-?>
+show_footer(); ?>

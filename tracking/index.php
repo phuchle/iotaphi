@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
 
@@ -8,30 +8,30 @@ include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/event.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/user.inc.php';
 include_once dirname(dirname(__FILE__)) . '/statistics/sql.php';
+get_header();
 
 if(isset($_GET['event']))
 	$event = $_GET['event'];
-	 
+
 if(isset($_SESSION['id']))
 	$id = $_SESSION['id'];
-	
+
 if(isset($_SESSION['class']))
 	$class = $_SESSION['class'];
 $session_class = $class; //added since class is redefiend at the bottom
 
-get_header();
 $temp=user_get($id, 'f');
 $temp=$temp['name'];
 
 if(!isset($event))
 {
-	$list = getGoodEvents($id); 
+	$list = getGoodEvents($id);
 	?>
 	<?php if ( !( ($temp == 'admin') && $class=='admin') ){ ?>
 	<table class="table table-condensed table-bordered show-table">
         <tr><td class="heading" colspan="3">My Chaired Events</td></tr>
         <tr><th>Date</th><th>Event</th><th>Submitted</th></tr>
-		<?php foreach($list as $line): 
+		<?php foreach($list as $line):
 			$date = date("m/d/y", $line['date']);
             $name = $line['event_name'];
             $event_id = $line['event_id'];
@@ -76,13 +76,13 @@ if(!isset($event))
 		<th style="width: 200px">Event</th>
 		<th>Waiting on</th>
 	</tr>
-	
+
 	<?php $events_to_be_tracked = 0;
 		foreach($events as $event){
 		$class  = 'small';
 		$class  .= ' et' . $event['eventtype_id'];
 		$date = date('m/d/y', $event['date']);
-		
+
 		$sql = 'SELECT DISTINCT user.user_id, user_name AS name '
 				. ' FROM user, signup, shift, event WHERE shift.event_id = event.event_id AND signup.shift_id = shift.shift_id AND user.user_id = signup.user_id '
 				. " AND event.event_id = '{$event['event_id']}' AND signup.signup_chair > '0' ";
@@ -97,7 +97,7 @@ if(!isset($event))
 				if($event['eventtype_id'] == 1||$event['eventtype_id'] == 2||$event['eventtype_id'] == 7) // service chairs are not in 'chair' table
 				{
 					$status = "chair (";// ({$event['names']})";
-					
+
 					$sql = 'SELECT DISTINCT user.user_id, user_name AS name '
 							. ' FROM user, signup, shift, event WHERE shift.event_id = event.event_id AND signup.shift_id = shift.shift_id AND user.user_id = signup.user_id '
 							. " AND event.event_id = '{$event['event_id']}' AND signup.signup_chair > '0' ";
@@ -112,13 +112,13 @@ if(!isset($event))
 					if(!isset($first))
 						$status = "(no chair";
 					unset($first);
-						
+
 					$status .= ")";
 				}
 				else
 				{
 					$status = "chair (";// ({$event['names']})";
-					
+
 					$sql = 'SELECT user.user_id, user_name AS name '
 							. "FROM chair NATURAL JOIN user WHERE event_id = '{$event['event_id']}' ";
 					foreach(db_select($sql) as $user)
@@ -129,9 +129,9 @@ if(!isset($event))
 						$first = 1;
 					}
 					unset($first);
-						
+
 					$status .= ")";
-					
+
 				}
 			}
 			else{
@@ -143,19 +143,19 @@ if(!isset($event))
 			<td><?= $date ?></td>
 			<td><?= $event['type'] ?></td>
 			<td>
-				<?php 
+				<?php
 					if($session_class == 'admin'){
 						echo "<a href=\"/tracking/$tracking_type/event.php?event={$event['event_id']}&submit=Track\">{$event['event_name']}</a>";
 					}
 					else{
 						echo "<a href=\"/event/show.php?id={$event['event_id']}\">{$event['event_name']}</a>";
-					} 
+					}
 				?>
-			</td>		
+			</td>
 			<td><?= $status ?></td>
 		</tr>
-	<?php 
-		$events_to_be_tracked++;} 
+	<?php
+		$events_to_be_tracked++;}
 		if($events_to_be_tracked == 0){
 			echo "Congrats there are no events to track!";
 		}
@@ -163,14 +163,14 @@ if(!isset($event))
 	</table>
 	<?
 	echo '<br/>';
-	
+
 show_footer();
 
 function getGoodEvents($user)
 {
     // now, w/ some slack so techy people can track at events
 	$date = strtotime("+2 hours", NOW);
-	
+
 	$sql = '(SELECT DISTINCT event.event_id, event_name, '
         . ' UNIX_TIMESTAMP(event_date) AS date, t.time AS submitted '
 		. ' FROM ((event NATURAL JOIN shift) NATURAL JOIN signup) '
@@ -181,7 +181,7 @@ function getGoodEvents($user)
             . " AND signup.user_id = '$user' "
             . " AND event_date > " . db_currentClass('start')
             . " AND event_date < FROM_UNIXTIME($date)) "
-        . ' UNION (SELECT DISTINCT event.event_id, event_name,' 
+        . ' UNION (SELECT DISTINCT event.event_id, event_name,'
         . ' UNIX_TIMESTAMP(event_date) AS date, t.time as submitted '
 		. ' FROM (event NATURAL JOIN chair) '
             . " LEFT JOIN (SELECT event_id, user_id, MAX(time) AS time "
@@ -193,7 +193,7 @@ function getGoodEvents($user)
         . ' ORDER BY date';
 
 	$table = db_select($sql, "getGoodEvents()");
-	
+
 	return $table;
 }
 
@@ -216,7 +216,7 @@ function tracking_blame()
 			. ' GROUP BY event.event_id'
 			. ' HAVING officer <> 1 AND (signed_chairs > 0 OR eventtype_id IN (1,2,7)) '
 			. ' ORDER BY event_date';
-			
+
 	return db_select($sql);
 }
 ?>
