@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/event.inc.php';
@@ -21,7 +21,7 @@ get_header();
 // $event is array of columns in the event database table
 // this func is called at the bottom of this file
 function show_eventModify($new, $event)
-{ 
+{
 	// fill maybe with event info
 	if($new==false):
 		$event = event_get($event['id']);
@@ -55,7 +55,7 @@ function show_eventModify($new, $event)
 	// Added by Phuc Le Dec. 2016
 	function addDate() {
 		var date_container = document.getElementById('event_date_fields');
-		
+
 		var newSpan = document.createElement('span');
 		newSpan.innerHTML = '<br/> <input name="date[]" type="text" size="10" id="date[]" maxlength="10"> ';
 
@@ -63,15 +63,15 @@ function show_eventModify($new, $event)
 	}
 </script>
 
-	<form name="event" onsubmit="return valid(this)" 
+	<form name="event" onsubmit="return valid(this)"
         method="POST" action="/inputAdmin.php">
 
 	<?php
-		forms_hiddenInput($new ? "eventCreate" : "eventUpdate", "/calendar.php"); 
+		forms_hiddenInput($new ? "eventCreate" : "eventUpdate", "/calendar.php");
 	?>
 
 	<?php forms_hidden('event_id', $event['id']); ?>
-	
+
 	<table id="eventTable" class="table table-condensed table-bordered">
 	<tr>
 		<td class="lead" colspan="3">Edit Event</td>
@@ -85,7 +85,7 @@ function show_eventModify($new, $event)
 		<th>Date<br></th>
 		<td id="event_date_fields">
 		<!-- date[] will POST as 'date' => date[0], date[1], etc  -->
-			 <?php forms_date('date[]',$_GET["date"],'event.date') ?>
+			 <?php forms_date('date[]',$event['date'],'event.date') ?>
 		</td>
 		<td>MM/DD/YYYY<br>eg 09/12/2004</td>
 	</tr>
@@ -145,7 +145,7 @@ function show_eventModify($new, $event)
 		<td></td>
 	</tr>
 <?php
-	} else { 
+	} else {
 		forms_hidden("mileage",0);
 	}
 ?>
@@ -175,7 +175,7 @@ function show_eventModify($new, $event)
 		<?php
 		$types = eventtype_getAll();
 		foreach($types as $line)
-		{ 
+		{
 			$selected = ($event['typeid']==$line['id']?'selected':'');
 			echo "<option $selected value=\"{$line['id']}\">{$line['name']}</option>";
 		} ?>
@@ -209,7 +209,7 @@ function show_eventModify($new, $event)
 			<?php forms_radio('fund', '1', ($event['fund']==true) ) ?>Yes!
 		</td>
 		<td></td>
-	</tr>	
+	</tr>
 	<tr>
 		<th>Fellowboat<br></th>
 		<td>
@@ -255,12 +255,12 @@ function show_eventModify($new, $event)
 		</td>
 	</tr>
 	<tr><td class="out">
-	<?php 
+	<?php
 	forms_submit($new?'Create':'Update', ''); ?>
 	</td></tr>
 	</table>
 	</form>
-<?php 
+<?php
 }
 
 // permissions?
@@ -279,5 +279,5 @@ elseif($page == "create"):
 	show_eventModify(true,$defaults);
 endif;
 
-show_footer(); 
+show_footer();
 ?>
