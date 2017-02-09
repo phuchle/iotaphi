@@ -1,5 +1,5 @@
 <?php
-include_once 'include/template.inc.php'; 
+include_once 'include/template.inc.php';
 
 // permissions?
 if($_SESSION['class']!="admin")
@@ -15,21 +15,20 @@ if($action == 'eventCreate' or $action == 'eventUpdate')
 	if(isset($name, $date, $time, $type, $ic, $fund, $fellowboat, $location, $mileage, $description, $custom1, $custom2, $custom3, $custom4, $custom5, $hot))
 	{
 		include_once 'include/event.inc.php';
-
-		foreach ($date as $index => $date) 
-		{
+		// this foreach loop is necessary since users can create multiple dates from one event page
+		foreach ($date as $index => $date) {
 			// format inputs for database
 			$timestamp = strtotime("$date $time");
 			$hour = date('H',strtotime($duration));
 			$minutes = date('i',strtotime($duration));
 			$endtimestamp = strtotime("+$hour hours $minutes minutes", $timestamp);
-			
+
 			if($action=='eventUpdate') {
 				event_update($name,$timestamp,$endtimestamp,$type,$ic, $fund, $fellowboat, $location, $address, $map,$mileage,$description,$event_id,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
 			}
 			elseif($action=='eventCreate') {
 				$event_id = event_add($name,$timestamp,$endtimestamp,$type,$ic, $fund, $fellowboat, $location, $address, $map, $mileage,$description,$contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot);
-				
+
 				include_once 'include/signup.inc.php';
 
 				if ($capacity > 0) {
@@ -48,11 +47,13 @@ if($action == 'eventCreate' or $action == 'eventUpdate')
 				}
 				// If created event type doesn't have multiple shifts, automatically create a shift
 				// fellowboats excluded
-				elseif (!event_multipleShiftsNumeric($type)) {		
+				elseif (!event_multipleShiftsNumeric($type)) {
 					shift_add($event_id,'00:00:00','00:00:00',0,'');
 				}
 			}
-		}		
+			// as long as four Cs are needed and event is type == 1, ie event is service
+			if($type == 1) { fourc_set($event_id,$c); }
+		}
 	}
 	else {
 				show_note('Error updating or creating event: one of the required fields was left blank.');
@@ -70,7 +71,7 @@ elseif($action == 'shiftCreate' or $action == 'shiftUpdate')
 	// format inputs for database
 	$stamp1 = date('H:i:00',strtotime($start));
 	$stamp2 = date('H:i:00',strtotime($end));
-	
+
 	if($action=='shiftUpdate')
 	{
 		shift_update($shift,$event,$stamp1,$stamp2,$capacity,$name);

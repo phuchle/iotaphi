@@ -40,7 +40,7 @@ function event_getSignedUp($user)
 
 	return db_select($query, "event_getSignedUp");
 }
-		
+
 /* returns an array of "events" where the indeces
 * of the array are the dates in the month requested.
 * Also has a few days from adjacent months. */
@@ -50,33 +50,33 @@ function event_getMonth($year, $month, $user = NULL)
 
 	// get the timestamp of the month
 	$stamp = strtotime('1 ' . $month . ' ' . $year);
-	
-	if($stamp==-1) 
+
+	if($stamp==-1)
 		return array();
-	
+
 	// find out how many days before the month to grab
 	$startStamp = strtotime('-'.date('w',$stamp).' days',$stamp);
-	
+
 	// get the timestamp of the next month
 	$stamp = strtotime('+1 month',$stamp);
-	
+
 	// find out how many days in the next month to grab
 	$endStamp = strtotime('+'. (7 - date('w',$stamp)) .' days', $stamp);
-	
+
 	//	A query searching for events you're signed up on will be constructed thus:
 	//
 	//	SELECT event_id AS id, event_name AS name, UNIX_TIMESTAMP( event_date ) AS date, eventtype_id AS TYPE , event_id AS ic, MAX(user_id='1014') AS signedUp
-	//	FROM event 
+	//	FROM event
 	//	NATURAL LEFT JOIN (signup NATURAL JOIN shift)
-	//	WHERE event_date >= '2007-05-01' 
+	//	WHERE event_date >= '2007-05-01'
 	//		AND event_date < '2007-06-01'
 	//	GROUP BY event_id
 	//	ORDER BY event_date
-	
+
 	$sql = 'SELECT event_id AS id, event_name AS name, '
 	. ' UNIX_TIMESTAMP(event_date) AS date, eventtype_id AS type, event_ic as ic, event_fund as fund, event_fellowboat as fellowboat ';
-	
-	if ($user === NULL)	
+
+	if ($user === NULL)
 		$sql .= ' FROM event ';
 
 	else	//if a user_id was passed, see if that user signed up for any of these
@@ -84,14 +84,14 @@ function event_getMonth($year, $month, $user = NULL)
 		$sql .= ", MAX(user_id='$user') AS signedUp "
 		.' FROM event NATURAL LEFT JOIN ( signup NATURAL JOIN shift ) ';
 	}
-	
+
 	$sql .= " WHERE event_date >= FROM_UNIXTIME('$startStamp') "
 		. " AND event_date < FROM_UNIXTIME('$endStamp') "
 		. " GROUP BY event_id ORDER BY event_date";
-	
+
 	if ($user !== NULL)
 		$sql .= ', signedUp';
-	
+
 	return db_select($sql);
 }
 
@@ -100,12 +100,12 @@ function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fellowb
 {
 	// parameter validation!
 	$query = 'INSERT INTO event(event_id, event_name, event_date, '
-		. ' event_enddate, eventtype_id, event_ic,event_fund, event_fellowboat, event_location , event_address , event_map , event_mileage, event_description, event_contact, event_custom1, event_custom2, event_custom3, event_custom4, event_custom5, event_hot) '
+		. ' event_enddate, eventtype_id, event_ic, event_fund, event_fellowboat, event_location , event_address , event_map , event_mileage, event_description, event_contact, event_custom1, event_custom2, event_custom3, event_custom4, event_custom5, event_hot) '
 		. " VALUES ('', '$name',FROM_UNIXTIME('$timestamp'), "
 		. " FROM_UNIXTIME('$endtimestamp'),'$type','$ic','$fund','$fellowboat' , '$location', '$address' , '$map','$mileage','$description', '$contact', '$custom1', '$custom2', '$custom3', '$custom4', '$custom5', '$hot')";
-	
+
 	mysql_query($query) or die("Query failed =(");
-	
+
 	// i hate doing this, maybe it can go away later?
 	$query = 'SELECT event_id AS id'
 		. ' FROM event '
@@ -127,19 +127,19 @@ function event_add($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fellowb
 		. " event_custom4 = '$custom4' AND "
 		. " event_custom5 = '$custom5' AND "
 		. " event_hot = '$hot' ";
-	
+
 	$result = mysql_query($query) or die("Query failed (event_add)!!");
 	$line = mysql_fetch_assoc($result) or die("Event not found!");
-	
+
 	mysql_free_result($result);
 	// return "Your event '$name' was added successfully."
 	return $line['id'];
-} 
+}
 
 function event_update($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fellowboat, $location, $address, $map, $mileage, $description, $id, $contact, $custom1, $custom2, $custom3, $custom4, $custom5, $hot)
 {
 	// parameter validation!
-	
+
 	$query = "UPDATE event set event_name = '$name', "
 		. " event_date = FROM_UNIXTIME('$timestamp'), "
 		. " event_enddate = FROM_UNIXTIME('$endtimestamp'), "
@@ -161,47 +161,47 @@ function event_update($name, $timestamp, $endtimestamp, $type, $ic, $fund, $fell
 		. " event_hot = '$hot' "
 		. " WHERE event_id = $id "
 		. " LIMIT 1 ";
-	
+
 	mysql_query($query) or die("Query failed =(");
-} 
+}
 
 function event_delete($id)
 {
 	include_once 'signup.inc.php';
-	
+
 	$query = "DELETE from event WHERE event_id = $id LIMIT 1 ";
 	mysql_query($query) or die("Query failed =(");
-	
+
 	// delete the shifts associated with the event
 	$shifts = shift_getAll($id);
 	$query = "DELETE from shift WHERE event_id = $id ";
 	mysql_query($query) or die("Query 2 failed =(");
-	
+
 	// delete the signups associated with each shift (bad way to do this)
 	$query = "DELETE from signup WHERE ";
 	foreach($shifts as $s)
 		$query .= " shift_id = '{$s['shift']}' or ";
-		
+
 	$query .= ' 0 ';
-	
+
 	mysql_query($query) or die("Query 3 failed =(");
 
 	$query = "DELETE from tracking WHERE event_id = $id ";
 	mysql_query($query) or die("Query 4 failed =(");
-	
+
 	$query = "DELETE from trackingbyuser WHERE event_id = $id ";
 	mysql_query($query) or die("Query 5 failed =(");
-	
+
 	$query = "DELETE from trackingtime WHERE event_id = $id ";
 	mysql_query($query) or die("Query 6 failed =(");
 
 	// temp?
 	fourc_delete($id);
-	
-} 
+
+}
 
 function event_get_date_time($event_id) {
-	$query = 'SELECT UNIX_TIMESTAMP(event_date) AS start_date, ' 
+	$query = 'SELECT UNIX_TIMESTAMP(event_date) AS start_date, '
 						. ' UNIX_TIMESTAMP(event_enddate) AS end_date '
 						. " FROM event WHERE event_id = $event_id";
 
@@ -222,7 +222,7 @@ function event_get($id)
 	. ' e.event_hot AS hot, '
 	. ' e.event_map AS map '
 	. ' FROM event e,eventtype t WHERE e.eventtype_id = t.eventtype_id and ' . "event_id = $id";
-	
+
 	return db_select1($query);
 }
 
@@ -234,7 +234,7 @@ function event_multipleShifts($event) {
 	} else {
 		return false;
 	}
-}	
+}
 
 function event_multipleShiftsNumeric($typeID) {
 	if ($typeID == EVENTTYPE_SERVICE || $typeID == EVENTTYPE_LEADERSHIP || $typeID == EVENTTYPE_INTERVIEWS) {
@@ -247,15 +247,15 @@ function event_multipleShiftsNumeric($typeID) {
 function eventtype_getAll()
 {
 	$query = 'SELECT `eventtype_id` AS id, `eventtype_name` AS name FROM eventtype';
-	
+
 	$result = mysql_query($query) or die("Query Failed!!!");
-	
+
 	$types = array();
 	while($line = mysql_fetch_assoc($result))
 		array_push($types,$line);
-	
+
 	mysql_free_result($result);
-	
+
 	return $types;
 }
 
@@ -263,17 +263,17 @@ function fourc_get($event, $text = true)
 {
 	$query = 'SELECT fourc_c AS c '
 	. " FROM fourc WHERE event_id = $event";
-	
+
 	$result = mysql_query($query) or die("Query failed!!");
 	$line = mysql_fetch_assoc($result);
 	if($line == false)
 		return '?';
-	
+
 	mysql_free_result($result);
-	
+
 	if(!$text)
 		return $line['c'];
-	
+
 	switch($line['c'])
 	{
 	case 0:
@@ -284,8 +284,8 @@ function fourc_get($event, $text = true)
 		return 'Community';
 	case 3:
 		return 'Country';
-	} 
-	
+	}
+
 	return '?';
 }
 
@@ -298,7 +298,7 @@ function fourc_set($event, $c)
 		$query = "UPDATE fourc set fourc_c = '$c' "
 			. " WHERE event_id = $event "
 			. " LIMIT 1 ";
-	
+
 	mysql_query($query) or die("couldn't set 4 Cs =(");
 }
 
