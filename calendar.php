@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once 'include/template.inc.php';
 include_once 'include/event.inc.php';
 include_once 'include/signup.inc.php';
@@ -50,17 +50,17 @@ $script = "var days = Array();\n";
 for($i=0, $k=0; $i<$weeks; $i++) //for each row
 {
 	$script .= "days[$i] = Array();\n";
-	
+
 	for($j=0;$j<7;$j++) // for each column
 	{
 		$script .= "days[$i][$j] = Array();\n";
 		$script .= "days[$i][$j].push(";
-		
+
 		$addComma = false;
-		
+
 		while($events[$k]['date']>=$today12AM && $events[$k]['date']<$tomorrow12AM)
 		{
-			// generate the event class			
+			// generate the event class
 			if($events[$k]['ic']==1)
 			{
 				$style = 'ic ';
@@ -74,15 +74,15 @@ for($i=0, $k=0; $i<$weeks; $i++) //for each row
 			}
 			$type = $events[$k]['type'];
 			$style .= "et{$events[$k]['type']}"; // bg-color of event types
-			$signedUp = $events[$k]['signedUp']; 
+			$signedUp = $events[$k]['signedUp'];
 			$id = $events[$k]['id'];
 			$title = str_replace("'", "\\'", $events[$k]['name']);
-			
+
 			// put commas before each element after the first
 			if($addComma)
 				$script .= ', ';
 			$addComma = true;
-			
+
 			if($events[$k]['type'] != EVENTTYPE_SERVICE)
 				$script .= "{ id:$id, title:'$title', type:$type, ic:$ic, style:'$style', signedUp:'$signedUp' }";
 			else
@@ -90,7 +90,7 @@ for($i=0, $k=0; $i<$weeks; $i++) //for each row
 				$c = fourC_get($events[$k]['id'], false);
 				$cTxt = fourC_get($events[$k]['id'], true);
 				$shifts = signup_getSummary($id);
-				
+
 				$hover = $cTxt . "<br/>";
 
 				$full = true;
@@ -99,9 +99,9 @@ for($i=0, $k=0; $i<$weeks; $i++) //for each row
 				{
 					$start = date('g:i', strtotime($shift['start']));
 					$end = date('g:i', strtotime($shift['end']));
-					
+
 					$hover .= $start . '-' . $end . ': ';
-				
+
 					if($shift['cap'] == 0)
 					{
 						$hover .= '<strong>unlimited</strong>';
@@ -116,23 +116,23 @@ for($i=0, $k=0; $i<$weeks; $i++) //for each row
 						$hover .= '<strong>full</strong>';
 					$hover .= '<br/>';
 				}
-				
+
 				if($full)
 					$hover = $cTxt . '<br/><strong>full</strong>';
 				if(count($shifts) == 0)
 					$hover = $cTxt . '<br/><strong>(no signups)</strong>';
-				
+
 				$script .= "{ id:$id, title:'$title', type:$type, ic:$ic, style:'$style', fourc:'fourc{$c}', hover:'$hover', signedUp:'$signedUp' }";
 			}
-							
+
 			$k++;
 		}
-		
+
 		$script .= ");\n";
-				
+
 		$today12AM = $tomorrow12AM; // lower bound to the next day
 		$tomorrow12AM = strtotime('+1 day',$today12AM); // upper bound to the next day
-				
+
 	} // end for
 
 } // end for
@@ -177,11 +177,11 @@ function hidehover()
 }
 
 // filters events in calendar by type e.g. service, fellowship, etc
-function fill() 
+function fill()
 {
 	dropDown("monthDropDown", "yearDropDown")
 	var event = document.getElementsByName("filters")[0].options[document.getElementsByName("filters")[0].selectedIndex].value;
-	
+
 	var myrows = document.getElementById("calendar").rows;
 
 	for(var row=0; row<days.length; row++)
@@ -190,14 +190,14 @@ function fill()
 		{
 			var myrow = myrows[row+1];
 			var inner = "";
-			
+
 			for(var i=0; i<days[row][column].length; i++)
 			{
 				var myevent = days[row][column][i];
-			
+
 				var show = false;
-			
-				if(event == "0") 
+
+				if(event == "0")
 					show = (myevent.type != 9);
 				else if(event == "1")
 					show = (myevent.type == 1);
@@ -219,30 +219,30 @@ function fill()
 					show = (myevent.type != 1 && myevent.type != 2 && myevent.type != 5 && myevent.type != 6 && myevent.type != 9);
 				else if(event == "myEvents")
 					show = (myevent.signedUp == "1");
-				
+
 				if(event == "3")
 					show = (myevent.ic == 1);
-			
+
 				if(show)
 				{
 					var signup = "";
 					if(myevent.signedUp == "1" && event != "myEvents")
 						signup = \'class="signedUp" \'
-						
+
 					if(event != "1")
-						inner += "<p class=\"" + myevent.style + "\"><a " + signup + " href=\"/event/show.php?id=" + 
+						inner += "<p class=\"" + myevent.style + "\"><a " + signup + " href=\"/event/show.php?id=" +
 							myevent.id + "\">" + myevent.title + "</a></p>";
 					else
-						inner += "<p class=\"" + myevent.fourc + "\"><a " + signup + " href=\"/event/show.php?id=" + 
-							myevent.id + "\" onmouseover=\"showhover(event, \'" + myevent.hover + "\')\" onmousemove=\"showhover(event, \'" + myevent.hover + "\')\" onmouseout=\"hidehover()\" " + 
+						inner += "<p class=\"" + myevent.fourc + "\"><a " + signup + " href=\"/event/show.php?id=" +
+							myevent.id + "\" onmouseover=\"showhover(event, \'" + myevent.hover + "\')\" onmousemove=\"showhover(event, \'" + myevent.hover + "\')\" onmouseout=\"hidehover()\" " +
 							">" + myevent.title + "</a></p>";
 				}
 			}
-			
+
 			myrow.cells[column].getElementsByTagName("div")[0].innerHTML = inner;
 		}
 	}
-	
+
 	Set_Cookie("filter",event,false);
 }
 
@@ -320,7 +320,7 @@ if ( isset( $_SESSION['id'] ) )
 	</div>
 
 	<div class="span6 month-selecter" style="text-align:center">
-		<a href="calendar.php?month=<?php echo $m1 ?>&amp;year=<?php echo $y1 ?>" class="btn" style="vertical-align: 2px;"><i class="icon-chevron-left"></i></a> 
+		<a href="calendar.php?month=<?php echo $m1 ?>&amp;year=<?php echo $y1 ?>" class="btn" style="vertical-align: 2px;"><i class="icon-chevron-left"></i></a>
 
 		<span style="padding: 0 20px;" class="lead" ><?php echo $my?></span>
 
@@ -347,7 +347,7 @@ if ( isset( $_SESSION['id'] ) )
 	<td>Saturday</td>
 </tr>
 
-<?php 
+<?php
 
 // This section creates a table representing the calendar.  $today12AM (a horrible name for a counter, I think it's
 // reused from above) is initialized to the Sunday before the first day of the month, then is incremented by 1 day
@@ -368,11 +368,11 @@ for($i=0,$k=0; $i<$weeks; $i++) // One row for each week
 	for($j=0;$j<7;$j++) // One column for each day of the week
 	{
 		$style = "cal";
-		
+
 		// If not in current month, use "calOut" style
 		if(date("F",$today12AM)!=$month)
 			$style = "calOut";
-			
+
 		// If today, highlight using "calToday" style
         // There was an issue with the wrong date displaying where it would change to the next day 8 hours prior to 12am. This was due to the fact that we were on GMT time instead of PST. I added in an offset of 28800 = 8 hours to change the time to the correct time of day. - Stanton Ho 2/15/16
  $extraHour = date("I", $today12AM)*60*60; // daylight saving hour
@@ -386,9 +386,9 @@ for($i=0,$k=0; $i<$weeks; $i++) // One row for each week
       //echo $today12AM;
    $style = "calToday";
   }
-			
+
 		echo "<td class=\"$style\">";
-		
+
 		echo '<span class="number">';
 		if($_SESSION['class'] == 'admin') // make a link to add a new event if admin
 		{
@@ -402,7 +402,7 @@ for($i=0,$k=0; $i<$weeks; $i++) // One row for each week
 			echo date("j",$today12AM);
 		echo "</span>\n<br />";
 		echo "<div></div></td>";
-		
+
 		$today12AM = strtotime('+1 day',$today12AM); // to the next day
         //echo $today12AM;
         //echo "\r\n";
@@ -418,5 +418,3 @@ echo '<div id="hover" class="notice" style="z-index: 100; position: absolute; di
   <?php
   show_footer();
   ?>
-
-  
