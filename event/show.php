@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once dirname(dirname(__FILE__)) . '/include/template.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/forms.inc.php';
 include_once dirname(dirname(__FILE__)) . '/include/event.inc.php';
@@ -11,14 +11,14 @@ wp_enqueue_style( 'mobile_tables', $src = "", $deps, $ver, $media );
 
 if(isset($_GET['id']))
 	$event_id = (int)$_GET['id'];
-	
+
 if(isset($_SESSION['id']))
 	$id = $_SESSION['id'];
-	
+
 if(isset($_SESSION['class']))
 	$class = $_SESSION['class'];
 
-?> 
+?>
 
 <?php
 
@@ -54,7 +54,7 @@ $head = <<< EOT
 		  global_endTime = end;
 		  myService.getEventsFeed( feedUrl, handleMyFeed, handleError);
 		}
-		
+
 		function handleMyFeed( feedRoot ) {
 		  var newEntry = new google.gdata.calendar.CalendarEventEntry({
 			  authors: [{
@@ -66,7 +66,7 @@ $head = <<< EOT
 				text: global_title
 			  },
 			  content: {
-				type: 'text', 
+				type: 'text',
 				text: global_description
 			  },
 			  locations: [{
@@ -81,7 +81,7 @@ $head = <<< EOT
 		  });
 		  feedRoot.feed.insertEntry(newEntry, handleMyInsertedEntry, handleError);
 		}
-		
+
 	function handleMyInsertedEntry(insertedEntryRoot) {
 		  alert("Entry inserted. The title is: " + insertedEntryRoot.entry.getTitle().getText());
 	}
@@ -91,7 +91,7 @@ $head = <<< EOT
 		  alert("There was an error!");
 		  alert(e.cause ? e.cause.statusText : e.message);
 		}
-		
+
 		function GetDirections() {
 		  var fromAddress = document.getElementById("fromAddress").value;
 		  var toAddress = document.getElementById("toAddress").value;
@@ -99,13 +99,13 @@ $head = <<< EOT
 		}
 		</script>
 EOT;
-	
+
 
 show_calhead( $head );
 
 if($event_id) {
 	$modifiable = false;
-	
+
 	// if they're admin
 	if($class=='admin')
 		$modifiable = true;
@@ -122,17 +122,17 @@ if($event_id) {
 	if($class=='fellowship')
 		$modifiable = true;
 
-	$event = event_get($event_id); 
+	$event = event_get($event_id);
 	$shifts = shift_getAll($event_id);
 
 	show_eventDescription($event, $shifts, $modifiable, $class, $id);
 
 	show_shifts($event, $shifts, $class, $id);
-	
+
 	// Show comments if logged in
 	if(isset($id))
 		show_comments($event_id,$id,$class);
-		
+
 	// Show signup tool if they're logged in as ExComm
 	if($class=='admin')
 	{
@@ -176,15 +176,15 @@ function get_emails($event)
         . ' AND signup.user_id = user.user_id '
 		. " AND event.event_id = '$event'"
 		. ' ORDER BY user_name';
-		
+
 	$users = db_select($sql);
-	
+
 	$to = '';
 	foreach($users as $user)
 		$to .= '"'.$user['name'].'" <'. $user['user_email'] . '>, ';
 	if($to != '')
 		$to = substr($to, 0, -2);
-		
+
 	return htmlentities($to);
 }
 
@@ -197,14 +197,14 @@ function get_chairs($event)
 		. " AND event_id = '$event'"
 		. ' ORDER BY user_name';
 	$chairs = db_select($sql);
-	
+
 	$to = '';
 	foreach($chairs as $chair)
 		$to .= "<span title=\"{$chair['class_nick']} Class\">"
              . "{$chair['name']}</span>, ";
 	if($to != '')
 		$to = substr($to, 0, -2);
-		
+
 	return $to;
 }
 
@@ -217,14 +217,14 @@ function get_interest($event)
 		. " AND event_id = '$event'"
 		. ' ORDER BY user_name';
 	$interest = db_select($sql);
-	
+
 	$to = '';
 	foreach($interest as $person)
 		$to .= "<span title=\"{$person['class_nick']} Class\">"
              . "{$person['name']}</span>, ";
 	if($to != '')
 		$to = substr($to, 0, -2);
-		
+
 	return $to;
 }
 
@@ -233,21 +233,21 @@ function my_interest($user_id, $event_id)
 	$sql = 'SELECT * FROM interest '
 		. " WHERE user_id = '$user_id' "
 		. " AND event_id = '$event_id' ";
-	
+
 	if(db_select1($sql) === false)
 		return false;
-	else 
+	else
 		return true;
 }
 
 function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 {
-	
+
 
     // make a convenient alias
 	$event_id = $event['id'];
-    
-    // evaluate the conditions on which to display certain 
+
+    // evaluate the conditions on which to display certain
     // information and controls
     $type = ($event['ic'] == 1 ? "IC " : "") . $event["type"];
     $num = 7;
@@ -258,15 +258,15 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 	}
     if($c == "?")
         unset($c);
-		
+
 	if (count($shifts)!=0)
 		$num+=2;
-    
+
     $date = date('l F jS, Y',$event["date"]);
     $time = date('g:i a',$event["date"]);
     if(strcmp($event["enddate"],$event["date"])!=0)
         $time .= ' - ' . date('g:i a',$event["enddate"]);
-    
+
     $location = str_replace("\n","<br />",$event['location']);
 	$address = htmlentities( $event['address'] , ENT_QUOTES );
 	if ( isset( $_SESSION['id'] ) )
@@ -276,7 +276,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 		$row = mysql_fetch_array( $result );
 		$defaultAddress = $row[0];
 	}
-	
+
 	if ( $address != '' )
 		$num++;
 	if ( $event['contact'] != '' && isset($class) )
@@ -285,16 +285,16 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 	?>
 
 	<table class="table table-condensed table-bordered">
-	<tr><td class="lead" colspan="4">Event Information  </td></tr> 
+	<tr><td class="lead" colspan="4">Event Information  </td></tr>
     <tr><th>Name</th><td colspan="2"><?= $event["name"] ?></td>
 		<td rowspan='<? echo $num; ?>'>
 		<? if ( $event["map"]=="" ) { ?>
 
 
-		<?php 
+		<?php
 
-		//Fix Gmaps API 9/15/2016 
-		//WM - Kevin Dinh 
+		//Fix Gmaps API 9/15/2016
+		//WM - Kevin Dinh
 
 		//echo $location;
 		$length = strlen($location);
@@ -313,7 +313,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 
     	//echo $search_location1;
     	//echo $search_location2;
-    	
+
     	$final_location = $search_location1 ." ". $search_location2;
     	$reverse = $search_location2 . " " . $search_location1;
     	//echo"<br> final location =";
@@ -328,7 +328,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 				echo "<iframe class='event-map'
 		 		 max-width='600'
 		  		height='450'
-		  		frameborder='0' style='border:0' 
+		  		frameborder='0' style='border:0'
 		  		 src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCe6cLiLithQW9oWrQG9Irzs2G3z8PyjS0&q=$reverse' allowfullscreen>
 				</iframe>";
 			}
@@ -337,7 +337,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 			echo "<iframe class='event-map'
 		 		 max-width='600'
 		  		height='450'
-		  		frameborder='0' style='border:0' 
+		  		frameborder='0' style='border:0'
 		  		 src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCe6cLiLithQW9oWrQG9Irzs2G3z8PyjS0&q=$location' allowfullscreen>
 				</iframe>";
 
@@ -350,7 +350,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 			echo $event["map"];
 		} ?>
 		</td>
-	</tr> 
+	</tr>
     <tr><th>Type</th><td colspan="2"><?= $type ?></td></tr>
     <?php if(isset($c)): ?>
         <tr><th>Four C's</th><td colspan="2"><?= $c; ?></td></tr>
@@ -369,10 +369,10 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 	<tr>
 		<th>Shifts</th>
 		<td colspan="2">
-			<?php 
+			<?php
 			$shiftCount = 0; // make a new line every now and then
             foreach($shifts as $s)
-                echo date('g:i a - ',strtotime($s['start'])), 
+                echo date('g:i a - ',strtotime($s['start'])),
                      date('g:i a',strtotime($s['end'])), '<br/>';
 			?>
 		</td>
@@ -392,7 +392,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 	<tr><th>Event Contact</th>
     <td colspan="2">
     <?php echo str_replace("\n","<br />",$event['contact']) ?></td></tr>
-	<?php endif; 
+	<?php endif;
     if($class && (event_multipleShifts($event))): ?>
 			<script type="text/javascript">
 			function showEmails()
@@ -401,7 +401,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 				document.getElementById('showEmails').innerHTML = '';
 			}
 			</script>
-			
+
 			<tr><th>Emails</th>
             <td colspan="3">
 				<a href="javascript:showEmails()" id="showEmails">Show Emails</a>
@@ -409,14 +409,14 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 					<?php echo get_emails($event_id) ?>
 				</div>
 			</td>
-			</tr>				
+			</tr>
 	<?php endif; ?>
-	<?php if($event['type']=='CAW Hours' || $event['type']=='Fellowship' || 
+	<?php if($event['type']=='CAW Hours' || $event['type']=='Fellowship' ||
              ($event['ic']==true && $event['type']!='Service')): ?>
         <tr>
         <th>Chairs</th>
         <td colspan="2">
-            <?php $chairlist = get_chairs($event_id); 
+            <?php $chairlist = get_chairs($event_id);
             echo $chairlist;
             if($class=='admin')
                 echo "<a href=\"/event/chair.php?event=$event_id\">(edit)</a>";
@@ -434,14 +434,14 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
         </td>
         </tr>
 	<?php endif; ?>
-	
+
 	<!--
 	<tr>
 		<th>Interest</th>
 		<td colspan="3">
-			<?php 
-			$interestlist = get_interest($event_id); 
-			$iAmInterested = my_interest($id, $event_id); 
+			<?php
+			$interestlist = get_interest($event_id);
+			$iAmInterested = my_interest($id, $event_id);
 			?>
 			<div id="interest" style="display: none;">
 			<?
@@ -487,8 +487,8 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 			<input class="btn btn-small " name="page" type="hidden" value="update">
 			<input class="btn btn-small" name="submit" type="submit" value="Modify" />
 			</td></form>
-		
-		
+
+
 			<form name="deleteevent" method="POST" onSubmit="return confirmDialog();" action="/inputAdmin.php">
 			<td <?php echo ($event["type"]!="Service" && $event['ic']!=true)?'rowspan="2"':''?>>
             <?php forms_hidden("event_id", $event_id); ?>
@@ -496,7 +496,7 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 			<input  class="btn btn-small" name="submit" type="submit" value="Delete" />
 			</td>
 			</form>
-				
+
 			<?php if(event_multipleShifts($event)): ?>
 			<form name="addshift" method="GET" action="/event/shift.php" ><td>
             <?php forms_hidden("event", $event_id); ?>
@@ -504,12 +504,12 @@ function show_eventDescription($event, $shifts, $modifiable, $class, $id)
 			<input  class="btn btn-small" name="submit" type="submit" value="Add Shift" />
 			</td></form>
 			<?php endif; ?>
-		
+
 	</tr>
 	<?php endif; ?>
 	</table>
 	<br />
-<?php 
+<?php
 }
 
 function show_shifts($event, $shifts, $class, $user_id)
@@ -538,31 +538,31 @@ function show_shifts($event, $shifts, $class, $user_id)
 		$modifiable = ($class=='admin');
 	}
 	$event_id = $event['id'];
-	
+
 	foreach($shifts as $shift):
-		$list = signup_getSList($shift['shift']); 
+		$list = signup_getSList($shift['shift']);
 		if($event['type']=='Service' || $event['type']=='Interviews')
 		if($event['type']=='Service' || $event['type']=='Interviews')
             $needReplacement = (NOW > strtotime("-$signup_days days",shift_getStamp($shift['shift'])));
 		elseif($event['ic']==true)
             $needReplacement = (NOW > shift_getStamp($shift['shift']));
-        
+
         $passed = (NOW > shift_getStamp($shift['shift']));
-        
+
 		?>
 		<table class="table table-condensed table-bordered show-table">
 		<tr>
-		
+
 			<?php if (event_multipleShifts($event)) { ?>
-            
-			<td class="lead" colspan="<?php echo ($_SESSION['class']=='admin')?6+show_customfieldcount($event):13; ?>">Shift <?php 
+
+			<td class="lead" colspan="<?php echo ($_SESSION['class']=='admin')?6+show_customfieldcount($event):13; ?>">Shift <?php
 				echo date('g:i a',strtotime($shift['start'])),' - ',
-					date('g:i a',strtotime($shift['end'])); 
-				if($shift['capacity']!=0) 
+					date('g:i a',strtotime($shift['end']));
+				if($shift['capacity']!=0)
 					echo ' (Cap: ', $shift['capacity'], ')';
 				else
 					echo ' (Cap: unlimited)';
-				
+
 				// edited in 04-13-2013
 				// support for personal google calendar API has been moved from the GData API to a new set of Authentication APIs
 				// functions declared no longer work properly
@@ -589,12 +589,12 @@ function show_shifts($event, $shifts, $class, $user_id)
 				$event_end .= $shift['end'] . ".00Z";
 				//edited out for non-functionality: echo "<input type=\"button\" class=\"btn btn-small flright\" value=\"Add to Calendar\" onclick=\"addEvent('".$name_e."','http://iotaphi.org/event/show.php?id=".$event_id."','".$location_e."','".$event_start."','".$event_end."' )\" />";
 				// end edit
-				
+
                 if($shift['name'] != '')
                     echo "&nbsp; <span class='text-info'>({$shift['name']}) </span>";
 				?>
 			</td>
-				
+
 			<?php if($modifiable): ?>
 			<form method="GET" action="/event/shift.php">
 			<td class="heading">
@@ -614,13 +614,13 @@ function show_shifts($event, $shifts, $class, $user_id)
 			</form>
 			<?php endif; ?>
 			<?php } else { ?>
-				
+
 			<td class="lead" colspan="13">Signups
 				<?php
 				// edited to display cap for fellowships
-				if($shift['capacity']!=0) 
+				if($shift['capacity']!=0)
 					echo ' (Cap: ', $shift['capacity'], ')';
-				
+
 				// editted in for personal google calendar 6-28-2011
 				$remove_e = array( "\n" , "\0" , "\r" );
 				$remove_q = array( '”' , '“' , '"' );
@@ -647,9 +647,9 @@ function show_shifts($event, $shifts, $class, $user_id)
 				//<input type="button" value="Add to Calendar" onclick="addEvent('".$name_e."','http://iotaphi.org/event/show.php?".$event_id."','".$location_e."','".$event_start."','".$event_end."' )" \>;
 				// end edit
 			?></td>
-			
+
 			<?php } ?>
-			
+
 		</tr>
 		<?php
 			// If there's no one signed up, show a little message saying so
@@ -657,7 +657,7 @@ function show_shifts($event, $shifts, $class, $user_id)
 				<tr>
 	            <td class="note" colspan="13">(no one is signed up)</td>
 	 			</tr>
-			
+
 		<?php }
 			// Show headers if event not in the past, or there are people signed up
 			if (!$passed || (count($list) > 0)) { ?>
@@ -670,10 +670,10 @@ function show_shifts($event, $shifts, $class, $user_id)
 					<?php show_customheaders($event); ?>
 		            <th colspan="3">Options</th>
 				</tr>
-		<?php } 
+		<?php }
 		$signedup = false;
 		$personcount = 1;
-		foreach($list as $signup): 
+		foreach($list as $signup):
 			$waitlisted = $signup['ordering'] > $shift['capacity'] && $shift['capacity'] > 0;
 			$nextWaitlisted = $signup['ordering'] == $shift['capacity'] && $shift['capacity'] > 0;
             $dontDisable = ($signup['user'] == $user_id && ($needReplacement == false || $waitlisted)) && !$passed || $modifiable;
@@ -688,14 +688,14 @@ function show_shifts($event, $shifts, $class, $user_id)
             <tr<?php if($waitlisted) echo ' class="waitlist"'; ?>>
             		<!-- allows td to collapse responsively with th -->
                 <td>
-					<?php 
+					<?php
 						if($class=='admin' || $class=='user')
 						$currentName = "$personcount) <a href=\"/people/profile.php?user={$signup['user']}\">"
 									 . "{$signup['name']}</a>";
 						else
 							$currentName = "$personcount) {$signup['name']}";
-							
-						echo $currentName; 
+
+						echo $currentName;
 						$personcount++;
 					?>
 				</td>
@@ -712,7 +712,7 @@ function show_shifts($event, $shifts, $class, $user_id)
 				show_custominfo($event,$shift,$signup);
 				if($dontDisable): ?>
                     <td>
-                        <?php 
+                        <?php
                             forms_hidden("action", "signupdate");
                             forms_hidden("shift", $shift['shift']);
                             forms_hidden("user", $signup['user']);
@@ -741,16 +741,16 @@ function show_shifts($event, $shifts, $class, $user_id)
                     <?php endif; ?>
 						<?php if($modifiable): ?>
                     <td><form action="/inputAdmin.php" method="POST">
-                        <?php 
+                        <?php
                         forms_hidden("action", "signupdateorder");
                         forms_hidden("shift", $shift['shift']);
                         forms_hidden("redirect", "/event/show.php?id=$event_id");
-                        forms_hidden("user", $signup['user']); 
+                        forms_hidden("user", $signup['user']);
                         ?>
 								<input type="text" size="3" name="order" value="<?php echo $signup['ordering'] ?>">
 								<input type="submit" class="btn btn-small"  name="updateorder" value="Move" />
                     </form>
-						<?php 
+						<?php
                         if($signup['wants_replacement'])
                         {
 							$month = substr($signup['requested_since'], 5,2);
@@ -759,12 +759,12 @@ function show_shifts($event, $shifts, $class, $user_id)
 						} ?>
                         </td>
                     <?php endif; ?>
-                <?php 
+                <?php
                 //this button gives you the ability to replace someone.  Only valid if you are not an admin, the
                 //event has not happened yet, and you're either waitlisted or not already signed up for that shift
-                elseif (isset($user_id) && $signup['user'] != $user_id && !$passed && 
-				    $signup['wants_replacement']=='1' && 
-                    (!signup_exists($shift['shift'], $user_id) || signup_isWaitlisted($shift['shift'], $user_id)) ): 
+                elseif (isset($user_id) && $signup['user'] != $user_id && !$passed &&
+				    $signup['wants_replacement']=='1' &&
+                    (!signup_exists($shift['shift'], $user_id) || signup_isWaitlisted($shift['shift'], $user_id)) ):
                     ?>
                     <td colspan="2">
 						<!--
@@ -773,7 +773,7 @@ function show_shifts($event, $shifts, $class, $user_id)
 	                        <?php forms_hidden("shift", $shift['shift']); ?>
 	                        <?php forms_hidden("redirect", "/event/show.php?id=$event_id"); ?>
 	                        <?php forms_hidden("user", $signup['user']); ?>
-	                        <input type="submit" name="replacethem" value="Replace" />						
+	                        <input type="submit" name="replacethem" value="Replace" />
 						</form>
 						-->
 						<?php
@@ -784,12 +784,12 @@ function show_shifts($event, $shifts, $class, $user_id)
 					</td>
                 <?php //Creates the button to request a replacement even if there isn't much time to the event
                 elseif ( $signup['user'] == $user_id && !$passed && !$waitlisted): ?>
-                    <td><form action="/input<?php echo ($class=="admin")?'Admin':'' ?>.php" method="POST" <?php 
+                    <td><form action="/input<?php echo ($class=="admin")?'Admin':'' ?>.php" method="POST" <?php
 						echo ($signup['wants_replacement']=='0') ? 'onSubmit="return confirmReplace();" >' : '>';
                         forms_hidden("action", "request_replacement");
                         forms_hidden("shift", $shift['shift']);
                         forms_hidden("redirect", "/event/show.php?id=$event_id");
-                        forms_hidden("user", $signup['user']); 
+                        forms_hidden("user", $signup['user']);
                         ?>
                         <input type="submit" name="request_replaceme" value="<?php echo ($signup['wants_replacement']=='0')?'Request Replacement':'Un-Request Replacement'  ?>" />
                     </form></td>
@@ -798,21 +798,21 @@ function show_shifts($event, $shifts, $class, $user_id)
 					<?php endif; ?>
 			</tr>
 		<?php endforeach;
-		
+
 		// Only show following stuff if logged in as normal user
 		if ($_SESSION['class'] == 'user') {
-			
+
 			// Determine if user should be told that it's too late to sign up
 			$tooLateToSignup = false;
 			if($event['type'] == 'Service' || $event['type'] == 'Interviews')
-			{        			
+			{
 	            if(NOW > strtotime("-$remove_days days",shift_getStamp($shift['shift'])))
 					$tooLateToSignup = true;
 			}
 
 			// Show signup row if not already signed up and not too late
 			if (!$signedup && !$passed && !$tooLateToSignup) {
-?>		
+?>
 			<form action="/input.php" method="POST" onsubmit="return valid(this)">
 			<?php forms_hiddenInput("signup","/event/show.php?id=$event_id"); ?>
 				<?php if($needReplacement): ?>
@@ -956,9 +956,9 @@ function show_customfieldcount($event) {
 
 function show_signup($event, $class, $user_id)
 {
-	if($class=='user'):	
+	if($class=='user'):
 		return;
-	elseif($class=='admin'): 
+	elseif($class=='admin'):
 		include_once dirname(dirname(__FILE__)) . '/include/signup.inc.php';
 	    if ($event['type']=='Service')
 		{
@@ -970,36 +970,36 @@ function show_signup($event, $class, $user_id)
 			$signup_days = INTERVIEWS_SIGNUP_DAYS;
 			$remove_days = INTERVIEWS_REMOVE_DAYS;
 		}
-		
+
 		$event_id = $event['id'];
-		
+
 		$shiftlist = shift_getAll($event_id);
-		
+
 		if(count($shiftlist)==0)
 			return;
-	
-		include_once dirname(dirname(__FILE__)) . '/include/user.inc.php'; 
+
+		include_once dirname(dirname(__FILE__)) . '/include/user.inc.php';
 		include_once dirname(dirname(__FILE__)) . '/include/show.inc.php';
 		$userlist = user_getAll(); ?>
 
 		<form action="/inputAdmin.php" method="POST">
-		<table class="show-table" cellspacing="0"><tr><td class="nested">
+		<table class="" cellspacing="0"><tr><td class="nested">
 		<table style="width: 100%;" cellspacing="1">
 		<?php forms_hiddenInput('signup',"/event/show.php?id=$event_id"); ?>
 			<tr>
 				<td class="heading" colspan="5">Sign Members Up</td>
 			</tr>
 			<tr>
-				<?php if (event_multipleShifts($event)) { ?> 
+				<?php if (event_multipleShifts($event)) { ?>
 				<th>Shifts</th>
-				<?php } ?> 				
+				<?php } ?>
 			    <th>Chair</th>
 			    <th>Driving</th>
 			    <th>Camera</th>
 				<th>Needs Ride</th>
 			</tr>
 			<tr>
-				<?php if (event_multipleShifts($event)) { ?> 
+				<?php if (event_multipleShifts($event)) { ?>
 				<td>
 				<?php foreach($shiftlist as $shift): ?>
 					<input name="shift[]" type="checkbox" value="<?php echo $shift['shift']?>" />

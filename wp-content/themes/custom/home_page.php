@@ -9,13 +9,13 @@
  * @since Coraline 1.0
  */
 include_once($_SERVER['DOCUMENT_ROOT'] . '/statistics/sql.php');
-get_header(); 
+get_header();
 ?>
-<style> 
+<style>
 .entry-title, #creditfooter{
 	display: none;
 }
-</style> 
+</style>
 <?php
 if ( isset( $_SESSION['id'] ) )
 { ?>
@@ -35,7 +35,7 @@ if ( isset( $_SESSION['id'] ) )
 	      ?>
     </table>
   </div>
-<?php 
+<?php
 ?>
 
 <?php
@@ -241,8 +241,8 @@ mysql_free_result($result_total);
 </table>	 <!-- end of announcement -->
 
 
-</div>	
-<? } 
+</div>
+<? }
 // Public homepage / not logged in
 else { ?>
 	<div id="homecontent" role="main">
@@ -285,7 +285,7 @@ else { ?>
 					</ul>
 				</div><!-- #first .widget-area -->
 			<?php endif; ?>
-			
+
 				<?php if ( is_active_sidebar( 'second-footer-widget-area' ) ) : ?>
 				<div id="second" class="widget-area span4">
 					<ul class="xoxo unstyled ">
@@ -299,7 +299,7 @@ else { ?>
 						<?php dynamic_sidebar( 'third-footer-widget-area' ); ?>
 					</ul>
 				</div><!-- #third .widget-area -->
-			<?php endif; ?>	
+			<?php endif; ?>
 		</div>
 
 </div>
@@ -308,14 +308,14 @@ else { ?>
 	  <a class="btn btn-small btn-primary" href="mailto:service@iotaphi.org">Need Volunteers?</a>
 	  <a class="btn btn-small btn-primary" href="mailto:president@iotaphi.org">Want to Sponsor us?</a>
 	</span>
-	
+
 	 <iframe class="pull-right" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapodavis%3Ffref%3Dts&amp;width=450&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:auto; height:35px; display:block;" allowTransparency="true"></iframe>
 </div>
 		<?php } ?>
 
 <!-- inserts data-th attr into .homepage-top-table td elements -->
 <!-- enables responsive th behavior -->
-<script src="/js/homepage_responsive_th.js"></script>
+<script src="/js/event_show_responsive_th.js"></script>
 
 <?php get_footer(); ?>
 
