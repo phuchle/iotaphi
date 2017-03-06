@@ -170,12 +170,12 @@ function event_delete($id)
 	include_once 'signup.inc.php';
 
 	$query = "DELETE from event WHERE event_id = $id LIMIT 1 ";
-	mysql_query($query) or die("Query failed =(");
+	mysqli_query($query) or die("Query failed =(");
 
 	// delete the shifts associated with the event
 	$shifts = shift_getAll($id);
 	$query = "DELETE from shift WHERE event_id = $id ";
-	mysql_query($query) or die("Query 2 failed =(");
+	mysqli_query($query) or die("Query 2 failed =(");
 
 	// delete the signups associated with each shift (bad way to do this)
 	$query = "DELETE from signup WHERE ";
@@ -184,16 +184,16 @@ function event_delete($id)
 
 	$query .= ' 0 ';
 
-	mysql_query($query) or die("Query 3 failed =(");
+	mysqli_query($query) or die("Query 3 failed =(");
 
 	$query = "DELETE from tracking WHERE event_id = $id ";
-	mysql_query($query) or die("Query 4 failed =(");
+	mysqli_query($query) or die("Query 4 failed =(");
 
 	$query = "DELETE from trackingbyuser WHERE event_id = $id ";
-	mysql_query($query) or die("Query 5 failed =(");
+	mysqli_query($query) or die("Query 5 failed =(");
 
 	$query = "DELETE from trackingtime WHERE event_id = $id ";
-	mysql_query($query) or die("Query 6 failed =(");
+	mysqli_query($query) or die("Query 6 failed =(");
 
 	// temp?
 	fourc_delete($id);
