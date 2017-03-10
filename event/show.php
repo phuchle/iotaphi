@@ -542,7 +542,6 @@ function show_shifts($event, $shifts, $class, $user_id)
 	foreach($shifts as $shift):
 		$list = signup_getSList($shift['shift']);
 		if($event['type']=='Service' || $event['type']=='Interviews')
-		if($event['type']=='Service' || $event['type']=='Interviews')
             $needReplacement = (NOW > strtotime("-$signup_days days",shift_getStamp($shift['shift'])));
 		elseif($event['ic']==true)
             $needReplacement = (NOW > shift_getStamp($shift['shift']));
