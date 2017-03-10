@@ -1,4 +1,5 @@
 files
+images
 old
 *.log
 *.png
@@ -13,4 +14,5 @@ include/connection.inc.php
 w_testing_page2014
 wp-config.php
 .DS_Store
+.git
 wp-content/uploads
