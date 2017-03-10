@@ -554,15 +554,13 @@ class MagicWordArray {
 		if ( is_null( $this->baseRegex ) ) {
 			$this->baseRegex = array( 0 => '', 1 => '' );
 			foreach ( $this->names as $name ) {
-                $magic = MagicWord::get( $name );
-                $case = intval( $magic->isCaseSensitive() );
-                foreach ( $magic->getSynonyms() as $i => $syn ) {
-                    // Group name must start with a non-digit in PCRE 8.34+
-                    $it = strtr( $i, '0123456789', 'abcdefghij' );
-                    $group = "(?P<{$it}_{$name}>" . preg_quote( $syn, '/' ) . ')';
-                    if ( $this->baseRegex[$case] === '' ) {
-                        $this->baseRegex[$case] = $group;
-                    } else {
+				$magic = MagicWord::get( $name );
+				$case = intval( $magic->isCaseSensitive() );
+				foreach ( $magic->getSynonyms() as $i => $syn ) {
+					$group = "(?P<{$i}_{$name}>" . preg_quote( $syn, '/' ) . ')';
+					if ( $this->baseRegex[$case] === '' ) {
+						$this->baseRegex[$case] = $group;
+					} else {
 						$this->baseRegex[$case] .= '|' . $group;
 					}
 				}
