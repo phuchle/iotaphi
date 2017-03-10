@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', '1');
 
 // for debugging
 $wgShowSQLErrors        = true;
@@ -87,7 +87,7 @@ $wgMimeTypeBlacklist= array(
 	# Windows metafile, client-side vulnerability on some systems
 	'application/x-msmetafile',
 	# A ZIP file may be a valid Java archive containing an applet which exploits the
-	# same-origin policy to steal cookies
+	# same-origin policy to steal cookies      
 	'application/zip'
 );
 
