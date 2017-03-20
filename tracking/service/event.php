@@ -39,11 +39,8 @@ function show_usersTrack($users, $name, $event)
 	<p>Start Time: <?php echo date('g:i a',$start_date); ?></p>
 	<p>End Time: <?php echo date('g:i a',$end_date); ?></p>
 	<p>
-		Reported Hours - Tracked Hours = Tracked Hours
-	</p>
-	<p>
 		<strong>
-			Note: nothing is saved until the Submit Tracking button is pressed.
+			Note: nothing is saved until the Set Tracking button is pressed.
 		</strong>
 	</p>
 
